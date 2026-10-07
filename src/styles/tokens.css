@@ -1,0 +1,109 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   GreenNext Technologies — Design System Tokens
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Brand Color Palette */
+  --c-evergreen: #123B35;
+  --c-dark-green: #0B2925;
+  --c-deep-green: #071D1A;
+  --c-forest: #174A43;
+  --c-soft-sage: #DDEBE4;
+  --c-muted-mint: #BFDCD0;
+  --c-accent-mint: #6BC7A7;
+  --c-accent-glow: rgba(107, 199, 167, 0.22);
+  --c-warm-offwhite: #F7F8F5;
+  --c-paper-surface: #FFFFFF;
+  --c-charcoal: #18211F;
+  --c-slate-text: #2D3A37;
+  --c-muted-grey: #66736E;
+  --c-light-grey: #8A9994;
+  --c-border-light: #E2E8E4;
+  --c-border-medium: #CBD7D1;
+  --c-border-strong: #9CB2A9;
+  
+  /* Dark Band Tokens */
+  --c-dark-bg: #0B2925;
+  --c-dark-surface: #10332E;
+  --c-dark-card: #153E38;
+  --c-dark-card-hover: #1A4A43;
+  --c-dark-border: rgba(221, 235, 228, 0.14);
+  --c-dark-border-hover: rgba(107, 199, 167, 0.4);
+  --c-dark-text-primary: #F7F8F5;
+  --c-dark-text-secondary: #BFDCD0;
+  --c-dark-text-muted: #8A9994;
+
+  /* Semantic UI Tokens */
+  --bg-primary: var(--c-warm-offwhite);
+  --bg-surface: var(--c-paper-surface);
+  --text-primary: var(--c-charcoal);
+  --text-secondary: var(--c-slate-text);
+  --text-muted: var(--c-muted-grey);
+  --brand-primary: var(--c-evergreen);
+  --brand-hover: var(--c-forest);
+  --accent-primary: var(--c-accent-mint);
+  --danger: #B91C1C;
+  --danger-soft: #FEE2E2;
+  --success: #15803D;
+  --success-soft: #DCFCE7;
+  --warning: #B45309;
+  --warning-soft: #FEF3C7;
+
+  /* Typography */
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", Menlo, Consolas, monospace;
+
+  /* Font Scales */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+  --text-6xl: 3.75rem;    /* 60px */
+  --text-7xl: 4.5rem;     /* 72px */
+
+  /* Spacing Scale (8px system) */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+  --space-20: 5rem;    /* 80px */
+  --space-24: 6rem;    /* 96px */
+  --space-32: 8rem;    /* 128px */
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-narrow: 960px;
+  --nav-height: 76px;
+
+  /* Border Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Architectural Shadows */
+  --shadow-sm: 0 1px 3px rgba(18, 59, 53, 0.06), 0 1px 2px rgba(18, 59, 53, 0.04);
+  --shadow-md: 0 4px 12px rgba(18, 59, 53, 0.08), 0 2px 4px rgba(18, 59, 53, 0.04);
+  --shadow-lg: 0 12px 28px rgba(18, 59, 53, 0.1), 0 4px 8px rgba(18, 59, 53, 0.06);
+  --shadow-xl: 0 20px 40px rgba(18, 59, 53, 0.14), 0 8px 16px rgba(18, 59, 53, 0.08);
+  --shadow-dark: 0 16px 36px rgba(0, 0, 0, 0.35);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}

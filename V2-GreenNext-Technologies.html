@@ -1,0 +1,1755 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GreenNext Technologies — Integrated Data Center &amp; IT Park Campuses · Coimbatore &amp; Madurai</title>
+<meta name="description" content="Strategic, scalable development opportunities across six locations in Coimbatore and Madurai — flagship campuses, ELCOT parcels, and new sites for data center, IT park and digital infrastructure development in Tamil Nadu." />
+<meta name="theme-color" content="#0d2a25" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d2a25'/%3E%3Cpath d='M9 11v-2h2M21 9h2v2M23 21v2h-2M11 23H9v-2' stroke='%236bd4b7' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3Crect x='13' y='13' width='6' height='6' fill='%236bd4b7'/%3E%3C/svg%3E" />
+<!--
+  ══════════════════════════════════════════════════════════════════════════
+  GreenNext Technologies — single-file landing page · V1 · Phase 1
+  ──────────────────────────────────────────────────────────────────────────
+  Discovery
+    deliverable : one self-contained HTML landing page (Web class, single file)
+    audience    : data-center developers/operators, IT-park developers, EPC firms,
+                  power & telecom partners, institutional investors
+    objective   : present the Coimbatore (40 ac) + Madurai ELCOT (30/15/3 ac)
+                  portfolio and capture Expressions of Interest (EOI)
+    direction   : institutional-editorial “master plan” feel — warm paper ground,
+                  one evergreen accent, Instrument Serif display + Public Sans
+                  body + JetBrains Mono data; survey-plot motifs (land ledger,
+                  hairlines, mono annotations)
+    sections    : hero / portfolio intro / land ledger + flagship locations /
+                  locations (new sites) / strategic advantage / market outlook (dark) /
+                  partnership table / EOI (process + form) / legal disclaimer / footer
+    V2 note     : four additional locations added per client request (MindSpace 8 ac,
+                  Sangarilla 50 ac, TechMax 15 ac, GreenMinds 30 ac); their
+                  location-advantage copy is draft, pending client review.
+  ──────────────────────────────────────────────────────────────────────────
+  Tokens: base palette adopted from the client’s existing data-centre document
+  house style; dark-section + semantic colors derived in OKLCH and
+  contrast-verified (text pairs ≥ 4.5:1).
+  Assumptions: no brand guide supplied → skeleton structure (saas-landing) with
+  house tokens; design-system view skipped per output-rule exception
+  (used_design_system = null — skeleton-provided style).
+  Before publishing: replace bracketed [placeholders] (deadline, contact details,
+  legal/social URLs); point “Download the EOI Document” at the final PDF
+  (see comment near the dialog markup); optionally connect the EOI form to a
+  backend (it currently prepares an email draft entirely client-side).
+  Figures: market figures verbatim from the client web copy; portfolio acreages per
+  client instructions (V1 copy + V2 additions) — no invented data.
+  ══════════════════════════════════════════════════════════════════════════
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ───────────────────────── tokens ───────────────────────── */
+  :root {
+    --bg: #f7f5f0;
+    --surface: #fffdf9;
+    --fg: #23201b;
+    --muted: #6e6759;
+    --border: #e5e0d4;
+    --border-strong: #d6cfbf;
+    --border-field: #948b78;
+    --accent: #0b5d52;
+    --accent-strong: #00493e;
+    --accent-soft: #e7efec;
+    --accent-rgb: 11, 93, 82;
+    --danger: #a1321f;
+    --danger-soft: #fdece8;
+    --white: #ffffff;
+
+    /* dark band (market + footer) — derived from accent family (oklch), contrast-verified */
+    --d-bg: #0d2a25;
+    --d-surface: #193530;
+    --d-ink: #f0ede3;
+    --d-muted: #9bb5ae;
+    --d-accent: #6bd4b7;
+    --d-border: rgba(240, 237, 227, 0.16);
+
+    --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --font-body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+    --radius: 8px;
+    --radius-lg: 12px;
+    --wrap: 1140px;
+    --topbar-h: 64px;
+    color-scheme: light;
+  }
+
+  /* ───────────────────────── base ───────────────────────── */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--fg);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: var(--accent); color: var(--white); }
+  img, svg { display: block; }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+  textarea:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px;
+  }
+  .dark :focus-visible, .dark a:focus-visible, .dark button:focus-visible { outline-color: var(--d-accent); }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 clamp(20px, 4vw, 32px); }
+  section[id], div[id] { scroll-margin-top: 88px; }
+
+  h1, h2, h3 { text-wrap: balance; font-weight: 400; }
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h2 { font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; }
+  h3 { font-size: clamp(22px, 2.4vw, 26px); line-height: 1.2; font-family: var(--font-display); letter-spacing: -0.01em; }
+
+  .eyebrow {
+    display: block; font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  }
+  .eyebrow .no { color: var(--muted); }
+  .lede { font-size: clamp(17px, 1.5vw, 19px); line-height: 1.55; color: var(--muted); max-width: 62ch; }
+  .section { padding: 96px 0; }
+  .section-tight { padding: 72px 0; }
+  .section-lg { padding: 112px 0; }
+  @media (max-width: 760px) {
+    .section { padding: 64px 0; }
+    .section-tight { padding: 52px 0; }
+    .section-lg { padding: 76px 0; }
+  }
+  .section-head { max-width: 720px; margin-bottom: 56px; }
+  .section-head h2 { margin: 14px 0 16px; }
+  .rule-top { border-top: 1px solid var(--border); }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .skip-link {
+    position: absolute; left: 16px; top: -48px; z-index: 100;
+    background: var(--accent); color: var(--white); padding: 10px 16px;
+    border-radius: var(--radius); font-size: 14px; font-weight: 500; text-decoration: none;
+    transition: top 150ms ease;
+  }
+  .skip-link:focus { top: 12px; }
+
+  .ph { /* intentional pre-publish placeholder */
+    border-bottom: 1px dashed var(--border-strong);
+    color: var(--muted); cursor: help;
+  }
+
+  /* ───────────────────────── buttons ───────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font: 500 14px/1 var(--font-body); letter-spacing: 0.01em;
+    padding: 13px 22px; min-height: 44px; border-radius: var(--radius);
+    border: 1px solid transparent; cursor: pointer; text-decoration: none;
+    transition: background 130ms ease, border-color 130ms ease, color 130ms ease;
+  }
+  .btn-primary { background: var(--accent); color: var(--white); }
+  .btn-primary:hover { background: var(--accent-strong); }
+  .btn-secondary { background: transparent; color: var(--fg); border-color: var(--border-strong); }
+  .btn-secondary:hover { border-color: var(--fg); background: var(--surface); }
+  .btn-quiet {
+    background: transparent; border: none; color: var(--accent); padding: 10px 0;
+    min-height: 44px; font-weight: 500;
+  }
+  .btn-quiet:hover { color: var(--accent-strong); text-decoration: underline; text-underline-offset: 3px; }
+  .btn-arrow::after { content: "→"; font-family: var(--font-body); }
+  .btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+
+  /* ───────────────────────── topbar ───────────────────────── */
+  .topbar {
+    position: sticky; top: 0; z-index: 60; min-height: var(--topbar-h);
+    display: flex; align-items: center; gap: 24px;
+    padding: 10px clamp(20px, 4vw, 32px);
+    background: rgba(247, 245, 240, 0.92);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 150ms ease;
+  }
+  .topbar.scrolled { border-bottom-color: var(--border); }
+  .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--fg); white-space: nowrap; }
+  .brand svg { color: var(--accent); flex: none; }
+  .brand-name { font-family: var(--font-display); font-size: 21px; line-height: 1.05; letter-spacing: -0.01em; display: block; }
+  .brand-sub { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); display: block; margin-top: 2px; }
+  .topnav { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+  .topnav a.navlink {
+    font-size: 14px; font-weight: 500; color: var(--fg); text-decoration: none;
+    padding: 10px 13px; border-radius: var(--radius); transition: background 130ms ease, color 130ms ease;
+  }
+  .topnav a.navlink:hover { background: rgba(var(--accent-rgb), 0.06); }
+  .topnav a.navlink[aria-current] { color: var(--accent); }
+  .topbar .btn { padding: 11px 18px; }
+  .nav-toggle {
+    display: none; margin-left: auto; background: transparent; border: 1px solid var(--border-strong);
+    border-radius: var(--radius); width: 44px; height: 44px; cursor: pointer; color: var(--fg);
+    align-items: center; justify-content: center;
+  }
+  .nav-toggle:hover { border-color: var(--fg); }
+  .nav-panel { display: none; }
+
+  @media (max-width: 1000px) {
+    .topnav a.navlink { padding: 10px 10px; }
+    .topbar .btn { padding: 11px 14px; }
+  }
+  @media (max-width: 860px) {
+    .topnav { display: none; }
+    .nav-toggle { display: inline-flex; }
+    .nav-panel {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 12px clamp(20px, 4vw, 32px) 20px;
+    }
+    .nav-panel.open { display: block; }
+    .nav-panel a {
+      display: block; padding: 13px 4px; font-size: 16px; font-weight: 500;
+      color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--border);
+    }
+    .nav-panel a:last-of-type { border-bottom: none; }
+    .nav-panel .btn { width: 100%; margin-top: 12px; }
+  }
+
+  /* ───────────────────────── hero ───────────────────────── */
+  .hero { position: relative; padding: 104px 0 72px; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(var(--accent-rgb), 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--accent-rgb), 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 78% 0%, #000 0%, transparent 68%);
+    mask-image: radial-gradient(ellipse at 78% 0%, #000 0%, transparent 68%);
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 76px); line-height: 1.04; letter-spacing: -0.022em;
+    max-width: 17ch; margin: 20px 0 26px;
+  }
+  .hero h1 em { font-style: italic; }
+  .hero .lede { margin-bottom: 38px; }
+  .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .hero-strip {
+    margin-top: 64px; border-top: 1px solid var(--border);
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .hero-strip a, .hero-strip .strip-cell {
+    padding: 16px 20px 2px 0; text-decoration: none; color: var(--fg);
+    display: block; border-right: 1px solid var(--border);
+  }
+  .hero-strip > :nth-child(2) { padding-left: 20px; }
+  .hero-strip > :nth-child(3) { border-right: none; padding-left: 20px; }
+  .hero-strip :hover .strip-value { color: var(--accent); }
+  .strip-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; }
+  .strip-value { font-size: 14px; font-weight: 600; display: block; transition: color 130ms ease; font-variant-numeric: tabular-nums; }
+
+  @media (max-width: 760px) {
+    .hero { padding: 72px 0 56px; }
+    .hero-strip { grid-template-columns: 1fr; margin-top: 48px; }
+    .hero-strip a, .hero-strip .strip-cell { border-right: none; border-bottom: 1px solid var(--border); padding: 14px 0; }
+    .hero-strip > :nth-child(2), .hero-strip > :nth-child(3) { padding-left: 0; }
+    .hero-strip > :last-child { border-bottom: none; }
+  }
+
+  /* hero intro (staggered, once) */
+  .js .hero .anim { opacity: 0; transform: translateY(14px); animation: rise 700ms cubic-bezier(0.2, 0, 0, 1) forwards; }
+  .js .hero .anim-1 { animation-delay: 40ms; }
+  .js .hero .anim-2 { animation-delay: 110ms; }
+  .js .hero .anim-3 { animation-delay: 180ms; }
+  .js .hero .anim-4 { animation-delay: 250ms; }
+  .js .hero .anim-5 { animation-delay: 330ms; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  /* ───────────────────────── about ───────────────────────── */
+  .about-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+  @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 22px; } }
+  .about-grid .prose p + p { margin-top: 18px; }
+  .about-grid .prose { font-size: 17px; line-height: 1.7; }
+  .about-grid .prose strong { font-weight: 600; }
+
+  /* ───────────────────────── land ledger ───────────────────────── */
+  .ledger { margin: 40px 0 8px; border-top: 1px solid var(--border); padding-top: 36px; }
+  .ledger-row { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 24px; align-items: center; padding: 18px 0; }
+  .ledger-row + .ledger-row { border-top: 1px solid var(--border); }
+  .ledger-meta a { font-weight: 600; font-size: 15px; color: var(--fg); text-decoration: none; }
+  .ledger-meta a:hover { color: var(--accent); }
+  .ledger-meta .lm-sub { display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .ledger-group { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .ledger-group:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .ledger-bar { display: flex; height: 44px; border-radius: 3px; overflow: hidden; background-color: rgba(var(--accent-rgb), 0.04); background-image: repeating-linear-gradient(90deg, rgba(var(--accent-rgb), 0.12) 0 1px, transparent 1px calc(100% / 10)); }
+  .seg { position: relative; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .js .seg { clip-path: inset(0 100% 0 0); transition: clip-path 800ms cubic-bezier(0.2, 0, 0, 1); }
+  .js .ledger .seg:nth-child(2) { transition-delay: 80ms; }
+  .js .ledger .seg:nth-child(3) { transition-delay: 160ms; }
+  .js .ledger.in .seg { clip-path: inset(0 0 0 0); }
+  .seg-dc { background: var(--accent); }
+  .seg-it {
+    background: repeating-linear-gradient(45deg, rgba(var(--accent-rgb), 0.22) 0 5px, transparent 5px 10px), var(--accent-soft);
+    box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.4);
+  }
+  .seg-mix { background: rgba(var(--accent-rgb), 0.07); box-shadow: inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.55); }
+  .seg-mix .seg-label { color: var(--accent); }
+  .seg-label { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .seg-dc .seg-label { color: rgba(255, 255, 255, 0.92); }
+  .seg-it .seg-label { color: var(--accent); }
+  .seg-mini .seg-label { display: none; }
+  @media (min-width: 900px) { .seg-mini .seg-label { display: inline; } }
+  .seg + .seg { border-left: 1px solid var(--bg); }
+  .ledger-scale { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 24px; margin-top: 10px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .ls-inner { display: flex; justify-content: space-between; }
+  @media (max-width: 760px) { .ledger-scale { grid-template-columns: 1fr; } .ls-spacer { display: none; } }
+  .ledger figcaption { margin-top: 18px; font-size: 13.5px; color: var(--muted); max-width: 82ch; }
+  .ledger-legend { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 12px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .ledger-legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .sw { width: 14px; height: 14px; border-radius: 2px; display: inline-block; }
+  .sw-dc { background: var(--accent); }
+  .sw-it { background: repeating-linear-gradient(45deg, rgba(var(--accent-rgb), 0.22) 0 4px, transparent 4px 8px), var(--accent-soft); box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.4); }
+  .sw-mix { background: rgba(var(--accent-rgb), 0.07); box-shadow: inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.55); }
+
+  @media (max-width: 760px) {
+    .ledger-row { grid-template-columns: 1fr; gap: 10px; }
+  }
+
+  /* ───────────────────────── location blocks ───────────────────────── */
+  .location { padding: 64px 0 8px; }
+  .location-head { display: flex; justify-content: space-between; gap: 24px; align-items: baseline; flex-wrap: wrap; border-top: 2px solid var(--fg); padding-top: 22px; margin-bottom: 28px; }
+  .location-head .loc-meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .location h3 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 8px; }
+  .location .tagline { font-style: italic; color: var(--muted); font-size: 17px; margin-bottom: 34px; }
+
+  .zone-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 28px; align-items: stretch; }
+  .zone {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 30px 30px 28px; display: flex; flex-direction: column;
+  }
+  .zone-anchor { border-color: var(--border-strong); }
+  .zone-meta { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 14px; font-variant-numeric: tabular-nums; }
+  .zone h4 { font-family: var(--font-display); font-size: 23px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 12px; }
+  .zone p { color: var(--muted); font-size: 15px; line-height: 1.65; }
+  .spec-list { list-style: none; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; }
+  .spec-list li { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--muted); display: flex; gap: 8px; align-items: baseline; }
+  .spec-list li::before { content: "—"; color: var(--accent); flex: none; }
+  .zone .spec-list.cols-1 { grid-template-columns: 1fr; }
+  @media (max-width: 560px) { .spec-list { grid-template-columns: 1fr; } }
+
+  .amenities { margin-top: 28px; border: 1px dashed var(--border-strong); border-radius: var(--radius-lg); padding: 22px 30px; display: flex; gap: 18px 34px; flex-wrap: wrap; align-items: baseline; }
+  .amenities .eyebrow { flex: none; padding-top: 3px; }
+  .amenities ul { list-style: none; display: flex; gap: 8px 26px; flex-wrap: wrap; }
+  .amenities li { font-size: 14px; color: var(--fg); position: relative; }
+  .amenities li + li::before { content: "·"; position: absolute; left: -16px; color: var(--muted); }
+
+  @media (max-width: 900px) { .zone-grid { grid-template-columns: 1fr; } }
+
+  /* madurai parcels */
+  .parcel-wide {
+    display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; align-items: start;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 32px 30px; margin-bottom: 24px;
+  }
+  .parcel-num { font-family: var(--font-display); line-height: 0.95; }
+  .parcel-num .n { font-size: clamp(56px, 7vw, 84px); letter-spacing: -0.03em; display: block; }
+  .parcel-num .u { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; margin-top: 6px; }
+  .parcel h4 { font-family: var(--font-display); font-size: 22px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 10px; }
+  .parcel p { color: var(--muted); font-size: 15px; line-height: 1.65; max-width: 70ch; }
+  .parcel-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 24px; }
+  .parcel-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 28px 26px; }
+  .parcel-card .parcel-num .n { font-size: clamp(44px, 5vw, 60px); }
+  .parcel-card h4 { margin-top: 14px; }
+  @media (max-width: 900px) {
+    .parcel-wide { grid-template-columns: 1fr; gap: 14px; }
+    .parcel-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ───────────────────────── new locations ───────────────────────── */
+  .locs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 3vw, 40px); }
+  .loc-col { border-top: 2px solid var(--fg); padding-top: 22px; }
+  .loc-col-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 14px; margin-bottom: 22px; }
+  .loc-col-head h3 { font-size: clamp(24px, 2.6vw, 30px); }
+  .loc-col-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-align: right; }
+  .loc-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px 26px 20px; }
+  .loc-card + .loc-card { margin-top: 20px; }
+  .loc-name-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 14px; margin-bottom: 4px; }
+  .loc-name-row h4 { font-family: var(--font-display); font-size: 23px; font-weight: 400; letter-spacing: -0.01em; }
+  .loc-acres { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(var(--accent-rgb), 0.4); border-radius: var(--radius); padding: 4px 10px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .loc-tagline { font-style: italic; color: var(--muted); font-size: 14.5px; margin-bottom: 16px; }
+  .loc-adv-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; }
+  .loc-adv { list-style: none; }
+  .loc-adv li { display: flex; gap: 10px; align-items: baseline; padding: 9px 0; border-top: 1px solid var(--border); font-size: 14.5px; line-height: 1.55; }
+  .loc-adv li::before { content: "—"; color: var(--accent); font-family: var(--font-mono); flex: none; }
+  @media (max-width: 860px) { .locs-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* ───────────────────────── advantage ───────────────────────── */
+  .adv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 64px); }
+  .adv-col { border-top: 2px solid var(--fg); padding-top: 24px; }
+  .adv-col .adv-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+  .adv-col h3 { font-size: clamp(24px, 2.6vw, 30px); }
+  .adv-col .adv-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-align: right; }
+  .adv-list { list-style: none; margin-top: 20px; }
+  .adv-list li { border-top: 1px solid var(--border); padding: 18px 0; display: grid; grid-template-columns: 34px 1fr; gap: 14px; }
+  .adv-list .idx { font-family: var(--font-mono); font-size: 11px; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+  .adv-list h4 { font-family: var(--font-body); font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .adv-list p { font-size: 14.5px; color: var(--muted); line-height: 1.6; }
+  @media (max-width: 860px) { .adv-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* ───────────────────────── market (dark) ───────────────────────── */
+  .dark { background: var(--d-bg); color: var(--d-ink); }
+  .dark .eyebrow { color: var(--d-muted); }
+  .dark .lede { color: var(--d-muted); }
+  .market .section-head h2 { max-width: 24ch; }
+  .timeline { position: relative; margin: 64px 0 0; }
+  .tl-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .tl-node { position: relative; padding-top: 28px; }
+  .tl-node::before { /* rail dot */
+    content: ""; position: absolute; top: 0; left: 0; width: 11px; height: 11px; border-radius: 50%;
+    background: var(--d-accent); box-shadow: 0 0 0 5px rgba(107, 212, 183, 0.14);
+  }
+  .tl-line { position: absolute; top: 5px; left: 5px; right: calc(33.333% - 5px); height: 1px; background: var(--d-border); }
+  .js .tl-track .tl-node { opacity: 0; transform: translateY(10px); transition: opacity 600ms ease, transform 600ms cubic-bezier(0.2, 0, 0, 1); }
+  .js .tl-track .tl-node:nth-child(1) { transition-delay: 0ms; }
+  .js .tl-track .tl-node:nth-child(2) { transition-delay: 120ms; }
+  .js .tl-track .tl-node:nth-child(3) { transition-delay: 240ms; }
+  .js .timeline.in .tl-node { opacity: 1; transform: none; }
+  .tl-year { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--d-muted); display: block; margin-bottom: 14px; }
+  .tl-figure { font-family: var(--font-display); font-size: clamp(40px, 4.6vw, 58px); line-height: 1; letter-spacing: -0.02em; color: var(--d-accent); font-variant-numeric: tabular-nums; }
+  .tl-label { display: block; margin-top: 12px; font-size: 14.5px; color: var(--d-ink); }
+  .tl-detail { display: block; margin-top: 6px; font-size: 13px; color: var(--d-muted); }
+  .tl-src { display: block; margin-top: 14px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--d-muted); opacity: 0.85; }
+  @media (max-width: 860px) {
+    .tl-track { grid-template-columns: 1fr; gap: 40px; }
+    .tl-line { display: none; }
+    .tl-node { padding: 0 0 0 30px; }
+    .tl-node::before { top: 6px; left: 0; }
+    .tl-node + .tl-node { border-top: 1px solid var(--d-border); padding-top: 34px; }
+    .tl-node + .tl-node::before { top: 40px; }
+  }
+  .rationale { margin-top: 72px; border-top: 1px solid var(--d-border); padding-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 64px); }
+  .rationale h3 { color: var(--d-ink); font-size: clamp(22px, 2.6vw, 28px); margin-bottom: 14px; }
+  .rationale p { color: var(--d-muted); font-size: 15.5px; line-height: 1.7; }
+  .phase-ladder { list-style: none; margin-top: 4px; }
+  .phase-ladder li { display: flex; align-items: baseline; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--d-border); font-size: 14.5px; color: var(--d-ink); }
+  .phase-ladder li:first-child { border-top: 1px solid var(--d-border); }
+  .phase-ladder .ph-year { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.07em; color: var(--d-accent); flex: none; width: 58px; }
+  @media (max-width: 860px) { .rationale { grid-template-columns: 1fr; } }
+
+  /* ───────────────────────── partnership ───────────────────────── */
+  .partner-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .partner-table caption { text-align: left; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-bottom: 14px; }
+  .partner-table th {
+    text-align: left; font-family: var(--font-mono); font-size: 10.5px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    border-bottom: 1px solid var(--fg); padding: 0 20px 12px 0; width: 34%;
+  }
+  .partner-table th:last-child { width: auto; }
+  .partner-table td { border-bottom: 1px solid var(--border); padding: 18px 20px 18px 0; vertical-align: top; font-size: 15px; }
+  .partner-table td:first-child { font-weight: 600; }
+  .partner-table td:last-child { color: var(--muted); }
+  .partner-table tbody tr { transition: background 130ms ease; }
+  .partner-table tbody tr:hover { background: rgba(var(--accent-rgb), 0.045); }
+  .pledge {
+    margin-top: 48px; border: 1px solid var(--border); border-radius: var(--radius-lg);
+    background: var(--surface); padding: 34px clamp(24px, 4vw, 56px); text-align: center;
+  }
+  .pledge p { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); line-height: 1.35; letter-spacing: -0.01em; max-width: 58ch; margin: 0 auto; }
+  .pledge .pledge-note { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 18px; text-wrap: balance; }
+  @media (max-width: 760px) {
+    .partner-table, .partner-table tbody, .partner-table tr, .partner-table td { display: block; width: 100%; }
+    .partner-table thead { display: none; }
+    .partner-table tr { border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .partner-table tr:hover { background: transparent; }
+    .partner-table td { border: none; padding: 2px 0; }
+    .partner-table td:first-child { font-size: 16px; }
+  }
+
+  /* ───────────────────────── EOI ───────────────────────── */
+  .eoi-grid { display: grid; grid-template-columns: 6fr 6fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+  .meta-chips { display: flex; gap: 14px; flex-wrap: wrap; margin: 26px 0 40px; }
+  .chip { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 16px; background: var(--surface); }
+  .chip .chip-label { display: block; font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .chip .chip-value { font-family: var(--font-mono); font-size: 13px; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .req-list { list-style: none; counter-reset: req; margin: 18px 0 40px; border-top: 1px solid var(--border); }
+  .req-list li { counter-increment: req; border-bottom: 1px solid var(--border); padding: 14px 0 14px 44px; position: relative; font-size: 15px; }
+  .req-list li::before {
+    content: "0" counter(req); position: absolute; left: 0; top: 15px;
+    font-family: var(--font-mono); font-size: 11px; color: var(--accent); font-weight: 500;
+  }
+  .howto h4, .contact-block h4 { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.02em; margin-bottom: 12px; }
+  .subject-quote {
+    border: 1px solid var(--border); border-left: none; background: var(--surface); border-radius: var(--radius-lg);
+    padding: 22px 24px; margin-bottom: 14px;
+  }
+  .subject-quote p { font-style: italic; font-size: 15px; line-height: 1.6; }
+  .subject-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .contact-block { margin-top: 40px; }
+  .contact-list { list-style: none; border-top: 1px solid var(--border); }
+  .contact-list li { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14.5px; }
+  .contact-list .cl { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); padding-top: 4px; }
+
+  .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(24px, 3.4vw, 40px); }
+  .form-card > h3 { margin-bottom: 6px; }
+  .form-card .form-intro { font-size: 14px; color: var(--muted); margin-bottom: 26px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 7px; }
+  .field .req { color: var(--accent); }
+  .field input[type="text"], .field input[type="email"], .field input[type="tel"], .field select, .field textarea {
+    width: 100%; font: 400 15px/1.45 var(--font-body); color: var(--fg);
+    background: var(--bg); border: 1px solid var(--border-field); border-radius: var(--radius);
+    padding: 11px 13px; min-height: 44px; transition: border-color 130ms ease, background 130ms ease;
+  }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236e6759' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; }
+  .field input:hover, .field select:hover, .field textarea:hover { border-color: var(--muted); }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--accent); outline-offset: 2px; border-color: var(--accent); }
+  .field input[aria-invalid="true"], .field select[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: var(--danger); background: var(--danger-soft); }
+  .fhint { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+  .ferr { font-size: 13px; color: var(--danger); margin-top: 6px; font-weight: 500; }
+  .ferr:empty { display: none; }
+  .field-check { display: flex; gap: 12px; align-items: flex-start; margin: 22px 0 6px; }
+  .field-check input { width: 19px; height: 19px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+  .field-check label { font-size: 13.5px; font-weight: 400; color: var(--muted); margin: 0; }
+  .field-check label a { color: var(--accent); }
+  .form-foot { margin-top: 22px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .form-note { font-size: 12.5px; color: var(--muted); max-width: 44ch; }
+  .form-errors { border: 1px solid var(--danger); background: var(--danger-soft); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 22px; }
+  .form-errors h4 { font-size: 14px; font-weight: 600; color: var(--danger); margin-bottom: 8px; }
+  .form-errors ul { margin: 0; padding-left: 18px; }
+  .form-errors li { font-size: 13.5px; margin: 4px 0; }
+  .form-errors a { color: var(--danger); font-weight: 500; }
+
+  .success-panel { border: 1px solid var(--accent); background: var(--accent-soft); border-radius: var(--radius-lg); padding: clamp(24px, 3.4vw, 36px); }
+  .success-panel .sp-head { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+  .sp-head svg { color: var(--accent); flex: none; margin-top: 3px; }
+  .success-panel h3 { margin-bottom: 4px; }
+  .success-panel > p { font-size: 14.5px; color: var(--fg); margin-bottom: 18px; }
+  .succ-dl { border-top: 1px solid rgba(var(--accent-rgb), 0.25); margin-bottom: 22px; }
+  .succ-dl div { display: grid; grid-template-columns: 150px 1fr; gap: 14px; padding: 9px 0; border-bottom: 1px solid rgba(var(--accent-rgb), 0.25); font-size: 14px; }
+  .succ-dl dt { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+  .succ-dl dd { margin: 0; }
+  .succ-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .succ-note { font-size: 12.5px; color: var(--muted); margin-top: 16px; }
+  @media (max-width: 900px) { .eoi-grid { grid-template-columns: 1fr; } }
+
+  /* ───────────────────────── disclaimer ───────────────────────── */
+  .disclaimer-box { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(24px, 3vw, 36px); background: var(--bg); }
+  .disclaimer-box .eyebrow { margin-bottom: 14px; }
+  .disclaimer-box p { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+  /* ───────────────────────── footer ───────────────────────── */
+  footer.dark { padding: 72px 0 36px; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid var(--d-border); }
+  .foot-brand .brand { color: var(--d-ink); }
+  .foot-brand .brand svg { color: var(--d-accent); }
+  .foot-brand .brand-name { color: var(--d-ink); }
+  .foot-brand .brand-sub { color: var(--d-muted); }
+  .foot-tag { margin-top: 18px; font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--d-muted); }
+  .foot-loc { margin-top: 10px; font-size: 13.5px; color: var(--d-muted); display: flex; align-items: center; gap: 8px; }
+  .foot-loc svg { color: var(--d-accent); }
+  .foot-h { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--d-muted); margin-bottom: 16px; }
+  .foot-links { list-style: none; }
+  .foot-links li { margin-bottom: 10px; }
+  .foot-links a { color: var(--d-ink); text-decoration: none; font-size: 14.5px; }
+  .foot-links a:hover { color: var(--d-accent); }
+  .social-row { display: flex; gap: 10px; }
+  .social-row a {
+    width: 42px; height: 42px; border: 1px solid var(--d-border); border-radius: var(--radius);
+    display: inline-flex; align-items: center; justify-content: center; color: var(--d-ink);
+    transition: border-color 130ms ease, color 130ms ease;
+  }
+  .social-row a:hover { border-color: var(--d-accent); color: var(--d-accent); }
+  .foot-bottom { padding-top: 26px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .foot-bottom p { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--d-muted); }
+  @media (max-width: 860px) { .foot-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* ───────────────────────── dialog ───────────────────────── */
+  dialog {
+    width: min(560px, calc(100vw - 40px)); border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg); background: var(--surface); color: var(--fg);
+    padding: 0; margin: auto;
+  }
+  dialog::backdrop { background: rgba(13, 42, 37, 0.55); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
+  .dlg-inner { padding: clamp(26px, 4vw, 40px); }
+  .dlg-inner .eyebrow { margin-bottom: 14px; }
+  .dlg-inner h2 { font-size: clamp(26px, 3.4vw, 32px); margin-bottom: 12px; }
+  .dlg-inner p { font-size: 15px; color: var(--muted); margin-bottom: 14px; }
+  .dlg-inner p strong { color: var(--fg); font-weight: 600; }
+  .dlg-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 24px; }
+  .dlg-ref { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--border); padding-top: 14px; margin-top: 24px; margin-bottom: 0; }
+
+  /* ───────────────────────── reduced motion ───────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .js .hero .anim { opacity: 1; transform: none; animation: none; }
+    .js .seg { clip-path: none; }
+    .js .tl-track .tl-node { opacity: 1; transform: none; }
+  }
+</style>
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body id="top">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ═══════════════ TOPBAR ═══════════════ -->
+<header class="topbar" id="topbar" data-od-id="topnav">
+  <a class="brand" href="#top" aria-label="GreenNext Technologies — home">
+    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path d="M9 11V9h2M21 9h2v2M23 21v2h-2M11 23H9v-2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      <rect x="13" y="13" width="6" height="6" fill="currentColor"/>
+    </svg>
+    <span>
+      <span class="brand-name">GreenNext</span>
+      <span class="brand-sub">Technologies</span>
+    </span>
+  </a>
+  <nav class="topnav" aria-label="Primary">
+    <a class="navlink" href="#portfolio" data-spy>Portfolio</a>
+    <a class="navlink" href="#locations" data-spy>Locations</a>
+    <a class="navlink" href="#advantage" data-spy>Advantage</a>
+    <a class="navlink" href="#market" data-spy>Market</a>
+    <a class="navlink" href="#partnership" data-spy>Partnership</a>
+    <a class="btn btn-primary" href="#eoi">Submit EOI</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <div class="nav-panel" id="navPanel">
+    <a href="#portfolio">Portfolio</a>
+    <a href="#locations">Locations</a>
+    <a href="#advantage">Advantage</a>
+    <a href="#market">Market</a>
+    <a href="#partnership">Partnership</a>
+    <a class="btn btn-primary" href="#eoi">Submit EOI</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero" data-od-id="hero">
+    <div class="wrap">
+      <span class="eyebrow anim anim-1">Integrated Data Centers · IT Parks · Digital Infrastructure — Tamil Nadu, India</span>
+      <h1 class="anim anim-2">Pioneering the Future of <em>Digital Infrastructure</em> in South India</h1>
+      <p class="lede anim anim-3">
+        Strategic, scalable development opportunities across <strong>Coimbatore</strong> and
+        <strong>Madurai</strong> — six locations including the 40-acre Coimbatore flagship campus and the
+        Madurai ELCOT portfolio (3, 15, and 30 acres). Join us in building a connected, AI-ready, and
+        sustainable technology ecosystem across Tamil Nadu.
+      </p>
+      <div class="hero-actions anim anim-4">
+        <button class="btn btn-primary" type="button" data-open-eoi-doc>Download the EOI Document</button>
+        <a class="btn btn-secondary" href="#eoi">Submit Your Expression of Interest</a>
+      </div>
+      <div class="hero-strip anim anim-5" data-od-id="hero-strip">
+        <a href="#coimbatore">
+          <span class="strip-label">Coimbatore Cluster</span>
+          <span class="strip-value">98 Acres · 3 Locations</span>
+        </a>
+        <a href="#madurai">
+          <span class="strip-label">Madurai Cluster</span>
+          <span class="strip-value">93 Acres · 3 Locations</span>
+        </a>
+        <a href="#eoi">
+          <span class="strip-label">Expression of Interest</span>
+          <span class="strip-value">Ref. DC-ITP-TN/JV/2026/001</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ABOUT / THE PORTFOLIO ═══════════════ -->
+  <section class="section rule-top" id="about" data-od-id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="section-head" style="margin-bottom: 0;">
+          <span class="eyebrow">01 — The Portfolio</span>
+          <h2>Building a 20+ year digital infrastructure ecosystem</h2>
+        </div>
+        <div class="prose">
+          <p>
+            GreenNext Technologies invites reputed developers, operators, and strategic investors to
+            co-develop landmark <strong>Integrated Data Center, IT Park &amp; Digital Infrastructure
+            Campuses</strong> in Tamil Nadu.
+          </p>
+          <p>
+            Moving beyond traditional real estate, our multi-location portfolio is designed to create a
+            connected <strong>Digital Infrastructure &amp; Technology Business District</strong>. By
+            integrating hyperscale data capabilities, edge computing, and enterprise IT workspaces, we are
+            positioning Coimbatore and Madurai as the next major hubs for cloud, AI/GPU, cybersecurity, and
+            sovereign digital infrastructure in India.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STRATEGIC PORTFOLIO / LOCATIONS ═══════════════ -->
+  <section class="section-tight" id="portfolio" data-od-id="portfolio">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">02 — Strategic Portfolio</span>
+        <h2>Two flagship locations. One connected ecosystem.</h2>
+        <p class="lede">
+          A multi-location portfolio designed to create a connected digital infrastructure and technology
+          business district — to scale from enterprise and cloud today to AI and sovereign workloads tomorrow.
+        </p>
+      </div>
+
+      <!-- Land ledger · proportional acreage diagram -->
+      <figure class="ledger reveal" id="ledger" data-od-id="ledger">
+        <div class="ledger-group">Coimbatore</div>
+        <div class="ledger-row">
+          <div class="ledger-meta">
+            <a href="#coimbatore">Coimbatore Campus</a>
+            <span class="lm-sub">40 AC · Flagship campus</span>
+          </div>
+          <div class="ledger-bar" aria-hidden="true">
+            <span class="seg seg-dc" style="width: 30%;"><span class="seg-label">15 AC · ZONE A</span></span>
+            <span class="seg seg-it" style="width: 50%;"><span class="seg-label">25 AC · ZONE B</span></span>
+          </div>
+        </div>
+        <div class="ledger-row">
+          <div class="ledger-meta">
+            <a href="#mindspace">MindSpace</a>
+            <span class="lm-sub">8 AC · Mixed-use parcel</span>
+          </div>
+          <div class="ledger-bar" aria-hidden="true">
+            <span class="seg seg-mix" style="width: 16%;"><span class="seg-label">8 AC</span></span>
+          </div>
+        </div>
+        <div class="ledger-row">
+          <div class="ledger-meta">
+            <a href="#sangarilla">Sangarilla</a>
+            <span class="lm-sub">50 AC · Mixed-use parcel</span>
+          </div>
+          <div class="ledger-bar" aria-hidden="true">
+            <span class="seg seg-mix" style="width: 100%;"><span class="seg-label">50 AC</span></span>
+          </div>
+        </div>
+        <div class="ledger-group">Madurai</div>
+        <div class="ledger-row">
+          <div class="ledger-meta">
+            <a href="#madurai">Madurai ELCOT</a>
+            <span class="lm-sub">48 AC · 30 / 15 / 3</span>
+          </div>
+          <div class="ledger-bar" aria-hidden="true">
+            <span class="seg seg-dc" style="width: 60%;"><span class="seg-label">30 AC</span></span>
+            <span class="seg seg-it" style="width: 30%;"><span class="seg-label">15 AC</span></span>
+            <span class="seg seg-dc seg-mini" style="width: 6%;"><span class="seg-label">3 AC</span></span>
+          </div>
+        </div>
+        <div class="ledger-row">
+          <div class="ledger-meta">
+            <a href="#techmax">TechMax</a>
+            <span class="lm-sub">15 AC · Mixed-use parcel</span>
+          </div>
+          <div class="ledger-bar" aria-hidden="true">
+            <span class="seg seg-mix" style="width: 30%;"><span class="seg-label">15 AC</span></span>
+          </div>
+        </div>
+        <div class="ledger-row">
+          <div class="ledger-meta">
+            <a href="#greenminds">GreenMinds</a>
+            <span class="lm-sub">30 AC · Mixed-use parcel</span>
+          </div>
+          <div class="ledger-bar" aria-hidden="true">
+            <span class="seg seg-mix" style="width: 60%;"><span class="seg-label">30 AC</span></span>
+          </div>
+        </div>
+        <div class="ledger-scale" aria-hidden="true"><span class="ls-spacer"></span><div class="ls-inner"><span>Scale · 0</span><span>50 acres</span></div></div>
+        <div class="ledger-legend" aria-hidden="true">
+          <span><span class="sw sw-dc"></span>Data center capacity</span>
+          <span><span class="sw sw-it"></span>IT park / office development</span>
+          <span><span class="sw sw-mix"></span>Flexible / mixed-use parcel</span>
+        </div>
+        <figcaption>
+          Portfolio shown to scale against a 50-acre measure — Coimbatore: Campus 40 acres (Zone A 15 ·
+          Zone B 25), MindSpace 8 acres, Sangarilla 50 acres; Madurai: ELCOT 48 acres (30 / 15 / 3),
+          TechMax 15 acres, GreenMinds 30 acres.
+        </figcaption>
+        <p class="sr-only">
+          Coimbatore: the flagship campus totals 40 acres — Zone A 15 acres of data center campus and
+          Zone B 25 acres of integrated IT park — plus MindSpace at 8 acres and Sangarilla at 50 acres.
+          Madurai: the ELCOT portfolio totals 48 acres across three parcels of 30, 15, and 3 acres,
+          plus TechMax at 15 acres and GreenMinds at 30 acres.
+        </p>
+      </figure>
+
+      <!-- Location 01 · Coimbatore -->
+      <div class="location" id="coimbatore" data-od-id="coimbatore">
+        <div class="location-head">
+          <div>
+            <span class="loc-meta">Location 01</span>
+            <h3>Coimbatore Campus</h3>
+          </div>
+          <span class="loc-meta">40 Acres · Zone A + Zone B</span>
+        </div>
+        <p class="tagline">A flagship, integrated digital infrastructure hub.</p>
+
+        <div class="zone-grid">
+          <div class="zone zone-anchor" data-od-id="zone-a">
+            <span class="zone-meta">Zone A · Data Center Campus — 15 Acres</span>
+            <h4>Hyperscale-ready, dedicated data center campus</h4>
+            <p>
+              Hyperscale-ready infrastructure for enterprise, colocation, AI/GPU Data Centers, and HPC
+              facilities. Includes dedicated substations, backup power, BESS, advanced cooling, and
+              tier-level security.
+            </p>
+            <ul class="spec-list">
+              <li>Dedicated substations</li>
+              <li>Backup power</li>
+              <li>BESS</li>
+              <li>Advanced cooling</li>
+              <li>Tier-level security</li>
+            </ul>
+          </div>
+          <div class="zone" data-od-id="zone-b">
+            <span class="zone-meta">Zone B · IT Park &amp; Digital Infrastructure — 25 Acres</span>
+            <h4>Integrated IT park &amp; digital infrastructure</h4>
+            <p>
+              Premium office spaces for SaaS, AI, cloud, and Global Capability Centers (GCCs). Features an
+              integrated Command &amp; Control Centre (NOC, SOC, BOC, DCIM) with AI-enabled predictive
+              monitoring.
+            </p>
+            <ul class="spec-list cols-1">
+              <li>Building potential up to 25 floors, subject to approvals</li>
+              <li>Command &amp; Control Centre — NOC · SOC · BOC · DCIM</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="amenities">
+          <span class="eyebrow">Campus Amenities</span>
+          <ul>
+            <li>5-Star / Premium Business Hotel</li>
+            <li>High-end residential apartments</li>
+            <li>EV charging</li>
+            <li>STP / stormwater management</li>
+            <li>Retail &amp; conference facilities</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Location 02 · Madurai -->
+      <div class="location" id="madurai" data-od-id="madurai">
+        <div class="location-head">
+          <div>
+            <span class="loc-meta">Location 02</span>
+            <h3>Madurai ELCOT Portfolio</h3>
+          </div>
+          <span class="loc-meta">48 Acres · 30 / 15 / 3</span>
+        </div>
+        <p class="tagline">
+          Strategic, modular development opportunities within Tamil Nadu’s established ELCOT IT ecosystem.
+        </p>
+
+        <div class="parcel-wide" data-od-id="parcel-30">
+          <div class="parcel-num"><span class="n">30</span><span class="u">Acres · Parcel 01</span></div>
+          <div class="parcel">
+            <h4>Mid-scale, high-density Data Center + complementary IT Park</h4>
+            <p>
+              Ideal for a mid-scale, high-density Data Center and complementary IT Park, catering to the
+              growing enterprise and cloud demand in the southern districts of Tamil Nadu.
+            </p>
+          </div>
+        </div>
+
+        <div class="parcel-grid">
+          <div class="parcel-card" data-od-id="parcel-15">
+            <div class="parcel-num"><span class="n">15</span><span class="u">Acres · Parcel 02</span></div>
+            <div class="parcel">
+              <h4>Specialized Technology Park / GCC campus</h4>
+              <p>
+                Perfect for a specialized Technology Park, Global Capability Center (GCC) campus, or
+                edge-computing facility serving regional manufacturing and healthcare sectors.
+              </p>
+            </div>
+          </div>
+          <div class="parcel-card" data-od-id="parcel-3">
+            <div class="parcel-num"><span class="n">3</span><span class="u">Acres · Parcel 03</span></div>
+            <div class="parcel">
+              <h4>Nodal office / micro &amp; edge data center</h4>
+              <p>
+                Optimized for a nodal office, managed services hub, or micro/edge data center to provide
+                ultra-low latency connectivity to local enterprises.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ NEW LOCATIONS ═══════════════
+       Draft location copy — review site details and advantages before publishing. -->
+  <section class="section rule-top" id="locations" data-od-id="locations">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">03 — Locations</span>
+        <h2>Four new locations across Coimbatore &amp; Madurai</h2>
+        <p class="lede">
+          Beyond the flagship locations, four additional sites broaden the portfolio — MindSpace and
+          Sangarilla in Coimbatore, TechMax and GreenMinds in Madurai. Each carries its own scale and
+          its own development advantages.
+        </p>
+      </div>
+
+      <div class="locs-grid">
+        <div class="loc-col">
+          <div class="loc-col-head">
+            <h3>Coimbatore</h3>
+            <span class="loc-col-tag">2 new locations</span>
+          </div>
+
+          <div class="loc-card" id="mindspace" data-od-id="loc-mindspace">
+            <div class="loc-name-row">
+              <h4>MindSpace</h4>
+              <span class="loc-acres">8 Acres</span>
+            </div>
+            <p class="loc-tagline">A compact, campus-style site for workspace and GCC development.</p>
+            <span class="loc-adv-title">Location advantages</span>
+            <ul class="loc-adv">
+              <li>Right-sized for GCC, product-engineering, and managed-office campuses.</li>
+              <li>Compact footprint keeps master planning and delivery cycles lean.</li>
+              <li>Taps Coimbatore’s deep engineering and IT-services talent base.</li>
+            </ul>
+          </div>
+
+          <div class="loc-card" id="sangarilla" data-od-id="loc-sangarilla">
+            <div class="loc-name-row">
+              <h4>Sangarilla</h4>
+              <span class="loc-acres">50 Acres</span>
+            </div>
+            <p class="loc-tagline">The portfolio’s largest single canvas — built for an integrated, multi-zone campus.</p>
+            <span class="loc-adv-title">Location advantages</span>
+            <ul class="loc-adv">
+              <li>Flagship scale for an integrated campus — data center, IT park, and amenities on one site.</li>
+              <li>Master-plan flexibility to phase development in line with demand.</li>
+              <li>Shareable power, cooling, and infrastructure across zones.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="loc-col">
+          <div class="loc-col-head">
+            <h3>Madurai</h3>
+            <span class="loc-col-tag">2 new locations</span>
+          </div>
+
+          <div class="loc-card" id="techmax" data-od-id="loc-techmax">
+            <div class="loc-name-row">
+              <h4>TechMax</h4>
+              <span class="loc-acres">15 Acres</span>
+            </div>
+            <p class="loc-tagline">A specialized technology site within Madurai’s growing IT ecosystem.</p>
+            <span class="loc-adv-title">Location advantages</span>
+            <ul class="loc-adv">
+              <li>Shaped for a Technology Park, GCC campus, or edge-computing facility.</li>
+              <li>Brings compute and services close to southern Tamil Nadu’s manufacturing and healthcare enterprises.</li>
+              <li>Backed by Madurai’s connectivity and engineering-institution talent pipeline.</li>
+            </ul>
+          </div>
+
+          <div class="loc-card" id="greenminds" data-od-id="loc-greenminds">
+            <div class="loc-name-row">
+              <h4>GreenMinds</h4>
+              <span class="loc-acres">30 Acres</span>
+            </div>
+            <p class="loc-tagline">A mid-scale site for data center and complementary IT development.</p>
+            <span class="loc-adv-title">Location advantages</span>
+            <ul class="loc-adv">
+              <li>Suited to mid-scale, high-density data center and complementary IT park development.</li>
+              <li>Positioned for enterprise and cloud demand across Tamil Nadu’s southern districts.</li>
+              <li>Room for energy-conscious design across power and cooling infrastructure.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  $1
+  <section class="section rule-top" id="advantage" data-od-id="advantage">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">04 — The Strategic Advantage</span>
+        <h2>Why Coimbatore &amp; Madurai</h2>
+      </div>
+
+      <div class="adv-grid">
+        <div class="adv-col">
+          <div class="adv-head">
+            <h3>Coimbatore</h3>
+            <span class="adv-tag">The Industrial &amp;<br />Tech Powerhouse</span>
+          </div>
+          <ul class="adv-list">
+            <li>
+              <span class="idx">01</span>
+              <div>
+                <h4>Proven IT ecosystem</h4>
+                <p>Home to TIDEL Park (~1.7 million sq. ft.) and Vilankurichi ELCO IT/ITES SEZ, hosting giants like Wipro and Access Healthcare.</p>
+              </div>
+            </li>
+            <li>
+              <span class="idx">02</span>
+              <div>
+                <h4>Deep talent pool</h4>
+                <p>Rich base of engineering, electrical, HVAC, network, and cloud-operations talent.</p>
+              </div>
+            </li>
+            <li>
+              <span class="idx">03</span>
+              <div>
+                <h4>Regional reach</h4>
+                <p>Strategic access to Tamil Nadu, Kerala, Karnataka, and Andhra Pradesh — diversifying away from India’s concentrated primary DC hubs (Mumbai, Chennai, Delhi NCR).</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="adv-col">
+          <div class="adv-head">
+            <h3>Madurai</h3>
+            <span class="adv-tag">The Emerging<br />Southern Tech Hub</span>
+          </div>
+          <ul class="adv-list">
+            <li>
+              <span class="idx">01</span>
+              <div>
+                <h4>ELCOT legacy</h4>
+                <p>Benefits from the established SIPCOT/ELCOT IT infrastructure, offering plug-and-play advantages and streamlined statutory processes.</p>
+              </div>
+            </li>
+            <li>
+              <span class="idx">02</span>
+              <div>
+                <h4>Educational &amp; talent hub</h4>
+                <p>Surrounded by premier engineering and technology institutions (e.g., Thiagarajar College of Engineering), ensuring a steady pipeline of IT and operational talent.</p>
+              </div>
+            </li>
+            <li>
+              <span class="idx">03</span>
+              <div>
+                <h4>Connectivity</h4>
+                <p>Excellent highway, rail, and airport connectivity, serving as the gateway to the southern and central districts of Tamil Nadu.</p>
+              </div>
+            </li>
+            <li>
+              <span class="idx">04</span>
+              <div>
+                <h4>Cost efficiency</h4>
+                <p>Highly competitive land and operational costs compared to primary metros, offering superior ROI for developers and end-users.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ MARKET OUTLOOK (dark) ═══════════════ -->
+  <section class="dark section-lg" id="market" data-od-id="market">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">05 — Market Outlook</span>
+        <h2>The India Data Center market outlook</h2>
+        <p class="lede">
+          India’s Data Center sector is entering a sustained, high-growth phase driven by cloud adoption,
+          generative AI, data localization, and enterprise digitization.
+        </p>
+      </div>
+
+      <div class="timeline reveal" id="timeline" data-od-id="timeline">
+        <div class="tl-track">
+          <div class="tl-line" aria-hidden="true"></div>
+          <div class="tl-node">
+            <span class="tl-year">By 2030</span>
+            <span class="tl-figure">4–12 GW</span>
+            <span class="tl-label">Projected capacity</span>
+            <span class="tl-detail">Sustained capacity build-out across India’s data center market.</span>
+            <span class="tl-src">CareEdge · Colliers · Savills · Wood Mackenzie</span>
+          </div>
+          <div class="tl-node">
+            <span class="tl-year">By 2035</span>
+            <span class="tl-figure">~13.8 GW</span>
+            <span class="tl-label">Installed capacity</span>
+            <span class="tl-detail">~US$71.6B in direct investment — a ~US$280B ecosystem.</span>
+            <span class="tl-src">PwC India</span>
+          </div>
+          <div class="tl-node">
+            <span class="tl-year">By 2047</span>
+            <span class="tl-figure">~65 GW</span>
+            <span class="tl-label">IT load</span>
+            <span class="tl-detail">~394 TWh of electricity demand.</span>
+            <span class="tl-src">NITI Aayog</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rationale">
+        <div>
+          <h3>Strategic rationale</h3>
+          <p>
+            With AI driving the shift to high-density racks (30–100kW+) requiring liquid cooling and advanced
+            networking, power and location are the defining competitive advantages. Our Coimbatore and Madurai
+            campuses are perfectly positioned to capture this demand.
+          </p>
+        </div>
+        <ol class="phase-ladder" aria-label="Positioning roadmap">
+          <li><span class="ph-year">2030</span> Cloud &amp; enterprise workloads</li>
+          <li><span class="ph-year">2035</span> AI / GPU / HPC infrastructure</li>
+          <li><span class="ph-year">2045+</span> Sovereign digital infrastructure</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PARTNERSHIP ═══════════════ -->
+  <section class="section" id="partnership" data-od-id="partnership">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">06 — Partnership</span>
+        <h2>Partnership opportunities</h2>
+        <p class="lede">
+          These projects will be implemented through Joint Ventures (JV), Special Purpose Vehicles (SPV), or
+          other mutually agreed strategic partnership structures. GreenNext Technologies is seeking to
+          collaborate with:
+        </p>
+      </div>
+
+      <table class="partner-table" data-od-id="partnership-table">
+        <caption>Partner profiles sought across the Coimbatore and Madurai campuses</caption>
+        <thead>
+          <tr>
+            <th scope="col">Partner profile</th>
+            <th scope="col">Potential contribution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data Center Developer / Operator</td>
+            <td>Development, investment, and day-to-day operations (Coimbatore &amp; Madurai).</td>
+          </tr>
+          <tr>
+            <td>IT Park Developer</td>
+            <td>Master planning and development of the IT zones across all parcels.</td>
+          </tr>
+          <tr>
+            <td>EPC Partner</td>
+            <td>End-to-end engineering, procurement, and construction.</td>
+          </tr>
+          <tr>
+            <td>Power &amp; Telecom Partners</td>
+            <td>Robust power infrastructure, fiber, and connectivity solutions.</td>
+          </tr>
+          <tr>
+            <td>Technology Partner</td>
+            <td>AI, cloud, GPU, and edge-computing infrastructure expertise.</td>
+          </tr>
+          <tr>
+            <td>Hospitality &amp; Real Estate Developers</td>
+            <td>Development and operations of hotel and residential complexes (Coimbatore).</td>
+          </tr>
+          <tr>
+            <td>Financial / Institutional Investors</td>
+            <td>Equity, debt, and structured finance capabilities.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pledge" data-od-id="pledge">
+        <p>GreenNext Technologies will contribute strategic development oversight, technology integration, and business ecosystem cultivation.</p>
+        <p class="pledge-note">Collaboration model · JV / SPV / mutually agreed structures</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ EXPRESSION OF INTEREST ═══════════════ -->
+  <section class="section rule-top" id="eoi" data-od-id="eoi">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">07 — Expression of Interest</span>
+        <h2>Submit your Expression of Interest</h2>
+        <p class="lede">
+          We invite interested organizations to submit a detailed Expression of Interest for one or multiple
+          locations.
+        </p>
+      </div>
+
+      <div class="meta-chips">
+        <div class="chip">
+          <span class="chip-label">EOI Reference</span>
+          <span class="chip-value">DC-ITP-TN/JV/2026/001</span>
+        </div>
+        <div class="chip">
+          <span class="chip-label">Deadline</span>
+          <span class="chip-value"><span class="ph" title="To be updated before publishing">[Insert Deadline Date]</span></span>
+        </div>
+      </div>
+
+      <div class="eoi-grid">
+        <div class="eoi-info">
+          <h3 style="margin-bottom: 8px;">Your submission should include</h3>
+          <ol class="req-list">
+            <li>Company profile and ownership structure.</li>
+            <li>Proof of financial capability and funding mechanisms.</li>
+            <li>Relevant Data Center / IT Park experience and client references.</li>
+            <li>Technical, operational, and investment capabilities.</li>
+            <li>Proposed contribution, equity participation, JV structure, timeline, and commercialization strategy for the specific parcel(s) of interest.</li>
+          </ol>
+
+          <div class="howto">
+            <h4>How to submit</h4>
+            <p style="font-size: 14.5px; color: var(--muted); margin-bottom: 14px;">
+              Please email your EOI package with the subject line:
+            </p>
+            <div class="subject-quote">
+              <p id="subjectText">EOI – JV Development of Digital Infrastructure Campuses in Coimbatore (40&nbsp;Acres) &amp; Madurai ELCOT (3, 15, 30 Acres)</p>
+            </div>
+            <div class="subject-actions">
+              <button class="btn btn-secondary copy-btn" type="button" data-copy-subject>
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <rect x="5.5" y="5.5" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M10.5 5.5v-2a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 3.5V8A1.5 1.5 0 0 0 4 9.5h2" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+                <span class="cb-label">Copy subject line</span>
+              </button>
+              <span class="sr-only" id="copyLive" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="contact-block">
+            <h4>Contact information</h4>
+            <ul class="contact-list">
+              <li><span class="cl">Attention</span><span class="ph" title="To be updated before publishing">[Name / Designation]</span></li>
+              <li><span class="cl">Email</span><span class="ph" title="To be updated before publishing">[Official Email Address]</span></li>
+              <li><span class="cl">Telephone</span><span class="ph" title="To be updated before publishing">[Contact Number]</span></li>
+              <li><span class="cl">Website</span><span class="ph" title="To be updated before publishing">[Website URL]</span></li>
+            </ul>
+            <p style="margin-top: 16px; font-size: 13.5px; color: var(--muted);">
+              Need the full document first?
+              <button class="btn btn-quiet" type="button" data-open-eoi-doc style="min-height: 0; padding: 2px 0;">Request the EOI Document →</button>
+            </p>
+          </div>
+        </div>
+
+        <div class="form-card" data-od-id="eoi-form">
+          <h3>Expression of Interest form</h3>
+          <p class="form-intro">Fields marked <span class="req">*</span> are required. Your details are compiled into an email draft — nothing is sent automatically.</p>
+
+          <div class="form-errors" id="eoiErrors" tabindex="-1" hidden>
+            <h4 id="eoiErrorsTitle">Please review the following</h4>
+            <ul id="eoiErrorsList"></ul>
+          </div>
+
+          <form id="eoiForm" action="#" autocomplete="on">
+            <div class="field">
+              <label for="f-company">Company name <span class="req" aria-hidden="true">*</span><span class="sr-only"> (required)</span></label>
+              <input id="f-company" name="company" type="text" required autocomplete="organization" aria-describedby="f-company-err" />
+              <p class="ferr" id="f-company-err" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="f-contact">Contact person <span class="req" aria-hidden="true">*</span><span class="sr-only"> (required)</span></label>
+              <input id="f-contact" name="contact" type="text" required autocomplete="name" aria-describedby="f-contact-err" />
+              <p class="ferr" id="f-contact-err" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="f-email">Work email <span class="req" aria-hidden="true">*</span><span class="sr-only"> (required)</span></label>
+              <input id="f-email" name="email" type="email" required autocomplete="email" aria-describedby="f-email-err" />
+              <p class="ferr" id="f-email-err" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="f-phone-hint f-phone-err" />
+              <p class="fhint" id="f-phone-hint">Optional — include country code if outside India.</p>
+              <p class="ferr" id="f-phone-err" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="f-orgtype">Organization type <span class="req" aria-hidden="true">*</span><span class="sr-only"> (required)</span></label>
+              <select id="f-orgtype" name="orgType" required aria-describedby="f-orgtype-err">
+                <option value="">Select an option…</option>
+                <option>Data Center Developer / Operator</option>
+                <option>IT Park Developer</option>
+                <option>EPC Partner</option>
+                <option>Power &amp; Telecom Partner</option>
+                <option>Technology Partner</option>
+                <option>Hospitality &amp; Real Estate Developer</option>
+                <option>Financial / Institutional Investor</option>
+                <option>Other</option>
+              </select>
+              <p class="ferr" id="f-orgtype-err" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="f-location">Location(s) of interest <span class="req" aria-hidden="true">*</span><span class="sr-only"> (required)</span></label>
+              <select id="f-location" name="location" required aria-describedby="f-location-err">
+                <option value="">Select a location…</option>
+                <option>All locations</option>
+                <option>Coimbatore (40 Acres)</option>
+                <option>Madurai ELCOT — 30 Acres</option>
+                <option>Madurai ELCOT — 15 Acres</option>
+                <option>Madurai ELCOT — 3 Acres</option>
+                <option>New locations — MindSpace, Sangarilla, TechMax &amp; GreenMinds</option>
+                <option>Multiple locations — specify in notes</option>
+              </select>
+              <p class="ferr" id="f-location-err" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="f-notes">Notes</label>
+              <textarea id="f-notes" name="notes" aria-describedby="f-notes-hint"></textarea>
+              <p class="fhint" id="f-notes-hint">Tell us about your organization, proposed contribution, or intended structure (optional).</p>
+            </div>
+
+            <div class="field-check">
+              <input id="f-consent" name="consent" type="checkbox" required aria-describedby="f-consent-err" />
+              <label for="f-consent">
+                I confirm the information provided is accurate and may be used to evaluate this Expression of
+                Interest. <span class="req" aria-hidden="true">*</span><span class="sr-only"> (required)</span>
+              </label>
+            </div>
+            <p class="ferr" id="f-consent-err" role="alert" style="margin-top: 0;"></p>
+
+            <div class="form-foot">
+              <button class="btn btn-primary" type="submit">Submit Expression of Interest</button>
+              <p class="form-note">We’ll prepare an email to <span class="ph">[Official Email Address]</span> with your details — you review and send it yourself.</p>
+            </div>
+            <p class="sr-only" id="formStatus" aria-live="polite"></p>
+          </form>
+
+          <!-- success state (shown after valid submit) -->
+          <div class="success-panel" id="eoiSuccess" hidden data-od-id="eoi-success">
+            <div class="sp-head">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+                <circle cx="13" cy="13" r="11" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8 13.4l3.2 3.2L18 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div>
+                <h3>Your EOI is ready to send</h3>
+                <p style="font-size: 14px; color: var(--muted); margin: 0;">Review the summary below, then open the email draft and attach your full EOI package.</p>
+              </div>
+            </div>
+            <dl class="succ-dl" id="succSummary"></dl>
+            <div class="succ-actions">
+              <a class="btn btn-primary" id="mailtoBtn" href="mailto:">Open email draft</a>
+              <button class="btn btn-secondary copy-btn" type="button" data-copy-subject>
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <rect x="5.5" y="5.5" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M10.5 5.5v-2a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 3.5V8A1.5 1.5 0 0 0 4 9.5h2" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+                <span class="cb-label">Copy subject line</span>
+              </button>
+              <button class="btn btn-quiet" type="button" id="editBtn">Edit details</button>
+            </div>
+            <p class="succ-note">
+              Send the email to <span class="ph">[Official Email Address]</span> and attach your detailed EOI
+              package (company profile, financial capability, references, technical and investment capabilities).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ DISCLAIMER ═══════════════ -->
+  <section class="section-tight" id="disclaimer" data-od-id="disclaimer">
+    <div class="wrap">
+      <div class="disclaimer-box">
+        <span class="eyebrow">Important Legal Disclaimer</span>
+        <p>
+          All references in this document to building heights, Data Center capacity, built-up area, FAR/FSI,
+          power capacity, and hotel/residential development are indicative development objectives only. They
+          are subject to applicable laws, master planning, technical feasibility, and statutory approvals. No
+          specific development right or approval is implied by this EOI. This document does not constitute an
+          offer, tender, or binding commitment, and is subject to due diligence and the execution of
+          definitive agreements. GreenNext Technologies reserves the right to accept, reject, shortlist, or
+          negotiate with any applicant, and may modify or discontinue the EOI process at its sole discretion.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="dark" data-od-id="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top" aria-label="GreenNext Technologies — back to top">
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M9 11V9h2M21 9h2v2M23 21v2h-2M11 23H9v-2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            <rect x="13" y="13" width="6" height="6" fill="currentColor"/>
+          </svg>
+          <span>
+            <span class="brand-name">GreenNext</span>
+            <span class="brand-sub">Technologies</span>
+          </span>
+        </a>
+        <p class="foot-tag">Building the Digital Infrastructure of Tomorrow.</p>
+        <p class="foot-loc">
+          <svg width="14" height="16" viewBox="0 0 14 16" fill="none" aria-hidden="true">
+            <path d="M7 15s5.2-4.6 5.2-8.6A5.2 5.2 0 0 0 7 1.2 5.2 5.2 0 0 0 1.8 6.4C1.8 10.4 7 15 7 15z" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="7" cy="6.3" r="1.9" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          Coimbatore / Madurai / Bengaluru, India
+        </p>
+      </div>
+      <div>
+        <p class="foot-h">Connect</p>
+        <!-- DEV: point these at the real destinations before publishing -->
+        <ul class="foot-links">
+          <li><a href="#eoi">Contact Us</a></li>
+          <li><a href="#" title="Placeholder — link to be added">Privacy Policy</a></li>
+          <li><a href="#" title="Placeholder — link to be added">Terms of Use</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-h">Follow</p>
+        <div class="social-row">
+          <a href="#" aria-label="GreenNext Technologies on LinkedIn" title="Placeholder — link to be added">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="GreenNext Technologies on X" title="Placeholder — link to be added">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 GreenNext Technologies. Strictly Private &amp; Confidential.</p>
+      <p>Ref. DC-ITP-TN/JV/2026/001</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════ EOI DOCUMENT DIALOG ═══════════════
+     DEV: once the final PDF exists, replace this dialog behaviour with a direct
+     link on the "Download the EOI Document" button, e.g.
+     href="assets/GreenNext-EOI-Document.pdf" download -->
+<dialog id="eoiDocDialog" aria-labelledby="dlgTitle">
+  <div class="dlg-inner">
+    <span class="eyebrow">EOI Document</span>
+    <h2 id="dlgTitle">Request the full EOI document</h2>
+    <p>
+      The complete EOI document — including parcel-level details, development objectives, and submission
+      formats — is shared directly with prospective partners.
+    </p>
+    <p>
+      Write to <strong class="ph">[Official Email Address]</strong> to request a copy, or submit your
+      expression of interest below and our team will follow up with the document.
+    </p>
+    <div class="dlg-actions">
+      <button class="btn btn-primary" type="button" id="dlgGotoForm">Submit your EOI →</button>
+      <button class="btn btn-secondary" type="button" data-close-dialog>Close</button>
+    </div>
+    <p class="dlg-ref">Reference · DC-ITP-TN/JV/2026/001</p>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  "use strict";
+  var doc = document;
+  var hasIO = "IntersectionObserver" in window;
+  var prefersReduced = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false;
+
+  /* mark JS available (enables entrance animations that are hidden by default) */
+  doc.documentElement.classList.add("js");
+
+  /* ── topbar scroll state ── */
+  var topbar = doc.getElementById("topbar");
+  function onScroll() { topbar.classList.toggle("scrolled", window.scrollY > 8); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ── mobile nav ── */
+  var navToggle = doc.getElementById("navToggle");
+  var navPanel = doc.getElementById("navPanel");
+  function setNav(open) {
+    navPanel.classList.toggle("open", open);
+    navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+  navToggle.addEventListener("click", function () { setNav(!navPanel.classList.contains("open")); });
+  navPanel.addEventListener("click", function (e) { if (e.target.closest("a")) { setNav(false); } });
+  doc.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && navPanel.classList.contains("open")) { setNav(false); navToggle.focus(); }
+  });
+
+  /* ── scrollspy ── */
+  var spyLinks = Array.prototype.slice.call(doc.querySelectorAll("[data-spy]"));
+  if (hasIO && spyLinks.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        spyLinks.forEach(function (l) {
+          if (l.getAttribute("href") === "#" + en.target.id) { l.setAttribute("aria-current", "location"); }
+          else { l.removeAttribute("aria-current"); }
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+    spyLinks.forEach(function (l) {
+      var s = doc.querySelector(l.getAttribute("href"));
+      if (s) spy.observe(s);
+    });
+  }
+
+  /* ── on-view reveals (land ledger, timeline) ── */
+  var reveals = doc.querySelectorAll(".reveal");
+  if (hasIO && reveals.length) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); }
+      });
+    }, { threshold: 0.2 });
+    reveals.forEach(function (r) { ro.observe(r); });
+  } else {
+    reveals.forEach(function (r) { r.classList.add("in"); });
+  }
+
+  /* ── helpers ── */
+  function scrollToId(id) {
+    var el = doc.getElementById(id);
+    if (!el) return;
+    var y = el.getBoundingClientRect().top + window.pageYOffset - 84;
+    window.scrollTo({ top: y, behavior: prefersReduced ? "auto" : "smooth" });
+  }
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return legacyCopy(text); });
+    }
+    return Promise.resolve(legacyCopy(text));
+  }
+  function legacyCopy(text) {
+    var ta = doc.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+    doc.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = doc.execCommand("copy"); } catch (e) { ok = false; }
+    doc.body.removeChild(ta);
+    return ok;
+  }
+
+  /* ── EOI document dialog ── */
+  var dlg = doc.getElementById("eoiDocDialog");
+  doc.querySelectorAll("[data-open-eoi-doc]").forEach(function (b) {
+    b.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (typeof dlg.showModal === "function") { dlg.showModal(); } else { dlg.setAttribute("open", ""); }
+    });
+  });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) { dlg.close(); } });
+  doc.querySelectorAll("[data-close-dialog]").forEach(function (b) {
+    b.addEventListener("click", function () { dlg.close(); });
+  });
+  doc.getElementById("dlgGotoForm").addEventListener("click", function () {
+    dlg.close();
+    window.setTimeout(function () { scrollToId("eoi"); var f = doc.getElementById("f-company"); if (f) f.focus({ preventScroll: true }); }, 60);
+  });
+
+  /* ── copy subject line ── */
+  var copyLive = doc.getElementById("copyLive");
+  function bindCopySubject(btn) {
+    var label = btn.querySelector(".cb-label");
+    var idle = label.textContent;
+    btn.addEventListener("click", function () {
+      var subject = doc.getElementById("subjectText").textContent.replace(/\u00a0/g, " ");
+      copyText(subject).then(function (ok) {
+        label.textContent = ok ? "Copied" : "Copy failed — select manually";
+        if (copyLive) copyLive.textContent = ok ? "Subject line copied to clipboard." : "Copy failed. Select the subject line text and copy it manually.";
+        window.setTimeout(function () { label.textContent = idle; if (copyLive) copyLive.textContent = ""; }, 2600);
+      });
+    });
+  }
+  doc.querySelectorAll("[data-copy-subject]").forEach(bindCopySubject);
+
+  /* ── EOI form ── */
+  var form = doc.getElementById("eoiForm");
+  var success = doc.getElementById("eoiSuccess");
+  var errBox = doc.getElementById("eoiErrors");
+  var errList = doc.getElementById("eoiErrorsList");
+  var status = doc.getElementById("formStatus");
+  form.noValidate = true;
+
+  var SUBJECT = "EOI \u2013 JV Development of Digital Infrastructure Campuses in Coimbatore (40 Acres) & Madurai ELCOT (3, 15, 30 Acres)";
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  var fields = [
+    { key: "company", el: doc.getElementById("f-company"), label: "Company name",
+      validate: function (v) { return v.trim() ? "" : "Company name is required."; } },
+    { key: "contact", el: doc.getElementById("f-contact"), label: "Contact person",
+      validate: function (v) { return v.trim() ? "" : "Contact person is required."; } },
+    { key: "email", el: doc.getElementById("f-email"), label: "Work email",
+      validate: function (v) {
+        v = v.trim();
+        if (!v) return "Work email is required.";
+        return EMAIL_RE.test(v) ? "" : "Email must include @ and a domain — e.g. name@company.com.";
+      } },
+    { key: "phone", el: doc.getElementById("f-phone"), label: "Phone",
+      validate: function (v) {
+        if (!v.trim()) return "";
+        var digits = v.replace(/[^\d]/g, "");
+        return (digits.length >= 7 && digits.length <= 15) ? "" : "Phone must contain 7\u201315 digits (include country code if outside India).";
+      } },
+    { key: "orgtype", el: doc.getElementById("f-orgtype"), label: "Organization type",
+      validate: function (v) { return v ? "" : "Please select an organization type."; } },
+    { key: "location", el: doc.getElementById("f-location"), label: "Location(s) of interest",
+      validate: function (v) { return v ? "" : "Please select a location of interest."; } },
+    { key: "consent", el: doc.getElementById("f-consent"), label: "Consent",
+      validate: function (v, el) { return el.checked ? "" : "Please confirm before submitting."; } }
+  ];
+
+  var touched = {};
+  var submitted = false;
+
+  function errorEl(f) { return doc.getElementById(f.el.id + "-err"); }
+  function showError(f, msg) {
+    f.el.setAttribute("aria-invalid", "true");
+    var e = errorEl(f); if (e) e.textContent = msg;
+  }
+  function clearError(f) {
+    f.el.removeAttribute("aria-invalid");
+    var e = errorEl(f); if (e) e.textContent = "";
+  }
+  function validateField(f) {
+    var msg = f.validate(f.el.value, f.el);
+    if (msg) { showError(f, msg); } else { clearError(f); }
+    return msg;
+  }
+  function currentErrors() {
+    return fields.filter(function (f) { return !!f.validate(f.el.value, f.el); });
+  }
+  function renderSummary(errs) {
+    if (!errs.length) { errBox.hidden = true; errList.innerHTML = ""; return; }
+    errList.innerHTML = "";
+    errs.forEach(function (f) {
+      var li = doc.createElement("li");
+      var a = doc.createElement("a");
+      a.href = "#" + f.el.id;
+      a.textContent = f.label + ": " + f.validate(f.el.value, f.el);
+      a.addEventListener("click", function (e) { e.preventDefault(); f.el.focus(); });
+      li.appendChild(a); errList.appendChild(li);
+    });
+    errBox.hidden = false;
+  }
+
+  fields.forEach(function (f) {
+    f.el.addEventListener("blur", function () {
+      touched[f.key] = true;
+      validateField(f);
+      if (!errBox.hidden) renderSummary(currentErrors());
+    });
+    var evt = (f.el.type === "checkbox" || f.el.tagName === "SELECT") ? "change" : "input";
+    f.el.addEventListener(evt, function () {
+      if (touched[f.key] || submitted) {
+        validateField(f);
+        if (!errBox.hidden) renderSummary(currentErrors());
+      }
+    });
+  });
+
+  function collect() {
+    return {
+      company: doc.getElementById("f-company").value.trim(),
+      contact: doc.getElementById("f-contact").value.trim(),
+      email: doc.getElementById("f-email").value.trim(),
+      phone: doc.getElementById("f-phone").value.trim(),
+      orgType: doc.getElementById("f-orgtype").value,
+      location: doc.getElementById("f-location").value,
+      notes: doc.getElementById("f-notes").value.trim()
+    };
+  }
+  function composeMailto() {
+    var d = collect();
+    var lines = [
+      "Dear GreenNext Technologies team,", "",
+      "Please find our Expression of Interest below.", "",
+      "Company: " + d.company,
+      "Contact person: " + d.contact,
+      "Email: " + d.email
+    ];
+    if (d.phone) lines.push("Phone: " + d.phone);
+    lines.push("Organization type: " + d.orgType);
+    lines.push("Location(s) of interest: " + d.location);
+    if (d.notes) { lines.push("", "Notes:", d.notes); }
+    lines.push("",
+      "We will attach our detailed EOI package (company profile, financial capability, references, and technical and investment capabilities) to this email.", "",
+      "Best regards,", d.contact, d.company);
+    var body = lines.join("\r\n");
+    /* DEV: add the official recipient once known — e.g. "mailto:eoi@greennext.in?subject=..." */
+    return "mailto:?subject=" + encodeURIComponent(SUBJECT) + "&body=" + encodeURIComponent(body);
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    submitted = true;
+    var errs = currentErrors();
+    fields.forEach(validateField);
+    renderSummary(errs);
+    if (errs.length) {
+      if (status) status.textContent = errs.length + " field" + (errs.length > 1 ? "s need" : " needs") + " attention. See the summary above the form.";
+      errBox.focus();
+      return;
+    }
+    if (status) status.textContent = "Form validated. Email draft prepared.";
+    showSuccess();
+  });
+
+  function showSuccess() {
+    var d = collect();
+    var dl = doc.getElementById("succSummary");
+    dl.innerHTML = "";
+    var rows = [
+      ["EOI reference", "DC-ITP-TN/JV/2026/001"],
+      ["Company", d.company],
+      ["Contact", d.contact],
+      ["Email", d.email]
+    ];
+    if (d.phone) rows.push(["Phone", d.phone]);
+    rows.push(["Organization", d.orgType]);
+    rows.push(["Locations", d.location]);
+    if (d.notes) rows.push(["Notes", d.notes]);
+    rows.forEach(function (r) {
+      var wrap = doc.createElement("div");
+      var dt = doc.createElement("dt"); dt.textContent = r[0];
+      var dd = doc.createElement("dd"); dd.textContent = r[1];
+      wrap.appendChild(dt); wrap.appendChild(dd); dl.appendChild(wrap);
+    });
+    doc.getElementById("mailtoBtn").href = composeMailto();
+    form.hidden = true;
+    success.hidden = false;
+    success.querySelector(".btn-primary").focus();
+  }
+
+  doc.getElementById("editBtn").addEventListener("click", function () {
+    success.hidden = true;
+    form.hidden = false;
+    doc.getElementById("f-company").focus();
+  });
+})();
+</script>
+</body>
+</html>

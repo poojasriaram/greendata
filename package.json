@@ -1,0 +1,20 @@
+{
+  "name": "greennext-technologies-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "GreenNext Technologies — Integrated Data Center & IT Park Campuses in Tamil Nadu, India",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  }
+}
