@@ -235,16 +235,16 @@
   transform: rotate(180deg);
 }
 
-/* Enhanced Enterprise Mega Dropdowns */
+/* Enhanced Enterprise Mega Dropdowns (isisecurity.in Benchmark Quality) */
 .mega-dropdown {
   position: absolute;
   top: calc(100% + 4px);
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  background-color: var(--c-paper-surface);
-  border: 1px solid var(--c-border-strong);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 20px 45px rgba(18, 59, 53, 0.15), 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  border: 1px solid rgba(18, 59, 53, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 24px 48px rgba(18, 59, 53, 0.14), 0 4px 12px rgba(0, 0, 0, 0.04);
   padding: 0;
   opacity: 0;
   visibility: hidden;
@@ -255,15 +255,15 @@
 }
 
 .mega-dropdown-wide {
-  width: 680px;
+  width: 760px;
 }
 
 .mega-dropdown-medium {
-  width: 540px;
+  width: 580px;
 }
 
 .mega-dropdown-compact {
-  width: 340px;
+  width: 360px;
 }
 
 .nav-item:hover .mega-dropdown,
@@ -272,6 +272,147 @@
   visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
+}
+
+/* ── ISISECURITY.IN OFFERINGS SPLIT-PANEL ARCHITECTURE ── */
+.dropdown-split-container {
+  display: flex;
+  min-height: 290px;
+}
+
+.dropdown-sidebar {
+  width: 240px;
+  padding: 24px 20px;
+  border-right: 1px solid rgba(203, 215, 209, 0.5);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-sidebar-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--c-evergreen);
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.dropdown-sidebar-subtitle {
+  font-size: 12.5px;
+  color: var(--c-muted-grey);
+  margin-bottom: 20px;
+}
+
+.dropdown-cat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-cat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--c-slate-text);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.dropdown-cat-item:hover,
+.dropdown-cat-item.active {
+  background-color: var(--c-soft-sage);
+  color: var(--c-evergreen);
+  font-weight: 700;
+}
+
+.dropdown-cat-item svg {
+  color: var(--c-evergreen);
+  transition: transform var(--transition-fast);
+}
+
+.dropdown-cat-item:hover svg,
+.dropdown-cat-item.active svg {
+  transform: translateX(3px);
+}
+
+.dropdown-content-panel {
+  flex: 1;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dropdown-offerings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+
+.offering-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.offering-item:hover {
+  background-color: var(--c-warm-offwhite);
+  transform: translateX(2px);
+}
+
+.offering-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-evergreen);
+  flex-shrink: 0;
+}
+
+.offering-item:hover .offering-icon {
+  color: #0d825c;
+}
+
+.offering-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-slate-text);
+  line-height: 1.3;
+}
+
+.offering-item:hover .offering-label {
+  color: var(--c-evergreen);
+}
+
+.dropdown-callout-footer {
+  margin: 16px 20px 20px;
+  background-color: #f7f9f8;
+  border: 1px solid rgba(203, 215, 209, 0.6);
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dropdown-callout-text {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .dropdown-header-strip {
@@ -375,6 +516,27 @@
 }
 .dropdown-footer-bar a:hover {
   text-decoration: underline;
+}
+
+/* WhatsApp Action Button Style matching isisecurity.in */
+.btn-whatsapp {
+  background-color: #25D366;
+  color: #ffffff !important;
+  font-weight: 600;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.28);
+  transition: all var(--transition-fast);
+}
+.btn-whatsapp:hover {
+  background-color: #1ebc59;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(37, 211, 102, 0.38);
+  color: #ffffff;
 }
 
 .nav-actions {
