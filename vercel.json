@@ -1,5 +1,4 @@
 {
-  "name": "greennext-technologies",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
