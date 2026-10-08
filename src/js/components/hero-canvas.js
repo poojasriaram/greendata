@@ -11,28 +11,35 @@ export function initHeroCanvas() {
   let width, height;
 
   const nodes = [
-    { id: 'cbe-zone-a', label: 'Coimbatore · Zone A (15 AC DC)', x: 0.28, y: 0.35, size: 8, color: '#6BC7A7', pulse: 0 },
-    { id: 'cbe-zone-b', label: 'Coimbatore · Zone B (25 AC IT)', x: 0.35, y: 0.52, size: 7, color: '#DDEBE4', pulse: 1 },
-    { id: 'mindspace', label: 'MindSpace (8 AC)', x: 0.22, y: 0.65, size: 5, color: '#BFDCD0', pulse: 2 },
-    { id: 'sangarilla', label: 'Sangarilla (50 AC)', x: 0.45, y: 0.25, size: 9, color: '#6BC7A7', pulse: 3 },
-    { id: 'madurai-30', label: 'Madurai ELCOT (30 AC DC/IT)', x: 0.68, y: 0.68, size: 8, color: '#6BC7A7', pulse: 4 },
-    { id: 'madurai-15', label: 'Madurai ELCOT (15 AC Tech)', x: 0.78, y: 0.52, size: 6, color: '#DDEBE4', pulse: 5 },
-    { id: 'madurai-3', label: 'Madurai ELCOT (3 AC Edge)', x: 0.85, y: 0.38, size: 4, color: '#BFDCD0', pulse: 0 },
-    { id: 'techmax', label: 'TechMax (15 AC)', x: 0.62, y: 0.42, size: 6, color: '#DDEBE4', pulse: 1 },
-    { id: 'greenminds', label: 'GreenMinds (30 AC)', x: 0.55, y: 0.78, size: 7, color: '#6BC7A7', pulse: 2 }
+    { id: 'cbe-flagship', label: 'Coimbatore (98 AC · DC & IT)', x: 0.22, y: 0.38, size: 8, color: '#6BC7A7', pulse: 0 },
+    { id: 'hosur-hub', label: 'Hosur (65 AC · Precision & SpaceTech)', x: 0.42, y: 0.18, size: 8, color: '#6BC7A7', pulse: 1 },
+    { id: 'pondicherry-hub', label: 'Pondicherry (35 AC · Innovation & Convention)', x: 0.78, y: 0.25, size: 7, color: '#DDEBE4', pulse: 2 },
+    { id: 'trichy-hub', label: 'Trichy (45 AC · Knowledge City & DC)', x: 0.52, y: 0.48, size: 7, color: '#6BC7A7', pulse: 3 },
+    { id: 'madurai-elcot', label: 'Madurai (93 AC · ELCOT & TechMax)', x: 0.38, y: 0.72, size: 8, color: '#6BC7A7', pulse: 4 },
+    { id: 'tirunelveli-hub', label: 'Tirunelveli (55 AC · AI DC & Clean Energy)', x: 0.30, y: 0.88, size: 8, color: '#6BC7A7', pulse: 5 },
+    { id: 'chennai-gateway', label: 'Subsea Cable Interconnect (Chennai)', x: 0.88, y: 0.12, size: 5, color: '#BFDCD0', pulse: 0 },
+    { id: 'bengaluru-corridor', label: 'Tech Corridor Gateway (Bengaluru)', x: 0.32, y: 0.10, size: 5, color: '#BFDCD0', pulse: 1 }
   ];
 
   const links = [
-    [0, 1], [1, 2], [0, 3], [1, 3],
-    [4, 5], [5, 6], [4, 7], [4, 8],
-    [0, 4], [3, 7], [1, 8] // Inter-cluster backbone links
+    [7, 1], // Bengaluru -> Hosur
+    [1, 0], // Hosur -> Coimbatore
+    [1, 3], // Hosur -> Trichy
+    [6, 2], // Subsea -> Pondicherry
+    [2, 3], // Pondicherry -> Trichy
+    [0, 3], // Coimbatore -> Trichy
+    [0, 4], // Coimbatore -> Madurai
+    [3, 4], // Trichy -> Madurai
+    [4, 5], // Madurai -> Tirunelveli
+    [6, 1]  // Subsea -> Hosur
   ];
 
   let packets = [
-    { from: 0, to: 4, progress: 0.1, speed: 0.004 },
-    { from: 3, to: 7, progress: 0.6, speed: 0.003 },
-    { from: 1, to: 8, progress: 0.3, speed: 0.005 },
-    { from: 4, to: 5, progress: 0.8, speed: 0.006 }
+    { from: 7, to: 1, progress: 0.1, speed: 0.005 },
+    { from: 1, to: 0, progress: 0.4, speed: 0.004 },
+    { from: 6, to: 2, progress: 0.2, speed: 0.006 },
+    { from: 3, to: 4, progress: 0.7, speed: 0.004 },
+    { from: 4, to: 5, progress: 0.5, speed: 0.005 }
   ];
 
   function resize() {
