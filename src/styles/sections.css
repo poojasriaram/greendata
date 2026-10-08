@@ -1461,12 +1461,28 @@ canvas#ecosystemCanvas {
   pointer-events: auto;
 }
 
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.02);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  padding: clamp(5rem, 8vw, 7.5rem) 0 clamp(4.5rem, 7vw, 6.5rem);
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
 .hero-slide::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(7, 29, 26, 0.92) 0%, rgba(11, 41, 37, 0.82) 45%, rgba(7, 29, 26, 0.65) 100%),
-              linear-gradient(180deg, rgba(7, 29, 26, 0.3) 0%, rgba(7, 29, 26, 0.8) 100%);
+  background: linear-gradient(90deg, rgba(7, 29, 26, 0.96) 0%, rgba(7, 29, 26, 0.88) 38%, rgba(7, 29, 26, 0.35) 65%, rgba(7, 29, 26, 0.05) 85%, transparent 100%),
+              linear-gradient(180deg, rgba(7, 29, 26, 0.45) 0%, transparent 40%, rgba(7, 29, 26, 0.6) 100%);
   z-index: 1;
 }
 
