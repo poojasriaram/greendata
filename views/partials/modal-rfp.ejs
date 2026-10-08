@@ -1,0 +1,160 @@
+<!-- ══════════════════════════════════════════════════════════════════════════
+     DETAILED INSTITUTIONAL RFP / TOUR SCHEDULE MODAL
+     ══════════════════════════════════════════════════════════════════════════ -->
+<div class="modal-backdrop" id="rfpModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="rfpModalTitle">
+  <div class="modal-container">
+    <div class="modal-header">
+      <div>
+        <div class="badge badge-accent">Institutional Gateway</div>
+        <h3 class="modal-title" id="rfpModalTitle">Submit Institutional RFP / Schedule Delegation Campus Tour</h3>
+        <p class="modal-sub">Direct access to GreenNext Infrastructure Committee &bull; Confidential Evaluation &bull; Reference: <strong>DC-ITP-TN/JV/2026/001</strong></p>
+      </div>
+      <button class="modal-close" data-close-modal="rfpModal" aria-label="Close modal">&times;</button>
+    </div>
+
+    <!-- Quick Demo Fill Bar -->
+    <div class="modal-autofill-bar">
+      <span>Evaluating our platform?</span>
+      <button class="btn-sample-fill" type="button" onclick="fillLongSampleRFP()">
+        <span>⚡ 1-Click Auto-Fill Sample Enterprise RFP</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <form class="long-rfp-form" id="longRfpForm" action="/api/rfp" method="POST">
+        <!-- Section 1: Entity & Contact Details -->
+        <div class="form-section-title">1. Corporate &amp; Contact Credentials</div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="rfp_company">Company / Enterprise / Fund Name *</label>
+            <input type="text" id="rfp_company" name="company" required placeholder="e.g. Sovereign Hyperscale Cloud Inc." />
+          </div>
+          <div class="form-group">
+            <label for="rfp_contact_name">Primary Representative Name &amp; Title *</label>
+            <input type="text" id="rfp_contact_name" name="contactName" required placeholder="e.g. Arvind Swaminathan (VP Infrastructure)" />
+          </div>
+        </div>
+
+        <div class="form-grid-3">
+          <div class="form-group">
+            <label for="rfp_email">Corporate Official Email *</label>
+            <input type="email" id="rfp_email" name="email" required placeholder="e.g. arvind.s@sovereigncloud.com" />
+          </div>
+          <div class="form-group">
+            <label for="rfp_phone">Phone / WhatsApp *</label>
+            <input type="tel" id="rfp_phone" name="phone" required placeholder="e.g. +91 98410 54321" />
+          </div>
+          <div class="form-group">
+            <label for="rfp_hq">Headquarters Country / City *</label>
+            <input type="text" id="rfp_hq" name="headquarters" required placeholder="e.g. Singapore / Bengaluru" />
+          </div>
+        </div>
+
+        <!-- Section 2: Asset Specification & Locations -->
+        <div class="form-section-title" style="margin-top: 20px;">2. Infrastructure Focus &amp; Target Locations</div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="rfp_asset_type">Primary Asset Type Required *</label>
+            <select id="rfp_asset_type" name="assetType" required>
+              <option value="">Select Asset Vertical...</option>
+              <option value="Hyperscale DC (100+ MW)">Hyperscale Data Center (100+ MW Capacity)</option>
+              <option value="AI GPU Cluster DC">AI-Optimized GPU Cluster / High-Density DC</option>
+              <option value="Enterprise Colocation">Enterprise Tier III/IV Colocation</option>
+              <option value="IT Park Tower (Grade A)">IT Park / Grade-A Commercial Tower</option>
+              <option value="Knowledge City Campus">Integrated Knowledge City &amp; R&amp;D Hub</option>
+              <option value="Convention & Exhibition Hall">Convention &amp; Trade Exhibition Center</option>
+              <option value="Business / Convention Hotel">Business / Convention Hotel (Non-Residential)</option>
+              <option value="EV & Battery Gigafactory">EV &amp; Battery Gigafactory</option>
+              <option value="Drone & SpaceTech Hub">Drone &amp; SpaceTech Precision Manufacturing</option>
+              <option value="Industrial Robotics Plant">Industrial Robotics &amp; Automation Plant</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="rfp_target_hub">Target South India Hub *</label>
+            <select id="rfp_target_hub" name="targetHub" required>
+              <option value="">Select Target Location...</option>
+              <option value="Hosur">Hosur (90+ Acres - Bengaluru Border EV/Tech Corridor)</option>
+              <option value="Tirunelveli">Tirunelveli (50+ Acres - 100% Green AI DC Haven)</option>
+              <option value="Trichy">Trichy (45+ Acres - Central TN Knowledge City &amp; Convention)</option>
+              <option value="Coimbatore">Coimbatore (85+ Acres - Engineering &amp; DeepTech Ecosystem)</option>
+              <option value="Madurai">Madurai (75+ Acres - South TN IT/Fintech Mega Park)</option>
+              <option value="Pondicherry">Pondicherry (45+ Acres - Coastal AI Edge Haven)</option>
+              <option value="Multi-Location Portfolio">Multi-Location Portfolio across South India</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-3">
+          <div class="form-group">
+            <label for="rfp_power">Estimated Power Requirement (MW)</label>
+            <select id="rfp_power" name="powerRequirement">
+              <option value="5-15 MW">5 MW – 15 MW</option>
+              <option value="15-50 MW">15 MW – 50 MW</option>
+              <option value="50-100 MW">50 MW – 100 MW</option>
+              <option value="100+ MW Hyperscale">100+ MW Hyperscale</option>
+              <option value="Standard IT Commercial">Standard IT Commercial (Grid Connected)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="rfp_footprint">Land / Built-Up Area Footprint</label>
+            <select id="rfp_footprint" name="footprint">
+              <option value="10-25 Acres / 250k-500k sqft">10–25 Acres / 250k–500k Sq.Ft.</option>
+              <option value="25-50 Acres / 500k-1M sqft">25–50 Acres / 500k–1M Sq.Ft.</option>
+              <option value="50+ Acres / 1M+ sqft">50+ Acres / 1M+ Sq.Ft.</option>
+              <option value="Custom Modular Suite">Custom Modular Suite (50,000–150,000 Sq.Ft.)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="rfp_delivery_model">Preferred Delivery Structure *</label>
+            <select id="rfp_delivery_model" name="deliveryModel" required>
+              <option value="Turnkey Build-to-Suit (BTS)">Turnkey Build-to-Suit (BTS)</option>
+              <option value="Powered Shell">Powered Shell (High-Voltage Substation Ready)</option>
+              <option value="Joint Venture / Co-Investment">Joint Venture / Co-Investment (Institutional)</option>
+              <option value="Long-Term Institutional Lease">Long-Term Institutional Lease (15–30 Years)</option>
+              <option value="Wholesale Colocation">Wholesale Colocation</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Section 3: Timeline & Additional Requirements -->
+        <div class="form-group" style="margin-top: 10px;">
+          <label for="rfp_timeline">Target Commercial Operational Date (COD) &amp; Key Technical Parameters</label>
+          <textarea id="rfp_timeline" name="timelineAndNotes" rows="3" placeholder="Specify expected timeline (e.g. Q4 2026), cooling preferences (liquid/air), dual fiber loop requirements, or request for site delegation inspection..."></textarea>
+        </div>
+
+        <div class="form-actions-bar">
+          <div class="form-nda-note">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Submissions protected under Mutual NDA &amp; Institutional Confidentiality Protocols.</span>
+          </div>
+
+          <button class="btn btn-primary btn-lg" type="submit" id="rfpSubmitBtn">
+            <span>Transmit Institutional RFP</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        <div class="rfp-status-message" id="longRfpStatus"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function fillLongSampleRFP() {
+  document.getElementById('rfp_company').value = 'Equinix / Apollo Global Infrastructure Partners';
+  document.getElementById('rfp_contact_name').value = 'Karthik Ramanathan (Managing Director - APAC Digital Infra)';
+  document.getElementById('rfp_email').value = 'karthik.ramanathan@apac-infra-capital.com';
+  document.getElementById('rfp_phone').value = '+91 98840 77788';
+  document.getElementById('rfp_hq').value = 'Singapore / Chennai';
+  document.getElementById('rfp_asset_type').value = 'Hyperscale DC (100+ MW)';
+  document.getElementById('rfp_target_hub').value = 'Tirunelveli';
+  document.getElementById('rfp_power').value = '100+ MW Hyperscale';
+  document.getElementById('rfp_footprint').value = '50+ Acres / 1M+ sqft';
+  document.getElementById('rfp_delivery_model').value = 'Joint Venture / Co-Investment';
+  document.getElementById('rfp_timeline').value = 'Evaluating 100+ MW 100% green-energy powered AI hyperscale cluster with 400kV dedicated substation hookup. Seeking joint development framework with target COD by Q1 2028. Requesting private campus site inspection delegation.';
+}
+</script>

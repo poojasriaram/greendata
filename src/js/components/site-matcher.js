@@ -19,7 +19,7 @@ export function initSiteMatcher() {
   const parcelData = {
     'cbe-zone-a': {
       title: 'Coimbatore Campus · Zone A (Hyperscale Data Center)',
-      cluster: 'Coimbatore Cluster (98 AC)',
+      cluster: 'Coimbatore Cluster (98 Acres)',
       acreage: '15 Acres',
       power: 'Dedicated High-Voltage Substation · Dual 110/230kV Feeds',
       desc: 'Tier III/IV ready hyperscale canvas with liquid-cooling integration, BESS backup, and carrier-neutral fiber MMR.',
@@ -28,7 +28,7 @@ export function initSiteMatcher() {
     },
     'cbe-zone-b': {
       title: 'Coimbatore Campus · Zone B (IT Park & Knowledge Hub)',
-      cluster: 'Coimbatore Cluster (98 AC)',
+      cluster: 'Coimbatore Cluster (98 Acres)',
       acreage: '25 Acres',
       power: 'Commercial Grid with AI Command NOC/SOC/DCIM',
       desc: 'Grade-A workspace scaling up to 25 floors with integrated 5-Star business hotel, convention center, and executive corporate facilities.',
@@ -37,7 +37,7 @@ export function initSiteMatcher() {
     },
     'sangarilla': {
       title: 'Sangarilla Mega Campus',
-      cluster: 'Coimbatore Cluster (98 AC)',
+      cluster: 'Coimbatore Cluster (98 Acres)',
       acreage: '50 Acres',
       power: 'High-Capacity Substation Feeds (50MW–100MW+ Scale)',
       desc: 'Largest single master-plan canvas in the portfolio. Supports multi-phase data centers, IT parks, and executive amenities.',
@@ -46,7 +46,7 @@ export function initSiteMatcher() {
     },
     'mindspace': {
       title: 'MindSpace Campus',
-      cluster: 'Coimbatore Cluster (98 AC)',
+      cluster: 'Coimbatore Cluster (98 Acres)',
       acreage: '8 Acres',
       power: 'Dedicated Enterprise Power Infrastructure',
       desc: 'Compact, high-efficiency campus tailored for single-tenant Global Capability Centers (GCCs) and product engineering headquarters.',
@@ -55,7 +55,7 @@ export function initSiteMatcher() {
     },
     'mdu-parcel-30': {
       title: 'Madurai ELCOT · Parcel 01',
-      cluster: 'Madurai Cluster (93 AC)',
+      cluster: 'Madurai Cluster (93 Acres)',
       acreage: '30 Acres',
       power: 'Dedicated ELCOT Substation Feed (25MW–60MW Ready)',
       desc: 'Mid-scale high-density data center campus combined with enterprise IT park serving Southern Tamil Nadu industrial corridors.',
@@ -64,7 +64,7 @@ export function initSiteMatcher() {
     },
     'mdu-parcel-15': {
       title: 'Madurai ELCOT · Parcel 02',
-      cluster: 'Madurai Cluster (93 AC)',
+      cluster: 'Madurai Cluster (93 Acres)',
       acreage: '15 Acres',
       power: 'ELCOT IT Park Grid & Backup Corridors',
       desc: 'Specialized technology park and GCC campus with immediate plug-and-play statutory advantages and engineering university talent.',
@@ -73,7 +73,7 @@ export function initSiteMatcher() {
     },
     'mdu-parcel-3': {
       title: 'Madurai ELCOT · Parcel 03 (Edge Node)',
-      cluster: 'Madurai Cluster (93 AC)',
+      cluster: 'Madurai Cluster (93 Acres)',
       acreage: '3 Acres',
       power: 'Nodal High-Reliability Feed (2MW–5MW)',
       desc: 'Micro-data center and telecom PoP hub delivering single-digit millisecond latency to regional manufacturing enterprises.',
@@ -82,7 +82,7 @@ export function initSiteMatcher() {
     },
     'greenminds': {
       title: 'GreenMinds Campus',
-      cluster: 'Madurai Cluster (93 AC)',
+      cluster: 'Madurai Cluster (93 Acres)',
       acreage: '30 Acres',
       power: 'Renewable Wheeling & High-Capacity Substations',
       desc: 'Sustainable, energy-conscious mid-scale data center and IT campus with green power integration.',
@@ -91,7 +91,7 @@ export function initSiteMatcher() {
     },
     'techmax': {
       title: 'TechMax Technology Park',
-      cluster: 'Madurai Cluster (93 AC)',
+      cluster: 'Madurai Cluster (93 Acres)',
       acreage: '15 Acres',
       power: 'Industrial Power Grid Connection',
       desc: 'Specialized technology park engineered for regional product development, IoT, and edge computing.',
@@ -100,7 +100,7 @@ export function initSiteMatcher() {
     },
     'hosur-hub': {
       title: 'Hosur SpaceTech, EV & Precision Engineering Complex',
-      cluster: 'Hosur Cluster (65 AC)',
+      cluster: 'Hosur Cluster (65 Acres)',
       acreage: '65 Acres',
       power: '230kV Dual Substation Feeds · Heavy Industrial HT Power',
       desc: 'High-density multi-storied precision engineering complex for UAV/Drone manufacturing, EV battery assembly, Robotics, and SpaceTech propulsion.',
@@ -109,7 +109,7 @@ export function initSiteMatcher() {
     },
     'trichy-hub': {
       title: 'Trichy Knowledge City & Digital Campus',
-      cluster: 'Trichy Cluster (45 AC)',
+      cluster: 'Trichy Cluster (45 Acres)',
       acreage: '45 Acres',
       power: '110kV Substation Grid · Redundant Fiber Highways',
       desc: 'Integrated Knowledge City with IT park towers, R&D incubation centers, and AI-optimized data center zone in Central Tamil Nadu.',
@@ -118,7 +118,7 @@ export function initSiteMatcher() {
     },
     'tirunelveli-hub': {
       title: 'Tirunelveli AI Data Center & Renewable Power Park',
-      cluster: 'Tirunelveli Cluster (55 AC)',
+      cluster: 'Tirunelveli Cluster (55 Acres)',
       acreage: '55 Acres',
       power: 'Direct 400kV/230kV Wind & Solar Green Grid Interconnect',
       desc: 'GPU-dense AI computing data center campus (100+ MW capability) powered by 100% renewable green energy wheeling in Southern TN.',
@@ -127,7 +127,7 @@ export function initSiteMatcher() {
     },
     'pondicherry-hub': {
       title: 'Puducherry Innovation District & International Convention Hub',
-      cluster: 'Pondicherry Cluster (35 AC)',
+      cluster: 'Pondicherry Cluster (35 Acres)',
       acreage: '35 Acres',
       power: 'Urban Coastal Dual Power Grid · Fiber Ring Infrastructure',
       desc: 'World-class Convention Halls, Exhibition Center, 5-Star Business & Convention Hotel with integrated startup Innovation District.',

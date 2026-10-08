@@ -1,0 +1,191 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main id="main-content">
+  <!-- Page Hero -->
+  <section class="page-hero-section">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="badge badge-accent">Institutional Liaison Desk</div>
+        <h1 class="page-title">Submit Institutional RFP &amp; Schedule Campus Inspection</h1>
+        <p class="page-lead">
+          Connect with GreenNext's senior technical leadership, power liaison directors, and leasing advisory team. Ref: <strong>DC-ITP-TN/JV/2026/001</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Full RFP Form -->
+  <section class="section-padded bg-surface">
+    <div class="container">
+      <div class="contact-page-layout">
+        <!-- Form Column -->
+        <div class="contact-form-main">
+          <div class="form-card-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom: 20px;">
+              <div>
+                <h2 style="font-size: var(--text-2xl); color: var(--c-evergreen);">Institutional Request for Proposal (RFP)</h2>
+                <p style="font-size: var(--text-sm); color: var(--c-muted-grey);">Direct submission to Executive Infrastructure Committee</p>
+              </div>
+              <button class="btn-sample-fill" type="button" onclick="fillPageSampleRFP()">
+                <span>⚡ 1-Click Auto-Fill Enterprise Sample</span>
+              </button>
+            </div>
+
+            <form class="long-rfp-form" id="pageRfpForm" action="/api/rfp" method="POST">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="p_company">Company / Fund / Enterprise Name *</label>
+                  <input type="text" id="p_company" name="company" required placeholder="e.g. NextGen Cloud Scale Ltd." />
+                </div>
+                <div class="form-group">
+                  <label for="p_contact_name">Primary Representative Name &amp; Designation *</label>
+                  <input type="text" id="p_contact_name" name="contactName" required placeholder="e.g. Sridhar Venkatesh (Head of APAC Real Estate)" />
+                </div>
+              </div>
+
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label for="p_email">Official Corporate Email *</label>
+                  <input type="email" id="p_email" name="email" required placeholder="e.g. sridhar.v@nextgencloud.com" />
+                </div>
+                <div class="form-group">
+                  <label for="p_phone">Phone / Mobile *</label>
+                  <input type="tel" id="p_phone" name="phone" required placeholder="e.g. +91 98400 98765" />
+                </div>
+                <div class="form-group">
+                  <label for="p_hq">Headquarters Country / City *</label>
+                  <input type="text" id="p_hq" name="headquarters" required placeholder="e.g. Tokyo / Bengaluru" />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="p_asset_type">Primary Asset Vertical *</label>
+                  <select id="p_asset_type" name="assetType" required>
+                    <option value="">Select Asset...</option>
+                    <option value="Hyperscale DC (100+ MW)">Hyperscale Data Center (100+ MW)</option>
+                    <option value="AI GPU Cluster DC">AI-Optimized GPU Cluster</option>
+                    <option value="IT Park Tower (Grade A)">IT Park / Grade-A Commercial Tower</option>
+                    <option value="Knowledge City Campus">Knowledge City &amp; R&amp;D Hub</option>
+                    <option value="Convention & Exhibition Hall">Convention &amp; Exhibition Center</option>
+                    <option value="Business / Convention Hotel">Business / Convention Hotel (Non-Res)</option>
+                    <option value="EV & Battery Gigafactory">EV &amp; Battery Gigafactory</option>
+                    <option value="Drone & SpaceTech Hub">Drone &amp; SpaceTech Precision Complex</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="p_target_hub">Target South India Hub *</label>
+                  <select id="p_target_hub" name="targetHub" required>
+                    <option value="">Select Location...</option>
+                    <option value="Hosur">Hosur (90+ Acres - Bengaluru Border)</option>
+                    <option value="Tirunelveli">Tirunelveli (50+ Acres - 100% Green AI DC)</option>
+                    <option value="Trichy">Trichy (45+ Acres - Central TN Knowledge City)</option>
+                    <option value="Coimbatore">Coimbatore (85+ Acres - Engineering Capital)</option>
+                    <option value="Madurai">Madurai (75+ Acres - South TN Mega Park)</option>
+                    <option value="Pondicherry">Pondicherry (45+ Acres - Coastal Tech Haven)</option>
+                    <option value="Multiple Locations">Multiple South India Hubs</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label for="p_power">Estimated Power (MW)</label>
+                  <select id="p_power" name="powerRequirement">
+                    <option value="5-15 MW">5 MW – 15 MW</option>
+                    <option value="15-50 MW">15 MW – 50 MW</option>
+                    <option value="50-100 MW">50 MW – 100 MW</option>
+                    <option value="100+ MW Hyperscale">100+ MW Hyperscale</option>
+                    <option value="Grid Power Commercial">Standard Grid Power</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="p_footprint">Target Footprint</label>
+                  <select id="p_footprint" name="footprint">
+                    <option value="10-25 Acres">10–25 Acres</option>
+                    <option value="25-50 Acres">25–50 Acres</option>
+                    <option value="50+ Acres">50+ Acres</option>
+                    <option value="Custom Suite">Custom Built Suite</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="p_delivery_model">Delivery Structure</label>
+                  <select id="p_delivery_model" name="deliveryModel">
+                    <option value="Turnkey Build-to-Suit (BTS)">Turnkey Build-to-Suit (BTS)</option>
+                    <option value="Powered Shell">Powered Shell</option>
+                    <option value="Joint Venture / Co-Investment">Joint Venture / Co-Investment</option>
+                    <option value="Long-Term Lease">Long-Term Institutional Lease</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="p_notes">Scope Specifications &amp; Preferred Campus Inspection Dates</label>
+                <textarea id="p_notes" name="timelineAndNotes" rows="3" placeholder="Provide details on structural load requirements, subsea interconnect latency needs, or dates requested for campus delegation tour..."></textarea>
+              </div>
+
+              <div class="form-actions-bar">
+                <button class="btn btn-primary btn-lg" type="submit" style="width: 100%; justify-content: center;">
+                  <span>Submit Institutional RFP &amp; Request Campus Briefing</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+
+              <div class="rfp-status-message" id="pageRfpStatus"></div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sidebar Direct Contacts -->
+        <div class="contact-sidebar">
+          <div class="sidebar-contact-card">
+            <h3 class="sidebar-card-title">Executive Directory</h3>
+            <div class="contact-method-item">
+              <strong>Direct Advisory Hotline:</strong>
+              <a href="tel:+917708887878" style="color: var(--c-accent-mint); font-size: var(--text-lg); text-decoration: none; font-weight:700;">+91 77088 87878</a>
+            </div>
+
+            <div class="contact-method-item">
+              <strong>Institutional RFP Submission:</strong>
+              <p>rfp@greennext.in &bull; invest@greennext.in</p>
+            </div>
+
+            <div class="contact-method-item">
+              <strong>South India Regional Hubs:</strong>
+              <p>Chennai HQ &bull; Hosur &bull; Coimbatore &bull; Madurai &bull; Trichy &bull; Tirunelveli &bull; Pondicherry</p>
+            </div>
+
+            <div class="contact-method-item">
+              <strong>Statutory Compliance &amp; Reference:</strong>
+              <p>File No: <strong>DC-ITP-TN/JV/2026/001</strong> &bull; Single-Window Facilitation with Guidance Tamil Nadu &amp; SIPCOT.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+function fillPageSampleRFP() {
+  document.getElementById('p_company').value = 'NVIDIA / Yotta Hyperscale Compute Consortium';
+  document.getElementById('p_contact_name').value = 'Dr. Anand Ramanathan (Director - Cloud Architecture)';
+  document.getElementById('p_email').value = 'a.ramanathan@yotta-compute.com';
+  document.getElementById('p_phone').value = '+91 98841 22334';
+  document.getElementById('p_hq').value = 'Mumbai / Santa Clara';
+  document.getElementById('p_asset_type').value = 'Hyperscale DC (100+ MW)';
+  document.getElementById('p_target_hub').value = 'Hosur';
+  document.getElementById('p_power').value = '100+ MW Hyperscale';
+  document.getElementById('p_footprint').value = '50+ Acres';
+  document.getElementById('p_delivery_model').value = 'Turnkey Build-to-Suit (BTS)';
+  document.getElementById('p_notes').value = 'Requesting 50 MW Phase-1 powered shell space expandable to 120 MW in Hosur campus with direct 230kV GIS substation and dedicated liquid cooling closed loop. Requesting site inspection next Tuesday.';
+}
+</script>
+
+<%- include('partials/floating-widget') %>
+<%- include('partials/modal-rfp') %>
+<%- include('partials/footer') %>

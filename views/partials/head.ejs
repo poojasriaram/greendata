@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title ? title + " | GreenNext Technologies" : "GreenNext Technologies | Digital Infrastructure, IT Parks, Hyperscale Data Centers & Precision Industrial Campuses" %></title>
+  <meta name="description" content="<%= description || 'Strategic institutional digital infrastructure and commercial real estate platform across 390+ acres in South India (Hosur, Tirunelveli, Trichy, Coimbatore, Madurai, Pondicherry). Flagship IT Parks, Knowledge Cities, Hyperscale Data Centers, Convention Centers, Non-Residential Business Hotels & Precision Engineering Hubs.' %>" />
+  <meta name="keywords" content="GreenNext Technologies, IT Parks South India, Knowledge Cities, Hyperscale Data Centers, AI GPU Infrastructure, Convention Halls, Business Hotels, Precision Engineering, Drone Manufacturing, SpaceTech, Hosur, Coimbatore, Madurai, Trichy, Tirunelveli, Pondicherry" />
+  <meta name="author" content="GreenNext Technologies" />
+  <meta name="theme-color" content="#0B2925" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="<%= canonicalUrl || 'https://greennext.in' + currentPath %>" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://greennext.in<%= currentPath %>" />
+  <meta property="og:title" content="<%= title ? title + ' | GreenNext Technologies' : 'GreenNext Technologies | Institutional Infrastructure Platform' %>" />
+  <meta property="og:description" content="<%= description || 'South India premier 390+ acre institutional platform for IT Parks, Knowledge Cities, Hyperscale Data Centers, Convention Centers, Corporate Hospitality, and Precision Engineering.' %>" />
+  <meta property="og:site_name" content="GreenNext Technologies" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:image" content="<%= ogImage || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop' %>" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="<%= title ? title + ' | GreenNext Technologies' : 'GreenNext Technologies' %>" />
+  <meta name="twitter:description" content="<%= description || 'Strategic digital & commercial infrastructure platform across South India.' %>" />
+  <meta name="twitter:image" content="<%= ogImage || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop' %>" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B2925'/%3E%3Cpath d='M9 11v-2h2M21 9h2v2M23 21v2h-2M11 23H9v-2' stroke='%236BC7A7' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3Crect x='13' y='13' width='6' height='6' fill='%236BC7A7'/%3E%3C/svg%3E" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/src/styles/tokens.css" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/sections.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/responsive.css" />
+
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://greennext.in/#organization",
+        "name": "GreenNext Technologies",
+        "url": "https://greennext.in/",
+        "logo": "https://greennext.in/logo.svg",
+        "description": "Strategic institutional digital infrastructure and commercial real estate platform developing IT Parks, Knowledge Cities, Hyperscale Data Centers, Convention Spaces, and High-Tech Precision Engineering Complexes across South India.",
+        "areaServed": "India",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "South India (Tamil Nadu & Puducherry)",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-77088-87878",
+          "contactType": "Institutional Leasing & RFP",
+          "email": "invest@greennext.in",
+          "availableLanguage": ["English", "Tamil", "Hindi"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://greennext.in/#website",
+        "url": "https://greennext.in/",
+        "name": "GreenNext Technologies",
+        "publisher": {
+          "@id": "https://greennext.in/#organization"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body id="top">
+  <!-- Accessibility Skip Link -->
+  <a class="skip-link" href="#main-content">Skip to primary content</a>

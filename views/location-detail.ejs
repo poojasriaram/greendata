@@ -1,0 +1,120 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main id="main-content">
+  <!-- Location Hero -->
+  <section class="page-hero-section" style="background: linear-gradient(rgba(11, 41, 37, 0.85), rgba(7, 29, 26, 0.95)), url('<%= location.image %>') center/cover no-repeat;">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="badge badge-accent"><%= location.landBank %> &bull; <%= location.state %></div>
+        <h1 class="page-title"><%= location.name %> Institutional Campus</h1>
+        <p class="page-lead"><%= location.tagline %></p>
+
+        <div class="infra-stats-row" style="margin-top: 24px;">
+          <div class="infra-stat-pill" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color:#fff;">
+            <strong style="color: var(--c-accent-mint);"><%= location.powerCapacity %></strong>
+            <span style="color: #cbd7d1;">Power Capacity</span>
+          </div>
+          <div class="infra-stat-pill" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color:#fff;">
+            <strong style="color: var(--c-accent-mint);"><%= location.substation %></strong>
+            <span style="color: #cbd7d1;">Substation Grid</span>
+          </div>
+          <div class="infra-stat-pill" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color:#fff;">
+            <strong style="color: var(--c-accent-mint);"><%= location.airportDistance %></strong>
+            <span style="color: #cbd7d1;">Airport Proximity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Overview & Highlights -->
+  <section class="section-padded bg-surface">
+    <div class="container">
+      <div class="loc-deepdive-grid">
+        <div class="loc-main-col">
+          <h2 class="section-heading">Strategic Ecosystem &amp; Connectivity</h2>
+          <p class="loc-deep-desc"><%= location.overview %></p>
+
+          <h3 style="margin-top: 32px; font-size: var(--text-2xl); color: var(--c-evergreen);">Key Strategic Advantages</h3>
+          <div class="highlights-grid" style="margin-top: 16px;">
+            <% location.keyHighlights.forEach(hl => { %>
+              <div class="highlight-item-card">
+                <div class="hl-check">✔</div>
+                <div class="hl-text"><%= hl %></div>
+              </div>
+            <% }); %>
+          </div>
+
+          <h3 style="margin-top: 36px; font-size: var(--text-2xl); color: var(--c-evergreen);">Infrastructure Specialization</h3>
+          <div class="focus-badges-row" style="margin-top: 14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <% location.infrastructureFocus.forEach(f => { %>
+              <span class="focus-pill-large"><%= f %></span>
+            <% }); %>
+          </div>
+        </div>
+
+        <!-- Technical Sidebar -->
+        <div class="loc-sidebar-col">
+          <div class="sidebar-spec-box">
+            <h3 class="sidebar-title">Engineering Feasibility</h3>
+            
+            <div class="spec-sidebar-item">
+              <span class="sidebar-label">Dedicated Power:</span>
+              <p class="sidebar-val"><%= location.technicalSpecs.power %></p>
+            </div>
+
+            <div class="spec-sidebar-item">
+              <span class="sidebar-label">Water Infrastructure:</span>
+              <p class="sidebar-val"><%= location.technicalSpecs.water %></p>
+            </div>
+
+            <div class="spec-sidebar-item">
+              <span class="sidebar-label">Fiber &amp; Telecom:</span>
+              <p class="sidebar-val"><%= location.technicalSpecs.fiber %></p>
+            </div>
+
+            <div class="spec-sidebar-item">
+              <span class="sidebar-label">Zoning &amp; Clearances:</span>
+              <p class="sidebar-val"><%= location.technicalSpecs.zoning %></p>
+            </div>
+
+            <div class="spec-sidebar-item">
+              <span class="sidebar-label">Highway &amp; Transit:</span>
+              <p class="sidebar-val"><%= location.connectivity %></p>
+            </div>
+
+            <button class="btn btn-primary" data-open-modal="rfpModal" style="width: 100%; justify-content: center; margin-top: 20px;" type="button">
+              Submit RFP for <%= location.name %>
+            </button>
+            <a class="btn btn-outline" href="/contact" style="width: 100%; justify-content: center; margin-top: 10px;">
+              Schedule Site Tour
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Bar -->
+  <section class="section-padded bg-dark text-light text-center">
+    <div class="container container-narrow">
+      <h2 class="section-heading text-white">Schedule Private Delegation Tour to <%= location.name %></h2>
+      <p class="section-subtext text-secondary">
+        Our technical liaison team coordinates private helicopter / executive ground transfers, technical briefings with local utility boards, and site boundaries due diligence.
+      </p>
+      <div style="margin-top: 24px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <button class="btn btn-primary btn-lg" data-open-modal="rfpModal" type="button">
+          Request Site Inspection Dossier
+        </button>
+        <a class="btn btn-outline-light btn-lg" href="tel:+917708887878">
+          Call Advisory: +91 77088 87878
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/floating-widget') %>
+<%- include('partials/modal-rfp') %>
+<%- include('partials/footer') %>

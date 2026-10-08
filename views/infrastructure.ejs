@@ -1,0 +1,93 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main id="main-content">
+  <!-- Page Header -->
+  <section class="page-hero-section">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="badge badge-accent">Infrastructure Portfolio</div>
+        <h1 class="page-title">Grade-A Commercial, Digital &amp; Precision Industrial Infrastructure</h1>
+        <p class="page-lead">
+          Master-planned, high-power, sustainable physical environments engineered strictly for enterprise, hyperscale compute, and precision manufacturing. Zero residential developments.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories List -->
+  <section class="section-padded bg-surface">
+    <div class="container">
+      <% infrastructureCategories.forEach((cat, index) => { %>
+        <div class="infra-category-block <%= index % 2 === 1 ? 'reverse' : '' %>" id="<%= cat.id %>">
+          <div class="infra-block-image" style="background-image: url('<%= cat.heroImage %>');">
+            <span class="pillar-badge"><%= cat.badge %></span>
+          </div>
+          <div class="infra-block-content">
+            <div class="badge badge-primary"><%= cat.badge %></div>
+            <h2 class="infra-block-title"><%= cat.title %></h2>
+            <p class="infra-block-subtitle"><%= cat.subtitle %></p>
+            <p class="infra-block-overview"><%= cat.overview %></p>
+
+            <!-- Stats Bar -->
+            <div class="infra-stats-row">
+              <% Object.entries(cat.stats).forEach(([key, val]) => { %>
+                <div class="infra-stat-pill">
+                  <strong><%= val %></strong>
+                  <span><%= key.replace(/([A-Z])/g, ' $1').toLowerCase() %></span>
+                </div>
+              <% }); %>
+            </div>
+
+            <!-- Subcategories Preview -->
+            <div class="infra-subcategories-grid">
+              <% cat.subcategories.forEach(sub => { %>
+                <div class="subcat-card">
+                  <h4 class="subcat-title"><%= sub.title %></h4>
+                  <p class="subcat-desc"><%= sub.description %></p>
+                  <ul class="subcat-features">
+                    <% sub.features.slice(0, 2).forEach(f => { %>
+                      <li>&check; <%= f %></li>
+                    <% }); %>
+                  </ul>
+                </div>
+              <% }); %>
+            </div>
+
+            <div class="infra-block-actions">
+              <a class="btn btn-primary" href="/infrastructure/<%= cat.slug %>">
+                <span>View Full <%= cat.title %> Schematics &amp; Specs</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+              <button class="btn btn-outline" data-open-modal="rfpModal" type="button">
+                <span>Request Detailed Technical Dossier</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="section-padded bg-dark text-light text-center">
+    <div class="container container-narrow">
+      <h2 class="section-heading text-white">Require Bespoke Powered Shell or Turnkey Specifications?</h2>
+      <p class="section-subtext text-secondary">
+        Our engineering teams collaborate directly with your global infrastructure architects to customize floor loading, power redundancy, and cleanroom standards.
+      </p>
+      <div style="margin-top: 24px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <button class="btn btn-primary btn-lg" data-open-modal="rfpModal" type="button">
+          Submit Institutional RFP / Technical Inquiry
+        </button>
+        <a class="btn btn-outline-light btn-lg" href="tel:+917708887878">
+          Call Executive Desk: +91 77088 87878
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/floating-widget') %>
+<%- include('partials/modal-rfp') %>
+<%- include('partials/footer') %>

@@ -1,0 +1,99 @@
+<!-- ══════════════════════════════════════════════════════════════════════════
+     FLOATING QUICK INQUIRY WIDGET (Present on Every Page)
+     ══════════════════════════════════════════════════════════════════════════ -->
+<div class="floating-contact-wrapper" id="floatingContactWrapper" aria-label="Quick RFP and Inquiry Dock">
+  <!-- Trigger Button -->
+  <button class="floating-trigger-btn" id="floatingTriggerBtn" aria-label="Open Quick RFP Contact Form" type="button">
+    <span class="pulse-indicator"></span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="floating-btn-text">Quick RFP / Inquire</span>
+  </button>
+
+  <!-- Expandable Floating Card -->
+  <div class="floating-inquiry-card" id="floatingInquiryCard" aria-hidden="true">
+    <div class="floating-card-header">
+      <div>
+        <div class="floating-card-title">Quick Institutional Inquiry</div>
+        <div class="floating-card-sub">Response within 2 hours by Executive Team</div>
+      </div>
+      <button class="floating-card-close" id="floatingCloseBtn" aria-label="Close Quick Form" type="button">&times;</button>
+    </div>
+
+    <!-- Quick Autofill Button for Instant Review -->
+    <div style="padding: 10px 18px 0; display:flex; justify-content:flex-end;">
+      <button class="btn-sample-fill" type="button" onclick="fillQuickDemoForm()">
+        <span>⚡ Auto-fill Sample Inquiry</span>
+      </button>
+    </div>
+
+    <form class="floating-form" id="quickInquiryForm" action="/api/inquiry" method="POST">
+      <div class="form-group-compact">
+        <label for="q_name">Full Name *</label>
+        <input type="text" id="q_name" name="name" required placeholder="e.g. Rajesh Sundaram" />
+      </div>
+
+      <div class="form-group-compact">
+        <label for="q_email">Corporate Email *</label>
+        <input type="email" id="q_email" name="email" required placeholder="e.g. rajesh@globaltech.com" />
+      </div>
+
+      <div class="form-group-compact">
+        <label for="q_phone">Phone / Mobile *</label>
+        <input type="tel" id="q_phone" name="phone" required placeholder="e.g. +91 98400 12345" />
+      </div>
+
+      <div class="form-row-compact">
+        <div class="form-group-compact">
+          <label for="q_city">Preferred Location *</label>
+          <select id="q_city" name="location" required>
+            <option value="">Select Hub...</option>
+            <option value="Hosur">Hosur (90+ Acres)</option>
+            <option value="Tirunelveli">Tirunelveli (50+ Acres)</option>
+            <option value="Trichy">Trichy (45+ Acres)</option>
+            <option value="Coimbatore">Coimbatore (85+ Acres)</option>
+            <option value="Madurai">Madurai (75+ Acres)</option>
+            <option value="Pondicherry">Pondicherry (45+ Acres)</option>
+            <option value="Multiple">Multiple South India Hubs</option>
+          </select>
+        </div>
+
+        <div class="form-group-compact">
+          <label for="q_infra">Asset Category *</label>
+          <select id="q_infra" name="category" required>
+            <option value="">Select Asset...</option>
+            <option value="IT Parks">IT Parks &amp; Knowledge City</option>
+            <option value="Hyperscale DC">Hyperscale Data Center (100+ MW)</option>
+            <option value="AI GPU DC">AI-Optimized GPU Center</option>
+            <option value="Convention Hall">Convention &amp; Exhibition Hall</option>
+            <option value="Business Hotel">Business / Convention Hotel</option>
+            <option value="Drone / SpaceTech">Drone / SpaceTech Precision Hub</option>
+            <option value="EV / Robotics">EV &amp; Robotics Gigafactory</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group-compact">
+        <label for="q_message">Requirement Brief / Power / Land Size</label>
+        <textarea id="q_message" name="message" rows="2" placeholder="e.g., 20 MW hyperscale capacity required by Q3 2027 in Hosur / Tirunelveli..."></textarea>
+      </div>
+
+      <button class="btn btn-primary" type="submit" style="width: 100%; justify-content: center; margin-top: 8px;">
+        <span>Submit Instant Inquiry</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <div class="floating-form-status" id="quickFormStatus"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+function fillQuickDemoForm() {
+  document.getElementById('q_name').value = 'Dr. Vikram Malhotra';
+  document.getElementById('q_email').value = 'v.malhotra@cloudscale-global.com';
+  document.getElementById('q_phone').value = '+91 98840 98765';
+  document.getElementById('q_city').value = 'Hosur';
+  document.getElementById('q_infra').value = 'Hyperscale DC';
+  document.getElementById('q_message').value = 'Requesting 30 MW hyperscale powered shell space with 230kV dedicated line hookup and liquid cooling loop in Hosur campus.';
+}
+</script>

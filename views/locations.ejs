@@ -1,0 +1,118 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main id="main-content">
+  <!-- Page Header -->
+  <section class="page-hero-section">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="badge badge-accent">South India Master Footprint</div>
+        <h1 class="page-title">390+ Contiguous Acres Across 6 Strategic Corridors</h1>
+        <p class="page-lead">
+          Direct high-voltage grid connections, dedicated water pipelines, multi-carrier telecom routes, and state-level fast-track statutory facilitation across <strong>Hosur, Tirunelveli, Trichy, Coimbatore, Madurai, and Pondicherry</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Grid -->
+  <section class="section-padded bg-surface">
+    <div class="container">
+      <div class="location-cards-grid">
+        <% locationsData.forEach(loc => { %>
+          <div class="loc-card-detailed">
+            <div class="loc-detail-img" style="background-image: url('<%= loc.image %>');">
+              <span class="loc-acreage-badge"><%= loc.landBank %></span>
+              <span class="loc-state-badge"><%= loc.state %></span>
+            </div>
+
+            <div class="loc-detail-body">
+              <h2 class="loc-city-title"><%= loc.name %></h2>
+              <p class="loc-city-tagline"><%= loc.tagline %></p>
+              <p class="loc-city-overview"><%= loc.overview %></p>
+
+              <!-- Technical Matrix -->
+              <div class="loc-matrix-box">
+                <div class="matrix-row">
+                  <span class="m-label">⚡ Substation:</span>
+                  <span class="m-val"><%= loc.technicalSpecs.power %></span>
+                </div>
+                <div class="matrix-row">
+                  <span class="m-label">💧 Water Supply:</span>
+                  <span class="m-val"><%= loc.technicalSpecs.water %></span>
+                </div>
+                <div class="matrix-row">
+                  <span class="m-label">🌐 Optical Fiber:</span>
+                  <span class="m-val"><%= loc.technicalSpecs.fiber %></span>
+                </div>
+                <div class="matrix-row">
+                  <span class="m-label">📑 Statutory Zoning:</span>
+                  <span class="m-val"><%= loc.technicalSpecs.zoning %></span>
+                </div>
+              </div>
+
+              <!-- Focus Badges -->
+              <div class="loc-focus-list">
+                <% loc.infrastructureFocus.forEach(f => { %>
+                  <span class="focus-pill"><%= f %></span>
+                <% }); %>
+              </div>
+
+              <div class="loc-actions-bar">
+                <a class="btn btn-primary" href="/locations/<%= loc.slug %>">
+                  <span>View <%= loc.name %> Campus Dossier</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <button class="btn btn-outline" data-open-modal="rfpModal" type="button">
+                  <span>Request Site Survey (PDF)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regional Comparison Matrix -->
+  <section class="section-padded bg-warm">
+    <div class="container">
+      <div class="section-header-block">
+        <div class="badge badge-primary">Comparative Analysis</div>
+        <h2 class="section-heading">South India Hubs Technical Matrix</h2>
+        <p class="section-subtext">Side-by-side engineering, power, and logistics comparison for institutional site selection committees.</p>
+      </div>
+
+      <div class="table-responsive-wrapper">
+        <table class="enterprise-table">
+          <thead>
+            <tr>
+              <th>Hub City</th>
+              <th>Acreage</th>
+              <th>Grid Substation Hookup</th>
+              <th>Power Scalability</th>
+              <th>Airport Logistics</th>
+              <th>Primary Industrial / Tech Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% locationsData.forEach(loc => { %>
+              <tr>
+                <td><strong><%= loc.name %></strong> (<%= loc.state %>)</td>
+                <td><span class="badge badge-accent"><%= loc.landBank %></span></td>
+                <td><%= loc.substation %></td>
+                <td><strong><%= loc.powerCapacity %></strong></td>
+                <td><%= loc.airportDistance %></td>
+                <td><%= loc.infrastructureFocus.slice(0, 2).join(", ") %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/floating-widget') %>
+<%- include('partials/modal-rfp') %>
+<%- include('partials/footer') %>

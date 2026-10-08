@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "compression": "^1.7.4",
+    "ejs": "^7.0.1",
     "express": "^4.19.2",
     "lucide-react": "^1.52.0",
     "react": "^19.3.0",

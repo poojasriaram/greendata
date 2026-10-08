@@ -1,0 +1,373 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main id="main-content">
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       HERO SECTION — INSTITUTIONAL DIGITAL & COMMERCIAL INFRASTRUCTURE
+       ══════════════════════════════════════════════════════════════════════════ -->
+  <section class="hero-section" aria-labelledby="heroTitle">
+    <div class="hero-bg-overlay" aria-hidden="true"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge-row">
+          <span class="badge badge-accent">South India Platform &bull; 390+ Verified Acres</span>
+          <span class="badge badge-outline">Ref: DC-ITP-TN/JV/2026/001</span>
+        </div>
+
+        <h1 class="hero-title" id="heroTitle">
+          Strategic Institutional Infrastructure Platform for <span class="text-gradient">Data Centers, IT Parks &amp; Precision Industry</span>
+        </h1>
+
+        <p class="hero-lead">
+          GreenNext Technologies develops master-planned, Grade-A, institutional ecosystems across <strong>Hosur, Tirunelveli, Trichy, Coimbatore, Madurai, and Pondicherry</strong>. Engineered for 100+ MW Hyperscale Data Centers, AI Supercomputing clusters, Global Capability Centers, Convention Halls, and Precision Aerospace/EV Manufacturing.
+        </p>
+
+        <!-- KPI Metrics Grid -->
+        <div class="hero-kpi-grid">
+          <div class="hero-kpi-card">
+            <span class="kpi-num">390+</span>
+            <span class="kpi-label">Verified Acres Contiguous</span>
+          </div>
+          <div class="hero-kpi-card">
+            <span class="kpi-num">350+ MW</span>
+            <span class="kpi-label">Substation Power Grid Hookups</span>
+          </div>
+          <div class="hero-kpi-card">
+            <span class="kpi-num">6 Key</span>
+            <span class="kpi-label">Strategic South India Hubs</span>
+          </div>
+          <div class="hero-kpi-card">
+            <span class="kpi-num">100% Green</span>
+            <span class="kpi-label">Renewable Energy Direct Access</span>
+          </div>
+        </div>
+
+        <!-- Primary CTA Buttons -->
+        <div class="hero-actions-row">
+          <button class="btn btn-primary btn-lg" data-open-modal="rfpModal" type="button">
+            <span>Submit Institutional RFP</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+
+          <a class="btn btn-secondary btn-lg" href="#infrastructure">
+            <span>Explore Infrastructure Pillars</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+
+          <a class="btn btn-quiet" href="#locations">
+            <span>View South India Map ↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       SECTION 2: FIVE NON-RESIDENTIAL INFRASTRUCTURE PILLARS
+       ══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section-padded bg-surface" id="infrastructure">
+    <div class="container">
+      <div class="section-header-block">
+        <div class="badge badge-primary">Institutional Core Verticals</div>
+        <h2 class="section-heading">Engineered for Hyperscale, Enterprise &amp; High-Tech Industry</h2>
+        <p class="section-subtext">
+          Strictly commercial, digital, and precision industrial infrastructure. No residential developments. Every asset class is designed to meet international institutional benchmarks (Brookfield, Embassy, Uptime Tier III/IV, IGBC Platinum).
+        </p>
+      </div>
+
+      <div class="infra-cards-grid">
+        <% infrastructureCategories.forEach(category => { %>
+          <div class="infra-pillar-card">
+            <div class="pillar-card-img" style="background-image: url('<%= category.heroImage %>');">
+              <span class="pillar-badge"><%= category.badge %></span>
+            </div>
+            <div class="pillar-card-body">
+              <h3 class="pillar-title"><%= category.title %></h3>
+              <p class="pillar-subtitle"><%= category.subtitle %></p>
+              <p class="pillar-desc"><%= category.overview %></p>
+
+              <div class="pillar-sublist">
+                <% category.subcategories.forEach(sub => { %>
+                  <div class="pillar-subitem">
+                    <strong>&bull; <%= sub.title %>:</strong> <%= sub.tagline %>
+                  </div>
+                <% }); %>
+              </div>
+
+              <div class="pillar-footer">
+                <a class="btn btn-outline btn-sm" href="/infrastructure/<%= category.slug %>">
+                  <span>View Specifications &amp; Schematics</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       SECTION 3: SOUTH INDIA STRATEGIC REGIONAL FOOTPRINT
+       ══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section-padded bg-dark" id="locations">
+    <div class="container">
+      <div class="section-header-block text-light">
+        <div class="badge badge-accent">Regional Strategic Footprint</div>
+        <h2 class="section-heading text-white">6 Prime Institutional Corridors Across South India</h2>
+        <p class="section-subtext text-secondary">
+          High-voltage substation connectivity, dedicated water reservoirs, multi-carrier fiber conduits, and single-window clearance ready across 390+ contiguous acres.
+        </p>
+      </div>
+
+      <div class="location-cards-grid">
+        <% locationsData.forEach(loc => { %>
+          <div class="loc-card">
+            <div class="loc-card-header">
+              <div class="loc-city-name"><%= loc.name %></div>
+              <div class="loc-land-badge"><%= loc.landBank %></div>
+            </div>
+            <div class="loc-tagline"><%= loc.tagline %></div>
+
+            <div class="loc-specs-list">
+              <div class="loc-spec-row">
+                <span class="spec-label">Power Substation:</span>
+                <span class="spec-val"><%= loc.substation %> (<%= loc.powerCapacity %>)</span>
+              </div>
+              <div class="loc-spec-row">
+                <span class="spec-label">Airport Distance:</span>
+                <span class="spec-val"><%= loc.airportDistance %></span>
+              </div>
+              <div class="loc-spec-row">
+                <span class="spec-label">Connectivity:</span>
+                <span class="spec-val"><%= loc.connectivity %></span>
+              </div>
+            </div>
+
+            <div class="loc-focus-tags">
+              <% loc.infrastructureFocus.forEach(focus => { %>
+                <span class="loc-tag"><%= focus %></span>
+              <% }); %>
+            </div>
+
+            <div class="loc-card-action">
+              <a class="btn btn-outline-light btn-sm" href="/locations/<%= loc.slug %>">
+                <span>Explore <%= loc.name %> Campus Dossier</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       SECTION 4: INSTITUTIONAL DELIVERY & INVESTMENT MODELS
+       ══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section-padded bg-warm" id="solutions">
+    <div class="container">
+      <div class="section-header-block">
+        <div class="badge badge-primary">Enterprise Commercial Models</div>
+        <h2 class="section-heading">Flexible Asset Delivery &amp; Institutional Co-Development</h2>
+        <p class="section-subtext">
+          Tailored to international hyperscalers, multinational enterprise occupiers, Fortune 500 manufacturers, and sovereign private equity funds.
+        </p>
+      </div>
+
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <div class="solution-icon">⚡</div>
+          <h3 class="solution-title">Powered Shell Delivery</h3>
+          <p class="solution-desc">High-voltage substation energized (230kV/110kV), dual-fiber telecommunication entrance vaults, structural floor plate ready for hyperscale tenant fit-out.</p>
+          <ul class="solution-list">
+            <li>Substation energized prior to hand-off</li>
+            <li>Zero latency on grid permits and utility approvals</li>
+            <li>Ideal for Global Cloud Hyperscalers and GPU Clusters</li>
+          </ul>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon">🏗️</div>
+          <h3 class="solution-title">Turnkey Build-to-Suit (BTS)</h3>
+          <p class="solution-desc">Full lifecycle design, engineering, construction, and certification executed to client's bespoke global architectural and MEP specifications.</p>
+          <ul class="solution-list">
+            <li>Fixed-price, guaranteed-completion timeline</li>
+            <li>Custom floor loadings, cleanrooms &amp; vibration isolation</li>
+            <li>Ideal for EV Gigafactories, Aerospace &amp; GCC Campuses</li>
+          </ul>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon">🏢</div>
+          <h3 class="solution-title">Colocation &amp; Commercial Leasing</h3>
+          <p class="solution-desc">Plug-and-play Grade-A IT park office suites and Tier-III data hall wholesale colocation suites ready for immediate technical deployment.</p>
+          <ul class="solution-list">
+            <li>Flexible 3 to 15-year institutional lease structures</li>
+            <li>Managed 24/7 technical facility management</li>
+            <li>Ideal for FinTech, SaaS &amp; Enterprise Corporate Offices</li>
+          </ul>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon">🤝</div>
+          <h3 class="solution-title">Joint Venture &amp; Co-Investment</h3>
+          <p class="solution-desc">Structured joint development frameworks with institutional global private equity, sovereign funds, and strategic master land-owners.</p>
+          <ul class="solution-list">
+            <li>Clear title, single-SPV development vehicle</li>
+            <li>Transparent governance and institutional reporting</li>
+            <li>Direct alignment with institutional ROI hurdles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       SECTION 5: INTERACTIVE SITE & POWER MATCHER / RFP TRIGGER
+       ══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section-padded bg-surface" id="site-matcher">
+    <div class="container">
+      <div class="site-matcher-container">
+        <div class="matcher-header">
+          <div class="badge badge-accent">Interactive Platform Evaluator</div>
+          <h2 class="matcher-title">Match Your Infrastructure Requirements in South India</h2>
+          <p class="matcher-subtitle">Select your asset type, target MW power, and footprint to identify the optimal GreenNext campus immediately.</p>
+        </div>
+
+        <div class="matcher-form-box">
+          <div class="matcher-grid">
+            <div class="form-group">
+              <label>Select Asset Requirement:</label>
+              <select id="m_asset" onchange="evaluateCampusMatch()">
+                <option value="dc_hyperscale">100+ MW Hyperscale / AI Data Center</option>
+                <option value="it_park">Grade-A IT Park / Knowledge City</option>
+                <option value="ev_factory">EV &amp; Battery Manufacturing Plant</option>
+                <option value="precision_drone">Drone &amp; Aerospace Precision Hub</option>
+                <option value="convention_hotel">Convention Center &amp; Business Hotel</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Power Requirement (MW):</label>
+              <select id="m_power" onchange="evaluateCampusMatch()">
+                <option value="10">10 MW – 30 MW</option>
+                <option value="50">50 MW – 80 MW</option>
+                <option value="100">100+ MW Hyperscale</option>
+                <option value="grid">Standard Commercial Grid</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Target Land / Built Footprint:</label>
+              <select id="m_footprint" onchange="evaluateCampusMatch()">
+                <option value="20">10–25 Acres</option>
+                <option value="50">40–60 Acres</option>
+                <option value="85">75–90+ Acres</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic Result Recommendation -->
+          <div class="matcher-result-card" id="matcherResultCard">
+            <div class="result-top">
+              <div class="result-match-badge">Recommended Flagship Match: <strong id="recCity">Hosur &amp; Tirunelveli</strong></div>
+              <div class="result-power-avail">Power Hookup: <strong id="recPower">230kV / 400kV Direct GIS</strong></div>
+            </div>
+            <p class="result-text" id="recText">
+              Based on high-power scalability and contiguous acreage, our <strong>Hosur</strong> and <strong>Tirunelveli</strong> campuses provide optimal multi-hundred MW green power and single-window industrial clearances.
+            </p>
+            <div class="result-actions">
+              <button class="btn btn-primary btn-sm" data-open-modal="rfpModal" type="button">
+                <span>Download Campus Feasibility Report (PDF)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       SECTION 6: FREQUENTLY ASKED INSTITUTIONAL QUESTIONS
+       ══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section-padded bg-warm">
+    <div class="container container-narrow">
+      <div class="section-header-block">
+        <div class="badge badge-primary">Institutional FAQ</div>
+        <h2 class="section-heading">Frequently Addressed Inquiries</h2>
+        <p class="section-subtext">Key statutory, electrical, land title, and operational details for institutional committees.</p>
+      </div>
+
+      <div class="faq-accordion-list">
+        <details class="faq-item" open>
+          <summary class="faq-question">
+            <span>What is the land title and statutory zoning status across the 390+ acres?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            All 390+ acres across Hosur, Tirunelveli, Trichy, Coimbatore, Madurai, and Pondicherry are 100% verified, clear-title, litigation-free land parcels. They hold approved IT/ITES, Commercial, and Industrial zoning with single-window fast-track facilitation from Guidance Tamil Nadu and SIPCOT.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>How is high-voltage power delivered and what renewable energy sourcing is available?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            Each campus features dedicated direct grid hookups (110kV, 230kV, up to 400kV in Tirunelveli). Through Tamil Nadu's green open-access policy and direct captive solar/wind PPAs, occupiers can achieve 100% renewable power matching with Tier III/IV N+N electrical reliability.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Are residential buildings included in the master plans?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            No. GreenNext Technologies is strictly focused on commercial, digital, and precision industrial infrastructure: IT Parks, Knowledge Cities, Hyperscale Data Centers, Convention & Exhibition Halls, Non-Residential Corporate Business Hotels, and Advanced Manufacturing complexes.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What are the next steps to conduct a technical site due diligence inspection?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            Institutional investment teams, cloud providers, and enterprise tenants can submit an RFP or contact our executive desk at +91 77088 87878 to execute a mutual NDA, receive complete technical dossiers, and schedule private on-site inspection delegations.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+function evaluateCampusMatch() {
+  const asset = document.getElementById('m_asset').value;
+  const power = document.getElementById('m_power').value;
+  const recCity = document.getElementById('recCity');
+  const recPower = document.getElementById('recPower');
+  const recText = document.getElementById('recText');
+
+  if (asset === 'dc_hyperscale' || power === '100') {
+    recCity.textContent = 'Tirunelveli & Hosur (100+ MW Hubs)';
+    recPower.textContent = '400kV / 230kV Direct GIS Substation';
+    recText.textContent = 'Tirunelveli and Hosur provide optimal massive power allocations with direct 100% green renewable corridor access and heavy soil loading for AI GPU clusters.';
+  } else if (asset === 'it_park' || asset === 'convention_hotel') {
+    recCity.textContent = 'Trichy & Coimbatore Flagship Hubs';
+    recPower.textContent = '230kV Dual Grid & 100% Captive Solar';
+    recText.textContent = 'Trichy and Coimbatore campuses integrate Grade-A software towers, global connectivity to international airports, and 5,000-delegate convention facilities.';
+  } else if (asset === 'ev_factory' || asset === 'precision_drone') {
+    recCity.textContent = 'Hosur & Coimbatore Precision Engineering Hubs';
+    recPower.textContent = '230kV Industrial Substation + High Floor Load';
+    recText.textContent = 'Hosur (near Bengaluru border) and Coimbatore offer the highest concentration of aerospace tooling, EV supply chains, and mechatronics engineering talent.';
+  }
+}
+</script>
+
+<%- include('partials/floating-widget') %>
+<%- include('partials/modal-rfp') %>
+<%- include('partials/footer') %>

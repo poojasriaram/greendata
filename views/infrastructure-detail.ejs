@@ -1,0 +1,92 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main id="main-content">
+  <!-- Detail Hero -->
+  <section class="page-hero-section" style="background: linear-gradient(rgba(11, 41, 37, 0.85), rgba(7, 29, 26, 0.95)), url('<%= category.heroImage %>') center/cover no-repeat;">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="badge badge-accent"><%= category.badge %></div>
+        <h1 class="page-title"><%= category.title %></h1>
+        <p class="page-lead"><%= category.subtitle %></p>
+
+        <div class="infra-stats-row" style="margin-top: 24px;">
+          <% Object.entries(category.stats).forEach(([key, val]) => { %>
+            <div class="infra-stat-pill" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color:#fff;">
+              <strong style="color: var(--c-accent-mint);"><%= val %></strong>
+              <span style="color: #cbd7d1;"><%= key.replace(/([A-Z])/g, ' $1').toLowerCase() %></span>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive Content -->
+  <section class="section-padded bg-surface">
+    <div class="container">
+      <div class="section-header-block">
+        <h2 class="section-heading">Architectural &amp; Engineering Specifications</h2>
+        <p class="section-subtext"><%= category.overview %></p>
+      </div>
+
+      <div class="subcategories-detail-list">
+        <% category.subcategories.forEach((sub, i) => { %>
+          <div class="subcat-detail-card" id="subcat-<%= i %>">
+            <div class="subcat-detail-header">
+              <span class="subcat-num">0<%= i + 1 %></span>
+              <div>
+                <h3 class="subcat-detail-title"><%= sub.title %></h3>
+                <p class="subcat-detail-tagline"><%= sub.tagline %></p>
+              </div>
+            </div>
+
+            <p class="subcat-detail-desc"><%= sub.description %></p>
+
+            <div class="subcat-columns-grid">
+              <div class="subcat-col">
+                <h4 class="subcat-col-title">Key Engineering Features</h4>
+                <ul class="subcat-bullet-list">
+                  <% sub.features.forEach(f => { %>
+                    <li>&check; <%= f %></li>
+                  <% }); %>
+                </ul>
+              </div>
+
+              <div class="subcat-col">
+                <h4 class="subcat-col-title">Ideal Target Occupiers</h4>
+                <ul class="subcat-ideal-list">
+                  <% sub.idealFor.forEach(item => { %>
+                    <li><span class="dot"></span> <%= item %></li>
+                  <% }); %>
+                </ul>
+              </div>
+            </div>
+
+            <div class="subcat-action-bar">
+              <button class="btn btn-primary btn-sm" data-open-modal="rfpModal" type="button">
+                <span>Request <%= sub.title %> Spec Sheet (PDF)</span>
+              </button>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Action Bar -->
+  <section class="section-padded bg-warm">
+    <div class="container container-narrow text-center">
+      <h3 class="section-heading">Deploy Your <%= category.title %> in South India</h3>
+      <p class="section-subtext">Campuses available across Hosur, Tirunelveli, Trichy, Coimbatore, Madurai, and Pondicherry with pre-approved statutory clearances.</p>
+      <div style="margin-top: 20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <button class="btn btn-primary" data-open-modal="rfpModal" type="button">Submit Institutional RFP</button>
+        <a class="btn btn-secondary" href="/locations">View Available Campus Locations</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/floating-widget') %>
+<%- include('partials/modal-rfp') %>
+<%- include('partials/footer') %>

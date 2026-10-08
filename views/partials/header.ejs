@@ -1,0 +1,237 @@
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       TOP ENTERPRISE UTILITY BAR (Embassy & Brookfield Benchmark Quality)
+       ══════════════════════════════════════════════════════════════════════════ -->
+  <div class="top-utility-bar" aria-label="Quick Access Utility Bar">
+    <div class="container">
+      <div class="utility-inner">
+        <div class="utility-left">
+          <span class="utility-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Tier III / IV, IGBC Platinum &amp; ISO Compliant Standards</span>
+          </span>
+          <span class="utility-item" style="color: var(--c-accent-mint);">
+            <span>Ref: <strong>DC-ITP-TN/JV/2026/001</strong></span>
+          </span>
+          <span class="utility-item">
+            <span>South India Hubs: <strong>Hosur • Tirunelveli • Trichy • Coimbatore • Madurai • Pondicherry</strong></span>
+          </span>
+        </div>
+        <div class="utility-right">
+          <a class="utility-item" href="tel:+917708887878" style="color: inherit; text-decoration: none; font-weight:600; display:inline-flex; align-items:center; gap:6px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+91 77088 87878</span>
+          </a>
+          <button class="btn-quiet utility-item" data-open-modal="rfpModal" type="button" style="color: var(--c-accent-mint); font-weight:700; cursor:pointer;">
+            <span>Request Institutional Dossier (PDF) ↓</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       MAIN ENTERPRISE HEADER
+       ══════════════════════════════════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Brand Logo -->
+        <a class="brand-logo" href="/" aria-label="GreenNext Technologies - Homepage">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="8" fill="#123B35"/>
+              <path d="M9 11v-2h2M21 9h2v2M23 21v2h-2M11 23H9v-2" stroke="#6BC7A7" stroke-width="1.8" stroke-linecap="round"/>
+              <rect x="13" y="13" width="6" height="6" fill="#6BC7A7"/>
+            </svg>
+          </span>
+          <span class="logo-text">
+            <span class="logo-name">GreenNext</span>
+            <span class="logo-tag">Technologies</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="main-nav" aria-label="Primary Navigation">
+          <ul class="nav-list">
+            <li class="nav-item has-dropdown">
+              <a class="nav-link <%= currentPath.startsWith('/infrastructure') ? 'active' : '' %>" href="/infrastructure">
+                Infrastructure
+                <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </a>
+              <div class="mega-dropdown">
+                <div class="dropdown-grid">
+                  <a class="dropdown-card" href="/infrastructure/it-parks-knowledge-cities">
+                    <div class="dropdown-card-icon">🏢</div>
+                    <div>
+                      <strong>IT &amp; Knowledge Parks</strong>
+                      <p>Campuses, R&amp;D Centers &amp; GCC Hubs</p>
+                    </div>
+                  </a>
+                  <a class="dropdown-card" href="/infrastructure/hyperscale-data-centers">
+                    <div class="dropdown-card-icon">⚡</div>
+                    <div>
+                      <strong>Hyperscale &amp; AI Data Centers</strong>
+                      <p>100+ MW, Liquid Cooled, GPU Ready</p>
+                    </div>
+                  </a>
+                  <a class="dropdown-card" href="/infrastructure/convention-event-spaces">
+                    <div class="dropdown-card-icon">🎤</div>
+                    <div>
+                      <strong>Convention &amp; Event Halls</strong>
+                      <p>Exhibition Centers &amp; Auditoriums</p>
+                    </div>
+                  </a>
+                  <a class="dropdown-card" href="/infrastructure/corporate-hospitality">
+                    <div class="dropdown-card-icon">🏨</div>
+                    <div>
+                      <strong>Corporate Hospitality</strong>
+                      <p>Business Hotels &amp; Executive Suites (Non-Res)</p>
+                    </div>
+                  </a>
+                  <a class="dropdown-card" href="/infrastructure/precision-industrial">
+                    <div class="dropdown-card-icon">🏭</div>
+                    <div>
+                      <strong>Precision Industrial &amp; Hi-Tech</strong>
+                      <p>Drones, EV Plants, Robotics &amp; SpaceTech</p>
+                    </div>
+                  </a>
+                  <a class="dropdown-card view-all" href="/infrastructure">
+                    <div class="dropdown-card-icon">↗</div>
+                    <div>
+                      <strong>View Complete Catalog</strong>
+                      <p>Comprehensive Technical Matrices</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item has-dropdown">
+              <a class="nav-link <%= currentPath.startsWith('/locations') ? 'active' : '' %>" href="/locations">
+                Locations
+                <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </a>
+              <div class="mega-dropdown locations-dropdown">
+                <div class="dropdown-grid">
+                  <a class="dropdown-card" href="/locations/hosur">
+                    <div class="dropdown-card-icon">📍</div>
+                    <div>
+                      <strong>Hosur (90+ Acres)</strong>
+                      <p>Bengaluru Border EV &amp; Robotics Hub</p>
+                    </div>
+                  </a>
+                  <a class="dropdown-card" href="/locations/tirunelveli">
+                    <div class="dropdown-card-icon">⚡</div>
+                    <div>
+                      <strong>Tirunelveli (50+ Acres)</strong>
+                      <p>100% Green AI Data Center Haven</p>
+                    </div>
+                  </a>
+                  <a class="dropdown-card" href="/locations/trichy">
+                    <div class="dropdown-card-icon">🏛️</div>
+                    <div>
+                      <strong>Trichy (45+ Acres)</strong>
+                      <p>Central TN Knowledge City &amp; Convention</p>
+                    </div>
+                  </a>
+                  <a class="dropdown-card" href="/locations/coimbatore">
+                    <div class="dropdown-card-icon">⚙️</div>
+                    <div>
+                      <strong>Coimbatore (85+ Acres)</strong>
+                      <p>Engineering Capital &amp; DeepTech Ecosystem</p>
+                    </div>
+                  </a>
+                  <a class="dropdown-card" href="/locations/madurai">
+                    <div class="dropdown-card-icon">💼</div>
+                    <div>
+                      <strong>Madurai (75+ Acres)</strong>
+                      <p>South TN IT/Fintech Mega Park</p>
+                    </div>
+                  </a>
+                  <a class="dropdown-card" href="/locations/pondicherry">
+                    <div class="dropdown-card-icon">🌊</div>
+                    <div>
+                      <strong>Pondicherry (45+ Acres)</strong>
+                      <p>Coastal AI Edge Haven &amp; Innovation District</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link <%= currentPath === '/solutions' ? 'active' : '' %>" href="/solutions">Delivery Models</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link <%= currentPath === '/partnership' ? 'active' : '' %>" href="/partnership">Partnerships &amp; JV</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link <%= currentPath === '/contact' ? 'active' : '' %>" href="/contact">RFP &amp; Contact</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link <%= currentPath === '/audit' ? 'active' : '' %>" href="/audit" style="color: var(--c-accent-mint); font-weight:700;">Audit &amp; AI Prompts</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <button class="btn btn-primary btn-sm" data-open-modal="rfpModal" type="button">
+            <span>Submit RFP / Schedule Visit</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          
+          <!-- Mobile Menu Toggle Button -->
+          <button class="mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" id="mobileMenuBtn" type="button">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+      <div class="mobile-nav-inner">
+        <div class="mobile-nav-group">
+          <span class="mobile-nav-title">Infrastructure</span>
+          <a class="mobile-nav-link" href="/infrastructure/it-parks-knowledge-cities">🏢 IT &amp; Knowledge Parks</a>
+          <a class="mobile-nav-link" href="/infrastructure/hyperscale-data-centers">⚡ Hyperscale &amp; AI Data Centers</a>
+          <a class="mobile-nav-link" href="/infrastructure/convention-event-spaces">🎤 Convention &amp; Event Halls</a>
+          <a class="mobile-nav-link" href="/infrastructure/corporate-hospitality">🏨 Corporate Hospitality (Non-Res)</a>
+          <a class="mobile-nav-link" href="/infrastructure/precision-industrial">🏭 Precision Industrial &amp; Hi-Tech</a>
+        </div>
+
+        <div class="mobile-nav-group">
+          <span class="mobile-nav-title">South India Locations</span>
+          <a class="mobile-nav-link" href="/locations/hosur">📍 Hosur (90+ Acres)</a>
+          <a class="mobile-nav-link" href="/locations/tirunelveli">⚡ Tirunelveli (50+ Acres)</a>
+          <a class="mobile-nav-link" href="/locations/trichy">🏛️ Trichy (45+ Acres)</a>
+          <a class="mobile-nav-link" href="/locations/coimbatore">⚙️ Coimbatore (85+ Acres)</a>
+          <a class="mobile-nav-link" href="/locations/madurai">💼 Madurai (75+ Acres)</a>
+          <a class="mobile-nav-link" href="/locations/pondicherry">🌊 Pondicherry (45+ Acres)</a>
+        </div>
+
+        <div class="mobile-nav-group">
+          <span class="mobile-nav-title">Company &amp; Delivery</span>
+          <a class="mobile-nav-link" href="/solutions">Delivery Models (Turnkey / BTS / Shell)</a>
+          <a class="mobile-nav-link" href="/partnership">Partnership &amp; Institutional Co-Dev</a>
+          <a class="mobile-nav-link" href="/contact">RFP &amp; Campus Tour Portal</a>
+          <a class="mobile-nav-link" href="/audit">Technical Audit &amp; AI Prompts</a>
+        </div>
+
+        <div class="mobile-nav-actions" style="margin-top: 24px;">
+          <button class="btn btn-primary" data-open-modal="rfpModal" style="width: 100%; justify-content: center;" type="button">
+            Submit RFP / Schedule Tour
+          </button>
+          <a class="btn btn-secondary" href="tel:+917708887878" style="width: 100%; justify-content: center; margin-top: 10px;">
+            Call Advisory: +91 77088 87878
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
