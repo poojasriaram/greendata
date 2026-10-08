@@ -3,15 +3,16 @@
 // ══════════════════════════════════════════════════════════════════════════
 
 export function initHeroSlider() {
-  const slider = document.querySelector('.hero-slider');
-  if (!slider) return;
+  const wrapper = document.querySelector('.hero-slider-wrapper');
+  if (!wrapper) return;
 
-  const slides = slider.querySelectorAll('.hero-slide');
-  const dotsContainer = slider.querySelector('.hero-slider-dots');
-  const prevBtn = slider.querySelector('.hero-slide-prev');
-  const nextBtn = slider.querySelector('.hero-slide-next');
-  const counterCurrent = slider.querySelector('.hero-counter-current');
-  const counterTotal = slider.querySelector('.hero-counter-total');
+  const slider = wrapper.querySelector('.hero-slider') || wrapper;
+  const slides = wrapper.querySelectorAll('.hero-slide');
+  const dotsContainer = wrapper.querySelector('.hero-slider-dots');
+  const prevBtn = wrapper.querySelector('.hero-slide-prev');
+  const nextBtn = wrapper.querySelector('.hero-slide-next');
+  const counterCurrent = wrapper.querySelector('.hero-counter-current');
+  const counterTotal = wrapper.querySelector('.hero-counter-total');
 
   if (!slides.length) return;
 
