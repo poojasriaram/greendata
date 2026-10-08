@@ -1,93 +1,181 @@
+
 <%- include('partials/head') %>
-<%- include('partials/header') %>
-
-<main id="main-content">
-  <!-- Page Header -->
-  <section class="page-hero-section">
-    <div class="container">
-      <div class="page-hero-content">
-        <div class="badge badge-accent">Infrastructure Portfolio</div>
-        <h1 class="page-title">Grade-A Commercial, Digital &amp; Precision Industrial Infrastructure</h1>
-        <p class="page-lead">
-          Master-planned, high-power, sustainable physical environments engineered strictly for enterprise, hyperscale compute, and precision manufacturing. Zero residential developments.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Categories List -->
-  <section class="section-padded bg-surface">
-    <div class="container">
-      <% infrastructureCategories.forEach((cat, index) => { %>
-        <div class="infra-category-block <%= index % 2 === 1 ? 'reverse' : '' %>" id="<%= cat.id %>">
-          <div class="infra-block-image" style="background-image: url('<%= cat.heroImage %>');">
-            <span class="pillar-badge"><%= cat.badge %></span>
+<body id="top">
+  <%- include('partials/header') %>
+  <main id="main-content" role="main">
+    
+    <!-- Subpage Hero -->
+    <section class="hero-section" style="padding: clamp(4rem, 6vw, 6rem) 0; background: linear-gradient(135deg, var(--c-dark-green) 0%, #071D1A 100%); color: #fff;">
+      <div class="container">
+        <div style="max-width: 860px;">
+          <div class="hero-badge" style="background: rgba(107, 199, 167, 0.15); color: var(--c-accent-mint); border: 1px solid rgba(107, 199, 167, 0.3);">
+            <span>NON-RESIDENTIAL PORTFOLIO</span>
           </div>
-          <div class="infra-block-content">
-            <div class="badge badge-primary"><%= cat.badge %></div>
-            <h2 class="infra-block-title"><%= cat.title %></h2>
-            <p class="infra-block-subtitle"><%= cat.subtitle %></p>
-            <p class="infra-block-overview"><%= cat.overview %></p>
-
-            <!-- Stats Bar -->
-            <div class="infra-stats-row">
-              <% Object.entries(cat.stats).forEach(([key, val]) => { %>
-                <div class="infra-stat-pill">
-                  <strong><%= val %></strong>
-                  <span><%= key.replace(/([A-Z])/g, ' $1').toLowerCase() %></span>
-                </div>
-              <% }); %>
-            </div>
-
-            <!-- Subcategories Preview -->
-            <div class="infra-subcategories-grid">
-              <% cat.subcategories.forEach(sub => { %>
-                <div class="subcat-card">
-                  <h4 class="subcat-title"><%= sub.title %></h4>
-                  <p class="subcat-desc"><%= sub.description %></p>
-                  <ul class="subcat-features">
-                    <% sub.features.slice(0, 2).forEach(f => { %>
-                      <li>&check; <%= f %></li>
-                    <% }); %>
-                  </ul>
-                </div>
-              <% }); %>
-            </div>
-
-            <div class="infra-block-actions">
-              <a class="btn btn-primary" href="/infrastructure/<%= cat.slug %>">
-                <span>View Full <%= cat.title %> Schematics &amp; Specs</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </a>
-              <button class="btn btn-outline" data-open-modal="rfpModal" type="button">
-                <span>Request Detailed Technical Dossier</span>
-              </button>
-            </div>
+          <h1 style="font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.2rem); color: #fff; line-height: 1.1; margin-bottom: 20px;">
+            5 Core Institutional <em>Asset Verticals</em>.
+          </h1>
+          <p style="color: #DDEBE4; font-size: clamp(1.1rem, 1.3vw, 1.25rem); line-height: 1.6; margin-bottom: 24px;">
+            Engineered exclusively for Grade-A commercial real estate, 100+ MW hyperscale compute, international conventions, corporate hospitality, and high-load precision manufacturing across South India.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="#cluster-it" class="btn btn-secondary btn-sm">01. IT Parks</a>
+            <a href="#cluster-dc" class="btn btn-secondary btn-sm">02. Data Centers</a>
+            <a href="#cluster-convention" class="btn btn-secondary btn-sm">03. Convention</a>
+            <a href="#cluster-hotel" class="btn btn-secondary btn-sm">04. Hospitality</a>
+            <a href="#cluster-mfg" class="btn btn-secondary btn-sm">05. Precision Mfg</a>
           </div>
         </div>
-      <% }); %>
-    </div>
-  </section>
-
-  <!-- CTA Banner -->
-  <section class="section-padded bg-dark text-light text-center">
-    <div class="container container-narrow">
-      <h2 class="section-heading text-white">Require Bespoke Powered Shell or Turnkey Specifications?</h2>
-      <p class="section-subtext text-secondary">
-        Our engineering teams collaborate directly with your global infrastructure architects to customize floor loading, power redundancy, and cleanroom standards.
-      </p>
-      <div style="margin-top: 24px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-        <button class="btn btn-primary btn-lg" data-open-modal="rfpModal" type="button">
-          Submit Institutional RFP / Technical Inquiry
-        </button>
-        <a class="btn btn-outline-light btn-lg" href="tel:+917708887878">
-          Call Executive Desk: +91 77088 87878
-        </a>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<%- include('partials/floating-widget') %>
-<%- include('partials/modal-rfp') %>
-<%- include('partials/footer') %>
+    <!-- Sub-Vertical 01: IT & Knowledge Infrastructure -->
+    <section class="section section-bordered" id="cluster-it">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <div style="font-family:var(--font-mono); color:var(--c-evergreen); font-weight:700; margin-bottom:10px;">CLUSTER 01</div>
+            <h2 style="font-size:2.4rem; margin-bottom:16px;">IT &amp; Knowledge Infrastructure</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Master-planned technology campuses and knowledge cities engineered for Fortune 500 GCCs, software development centers, and research universities. Built with 4.2m ceiling clear heights, smart building management, and dual-substation power redundancy.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>LEED Platinum</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">IGBC certified green building standards.</p>
+              </div>
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>2N Power Redundancy</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">100% uninterrupted DG backup systems.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Submit IT Park EOI / RFP →</a>
+          </div>
+          <div>
+            <img src="/images/it_park_knowledge_city_1791444121901.jpg" alt="Grade-A IT Park" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sub-Vertical 02: Hyperscale & AI Data Centers -->
+    <section class="section" id="cluster-dc" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+          <div>
+            <img src="/images/hyperscale_data_center_1791444139983.jpg" alt="Hyperscale AI Data Center" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono); color:var(--c-evergreen); font-weight:700; margin-bottom:10px;">CLUSTER 02</div>
+            <h2 style="font-size:2.4rem; margin-bottom:16px;">100+ MW Hyperscale &amp; AI Data Centers</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              High-density liquid-cooled computing campuses powered by dedicated 230kV/110kV substations, dual-grid feeder lines, direct green wind/solar energy wheeling, PUE ≤ 1.25 efficiency, and sub-4ms fiber interconnects to subsea cable landing stations.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>50kW+/Rack AI Density</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Direct-to-chip liquid cooling architectures.</p>
+              </div>
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Dedicated 230kV Ingress</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Direct high-voltage grid ingress without bottlenecks.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Request Hyperscaler Tech Specs →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sub-Vertical 03: Convention & Event Spaces -->
+    <section class="section section-bordered" id="cluster-convention">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <div style="font-family:var(--font-mono); color:var(--c-evergreen); font-weight:700; margin-bottom:10px;">CLUSTER 03</div>
+            <h2 style="font-size:2.4rem; margin-bottom:16px;">International Convention &amp; Event Centers</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Pillarless grand plenary halls, multi-hall exhibition pavilions, and acoustically tuned corporate auditoriums designed to host global tech summits, industrial expos, state assemblies, and global shareholder conferences.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>10,000+ Seat Plenary</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Column-free span with acoustic stage trusses.</p>
+              </div>
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>3,500+ Vehicle MLCP</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Automated EV charging bays &amp; VIP lounges.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Event Booking &amp; Summit Desk →</a>
+          </div>
+          <div>
+            <img src="/images/convention_center_1791444158406.jpg" alt="Convention & Event Centers" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sub-Vertical 04: Corporate Hospitality -->
+    <section class="section" id="cluster-hotel" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+          <div>
+            <img src="/images/business_hotel_hospitality_1791444176465.jpg" alt="Corporate Business Hotel" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono); color:var(--c-evergreen); font-weight:700; margin-bottom:10px;">CLUSTER 04</div>
+            <h2 style="font-size:2.4rem; margin-bottom:16px;">Corporate Hospitality (Non-Residential)</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              5-Star business hotels, serviced corporate suites, and executive transit lounges situated directly within GreenNext commercial campuses. Zero residential focus — 100% institutional business zoning.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>200+ Room Keys</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Managed by global luxury hotel operators.</p>
+              </div>
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Encrypted Boardrooms</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Confidential executive telepresence suites.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Hospitality Operator Inquiries →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sub-Vertical 05: Precision High-Tech Manufacturing -->
+    <section class="section section-bordered" id="cluster-mfg">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <div style="font-family:var(--font-mono); color:var(--c-evergreen); font-weight:700; margin-bottom:10px;">CLUSTER 05</div>
+            <h2 style="font-size:2.4rem; margin-bottom:16px;">Precision Industrial &amp; High-Tech Engineering</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              High-load precision manufacturing facilities engineered for Drone gigafactories, Aerospace, EV powertrains, Robotics, and Defense electronics inside the Tamil Nadu Defense Corridor.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>2,500+ kg/m² Floor Load</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Engineered for heavy CNC &amp; semiconductor lines.</p>
+              </div>
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>ZLD Effluent Compliance</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Zero Liquid Discharge statutory clearance.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Submit Industrial EOI →</a>
+          </div>
+          <div>
+            <img src="/images/precision_engineering_park_1791444195155.jpg" alt="Precision High Tech Engineering" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <%- include('partials/footer') %>
+  <%- include('partials/floating-widget') %>
+  <%- include('partials/modal-rfp') %>
+</body>
+</html>

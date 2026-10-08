@@ -2124,12 +2124,22 @@ dialog::backdrop {
 /* ══════════════════════════════════════════════════════════════════════════
    EXACT SPLIT-PANEL MEGA MENU SYSTEM (TRUSTGRID / ISI BENCHMARK QUALITY)
    ══════════════════════════════════════════════════════════════════════════ */
+.nav-item.has-mega-split,
+.nav-item:has(.mega-dropdown-split) {
+  position: static !important;
+}
+
+.header-nav {
+  position: relative !important;
+}
+
 .mega-dropdown-split {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(4px);
-  width: min(1080px, 96vw);
+  width: min(1140px, calc(100% - 24px));
+  max-width: 1140px;
   background-color: #ffffff;
   border: 1px solid rgba(18, 59, 53, 0.14);
   border-radius: 18px;

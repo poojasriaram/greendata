@@ -1,118 +1,211 @@
+
 <%- include('partials/head') %>
-<%- include('partials/header') %>
-
-<main id="main-content">
-  <!-- Page Header -->
-  <section class="page-hero-section">
-    <div class="container">
-      <div class="page-hero-content">
-        <div class="badge badge-accent">South India Master Footprint</div>
-        <h1 class="page-title">390+ Contiguous Acres Across 6 Strategic Corridors</h1>
-        <p class="page-lead">
-          Direct high-voltage grid connections, dedicated water pipelines, multi-carrier telecom routes, and state-level fast-track statutory facilitation across <strong>Hosur, Tirunelveli, Trichy, Coimbatore, Madurai, and Pondicherry</strong>.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Location Grid -->
-  <section class="section-padded bg-surface">
-    <div class="container">
-      <div class="location-cards-grid">
-        <% locationsData.forEach(loc => { %>
-          <div class="loc-card-detailed">
-            <div class="loc-detail-img" style="background-image: url('<%= loc.image %>');">
-              <span class="loc-acreage-badge"><%= loc.landBank %></span>
-              <span class="loc-state-badge"><%= loc.state %></span>
-            </div>
-
-            <div class="loc-detail-body">
-              <h2 class="loc-city-title"><%= loc.name %></h2>
-              <p class="loc-city-tagline"><%= loc.tagline %></p>
-              <p class="loc-city-overview"><%= loc.overview %></p>
-
-              <!-- Technical Matrix -->
-              <div class="loc-matrix-box">
-                <div class="matrix-row">
-                  <span class="m-label">⚡ Substation:</span>
-                  <span class="m-val"><%= loc.technicalSpecs.power %></span>
-                </div>
-                <div class="matrix-row">
-                  <span class="m-label">💧 Water Supply:</span>
-                  <span class="m-val"><%= loc.technicalSpecs.water %></span>
-                </div>
-                <div class="matrix-row">
-                  <span class="m-label">🌐 Optical Fiber:</span>
-                  <span class="m-val"><%= loc.technicalSpecs.fiber %></span>
-                </div>
-                <div class="matrix-row">
-                  <span class="m-label">📑 Statutory Zoning:</span>
-                  <span class="m-val"><%= loc.technicalSpecs.zoning %></span>
-                </div>
-              </div>
-
-              <!-- Focus Badges -->
-              <div class="loc-focus-list">
-                <% loc.infrastructureFocus.forEach(f => { %>
-                  <span class="focus-pill"><%= f %></span>
-                <% }); %>
-              </div>
-
-              <div class="loc-actions-bar">
-                <a class="btn btn-primary" href="/locations/<%= loc.slug %>">
-                  <span>View <%= loc.name %> Campus Dossier</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-                </a>
-                <button class="btn btn-outline" data-open-modal="rfpModal" type="button">
-                  <span>Request Site Survey (PDF)</span>
-                </button>
-              </div>
-            </div>
+<body id="top">
+  <%- include('partials/header') %>
+  <main id="main-content" role="main">
+    
+    <!-- Locations Hero -->
+    <section class="hero-section" style="padding: clamp(4rem, 6vw, 6rem) 0; background: linear-gradient(135deg, var(--c-dark-green) 0%, #071D1A 100%); color: #fff;">
+      <div class="container">
+        <div style="max-width: 860px;">
+          <div class="hero-badge" style="background: rgba(107, 199, 167, 0.15); color: var(--c-accent-mint); border: 1px solid rgba(107, 199, 167, 0.3);">
+            <span>390+ VERIFIED ACRES · 6 STRATEGIC HUBS</span>
           </div>
-        <% }); %>
+          <h1 style="font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.2rem); color: #fff; line-height: 1.1; margin-bottom: 20px;">
+            South India <em>Infrastructure Grid</em>.
+          </h1>
+          <p style="color: #DDEBE4; font-size: clamp(1.1rem, 1.3vw, 1.25rem); line-height: 1.6; margin-bottom: 24px;">
+            Contiguous, clear-title institutional land parcels across Tamil Nadu and Pondicherry with high-voltage substations, dark fiber loops, and multimodal transit corridors.
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="#hub-cbe" class="btn btn-secondary btn-sm">Coimbatore (98+ AC)</a>
+            <a href="#hub-hosur" class="btn btn-secondary btn-sm">Hosur (65 AC)</a>
+            <a href="#hub-madurai" class="btn btn-secondary btn-sm">Madurai (93+ AC)</a>
+            <a href="#hub-tirunelveli" class="btn btn-secondary btn-sm">Tirunelveli (40 AC)</a>
+            <a href="#hub-trichy" class="btn btn-secondary btn-sm">Trichy (45 AC)</a>
+            <a href="#hub-pondicherry" class="btn btn-secondary btn-sm">Pondicherry (35 AC)</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Regional Comparison Matrix -->
-  <section class="section-padded bg-warm">
-    <div class="container">
-      <div class="section-header-block">
-        <div class="badge badge-primary">Comparative Analysis</div>
-        <h2 class="section-heading">South India Hubs Technical Matrix</h2>
-        <p class="section-subtext">Side-by-side engineering, power, and logistics comparison for institutional site selection committees.</p>
+    <!-- Hub 1: Coimbatore -->
+    <section class="section section-bordered" id="hub-cbe">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">FLAGSHIP HUB · 98+ ACRES</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Coimbatore — Integrated Knowledge &amp; IT City</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Positioned directly on Avinashi Road / NH-544 frontage. 98+ contiguous acres with a 110kV dedicated substation within 1.2 km, Grade-A IT towers, and single-window DTCP/CMDA master-plan clearances.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>110kV Substation (1.2 km)</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">Dual-feed industrial power redundancy.</p>
+              </div>
+              <div style="background:#f8faf9; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>Avinashi Rd / NH-544</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">15 mins to Coimbatore International Airport.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Request Coimbatore Site Dossier →</a>
+          </div>
+          <div>
+            <img src="/images/it_park_knowledge_city_1791444121901.jpg" alt="Coimbatore Campus" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg);" />
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="table-responsive-wrapper">
-        <table class="enterprise-table">
-          <thead>
-            <tr>
-              <th>Hub City</th>
-              <th>Acreage</th>
-              <th>Grid Substation Hookup</th>
-              <th>Power Scalability</th>
-              <th>Airport Logistics</th>
-              <th>Primary Industrial / Tech Focus</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% locationsData.forEach(loc => { %>
-              <tr>
-                <td><strong><%= loc.name %></strong> (<%= loc.state %>)</td>
-                <td><span class="badge badge-accent"><%= loc.landBank %></span></td>
-                <td><%= loc.substation %></td>
-                <td><strong><%= loc.powerCapacity %></strong></td>
-                <td><%= loc.airportDistance %></td>
-                <td><%= loc.infrastructureFocus.slice(0, 2).join(", ") %></td>
-              </tr>
-            <% }); %>
-          </tbody>
-        </table>
+    <!-- Hub 2: Hosur -->
+    <section class="section" id="hub-hosur" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+          <div>
+            <img src="/images/precision_engineering_park_1791444195155.jpg" alt="Hosur High Tech Park" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg);" />
+          </div>
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">BENGALURU BORDER · 65 ACRES</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Hosur — Precision High-Tech &amp; Data Center Gateway</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Located 35 minutes from Electronic City, Bengaluru. High-load precision industrial and 80+ MW hyperscale compute parcel with direct 230kV substation power ingress and SIPCOT approvals.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px;">
+              <div style="background:#fff; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>230kV Direct Ingress</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">Heavy power overhead for AI data halls.</p>
+              </div>
+              <div style="background:#fff; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>EV &amp; Drone Corridor</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">Tamil Nadu Defense Corridor linkage.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Submit Hosur RFP →</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<%- include('partials/floating-widget') %>
-<%- include('partials/modal-rfp') %>
-<%- include('partials/footer') %>
+    <!-- Hub 3: Madurai -->
+    <section class="section section-bordered" id="hub-madurai">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">ELCOT SEZ ADJACENT · 93+ ACRES</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Madurai — ELCOT SEZ &amp; TechMax Hub</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              93+ acres connecting the 4-lane Ring Road and ELCOT Vadapalanji IT Park. Ideal for Tier-1 technology GCCs looking for elite cost efficiency and deep engineering talent pools.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>110kV Dedicated Feed</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">Industrial transmission grid stability.</p>
+              </div>
+              <div style="background:#f8faf9; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>Low Cost &amp; High Retention</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">35% lower operating expenses vs Tier-1 metros.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Request Madurai Specs →</a>
+          </div>
+          <div>
+            <img src="/images/convention_center_1791444158406.jpg" alt="Madurai Campus" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hub 4: Tirunelveli -->
+    <section class="section" id="hub-tirunelveli" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+          <div>
+            <img src="/images/hyperscale_data_center_1791444139983.jpg" alt="Tirunelveli Data Center" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg);" />
+          </div>
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">100+ MW GREEN ENERGY · 40 ACRES</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Tirunelveli — 100+ MW Renewable Data Center Park</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              40 acres with an active 230kV substation inside 800 meters. Direct access to the Muppandal wind energy corridor, offering India's lowest green power tariffs and subsea cable interconnects.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px;">
+              <div style="background:#fff; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>230kV Substation (800m)</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">100+ MW high-voltage line ready.</p>
+              </div>
+              <div style="background:#fff; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>Muppandal Wind PPA</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">100% renewable power wheeling.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Hyperscaler Technical Inquiries →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hub 5: Trichy -->
+    <section class="section section-bordered" id="hub-trichy">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">CENTRAL NODE · 45 ACRES</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Trichy — Knowledge City &amp; Central Node</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              45 acres at Tamil Nadu's central transit nexus. Adjacent to national premier institutions (NIT Trichy, IIM Trichy, BHEL) for high-end academic research collaborations and software incubation.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>NIT &amp; IIM Ecosystem</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">Direct access to elite tier-1 researchers.</p>
+              </div>
+              <div style="background:#f8faf9; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>International Airport</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">Direct Southeast Asia &amp; Gulf flight links.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Submit Trichy Inquiry →</a>
+          </div>
+          <div>
+            <img src="/images/it_park_knowledge_city_1791444121901.jpg" alt="Trichy Campus" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hub 6: Pondicherry -->
+    <section class="section" id="hub-pondicherry" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+          <div>
+            <img src="/images/business_hotel_hospitality_1791444176465.jpg" alt="Pondicherry Coastal Hub" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg);" />
+          </div>
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">EAST COAST CORRIDOR · 35 ACRES</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Pondicherry — Knowledge &amp; Executive City</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              35 acres on the East Coast Road (ECR). Designed for executive corporate retreats, specialized R&amp;D campuses, 5-star hospitality, and lifestyle-driven technology centers.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px;">
+              <div style="background:#fff; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>ECR Highway Frontage</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">Scenic 4-lane connectivity to Chennai.</p>
+              </div>
+              <div style="background:#fff; padding:12px; border-radius:8px; border:1px solid var(--c-border-light);">
+                <strong>Executive Living &amp; Hospitality</strong>
+                <p style="font-size:12px; color:var(--c-muted-grey); margin:2px 0 0;">5-Star luxury hotels and corporate suites.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Request Pondicherry Dossier →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <%- include('partials/footer') %>
+  <%- include('partials/floating-widget') %>
+  <%- include('partials/modal-rfp') %>
+</body>
+</html>

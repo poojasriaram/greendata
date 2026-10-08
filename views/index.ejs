@@ -1,373 +1,580 @@
+
 <%- include('partials/head') %>
-<%- include('partials/header') %>
+<body id="top">
+  <%- include('partials/header') %>
 
-<main id="main-content">
-  <!-- ══════════════════════════════════════════════════════════════════════════
-       HERO SECTION — INSTITUTIONAL DIGITAL & COMMERCIAL INFRASTRUCTURE
-       ══════════════════════════════════════════════════════════════════════════ -->
-  <section class="hero-section" aria-labelledby="heroTitle">
-    <div class="hero-bg-overlay" aria-hidden="true"></div>
-    <div class="container hero-container">
-      <div class="hero-content">
-        <div class="hero-badge-row">
-          <span class="badge badge-accent">South India Platform &bull; 390+ Verified Acres</span>
-          <span class="badge badge-outline">Ref: DC-ITP-TN/JV/2026/001</span>
-        </div>
+  <main id="main-content" role="main">
+    <section class="hero-slider-wrapper" id="hero" aria-label="GreenNext Institutional Infrastructure Showcase">
+      <div class="hero-slider" tabindex="0" aria-roledescription="carousel" aria-label="GreenNext Infrastructure Pillars">
+        
+        <!-- Slide 1: Primary Overview -->
+        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1800&auto=format&fit=crop');" role="group" aria-roledescription="slide" aria-label="1 of 7: Institutional Real Estate & Digital Infrastructure">
+          <div class="container">
+            <div class="hero-slide-grid">
+              <div class="hero-slide-body">
+                <div class="hero-badge">
+                  <span class="dot"></span>
+                  <span>Commercial Infrastructure &amp; Institutional Real Estate · South India</span>
+                </div>
+                <h1 class="hero-title">
+                  Building South India's Next-Generation <em>Digital &amp; Commercial Infrastructure</em>.
+                </h1>
+                <p class="hero-lede">
+                  GreenNext curates, master-plans, and co-develops landmark commercial and technological infrastructure across <strong>Coimbatore, Madurai, Hosur, Trichy, Tirunelveli &amp; Pondicherry</strong> — focusing exclusively on Grade-A IT Parks, Knowledge Cities, Hyperscale Data Centers, Convention Centers, Corporate Hospitality, and Precision High-Tech Engineering Complexes.
+                </p>
+                <div class="hero-actions">
+                  <a class="btn btn-accent btn-lg btn-arrow" href="/infrastructure">
+                    <span>Explore Asset Classes</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                  </a>
+                  <a class="btn btn-dark-secondary btn-lg" href="/locations">
+                    <span>Explore Strategic Grid</span>
+                  </a>
+                  <a class="btn btn-quiet" href="/contact" style="color: var(--c-accent-mint); margin-left: 8px;">
+                    Request Institutional Dossier (PDF) →
+                  </a>
+                </div>
+                <div class="hero-meta-strip">
+                  <span>Ref: DC-ITP-TN/JV/2026/001 · Institutional JV, SPV &amp; Co-Development</span>
+                </div>
+              </div>
 
-        <h1 class="hero-title" id="heroTitle">
-          Strategic Institutional Infrastructure Platform for <span class="text-gradient">Data Centers, IT Parks &amp; Precision Industry</span>
-        </h1>
-
-        <p class="hero-lead">
-          GreenNext Technologies develops master-planned, Grade-A, institutional ecosystems across <strong>Hosur, Tirunelveli, Trichy, Coimbatore, Madurai, and Pondicherry</strong>. Engineered for 100+ MW Hyperscale Data Centers, AI Supercomputing clusters, Global Capability Centers, Convention Halls, and Precision Aerospace/EV Manufacturing.
-        </p>
-
-        <!-- KPI Metrics Grid -->
-        <div class="hero-kpi-grid">
-          <div class="hero-kpi-card">
-            <span class="kpi-num">390+</span>
-            <span class="kpi-label">Verified Acres Contiguous</span>
-          </div>
-          <div class="hero-kpi-card">
-            <span class="kpi-num">350+ MW</span>
-            <span class="kpi-label">Substation Power Grid Hookups</span>
-          </div>
-          <div class="hero-kpi-card">
-            <span class="kpi-num">6 Key</span>
-            <span class="kpi-label">Strategic South India Hubs</span>
-          </div>
-          <div class="hero-kpi-card">
-            <span class="kpi-num">100% Green</span>
-            <span class="kpi-label">Renewable Energy Direct Access</span>
-          </div>
-        </div>
-
-        <!-- Primary CTA Buttons -->
-        <div class="hero-actions-row">
-          <button class="btn btn-primary btn-lg" data-open-modal="rfpModal" type="button">
-            <span>Submit Institutional RFP</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-
-          <a class="btn btn-secondary btn-lg" href="#infrastructure">
-            <span>Explore Infrastructure Pillars</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </a>
-
-          <a class="btn btn-quiet" href="#locations">
-            <span>View South India Map ↓</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════════════
-       SECTION 2: FIVE NON-RESIDENTIAL INFRASTRUCTURE PILLARS
-       ══════════════════════════════════════════════════════════════════════════ -->
-  <section class="section-padded bg-surface" id="infrastructure">
-    <div class="container">
-      <div class="section-header-block">
-        <div class="badge badge-primary">Institutional Core Verticals</div>
-        <h2 class="section-heading">Engineered for Hyperscale, Enterprise &amp; High-Tech Industry</h2>
-        <p class="section-subtext">
-          Strictly commercial, digital, and precision industrial infrastructure. No residential developments. Every asset class is designed to meet international institutional benchmarks (Brookfield, Embassy, Uptime Tier III/IV, IGBC Platinum).
-        </p>
-      </div>
-
-      <div class="infra-cards-grid">
-        <% infrastructureCategories.forEach(category => { %>
-          <div class="infra-pillar-card">
-            <div class="pillar-card-img" style="background-image: url('<%= category.heroImage %>');">
-              <span class="pillar-badge"><%= category.badge %></span>
-            </div>
-            <div class="pillar-card-body">
-              <h3 class="pillar-title"><%= category.title %></h3>
-              <p class="pillar-subtitle"><%= category.subtitle %></p>
-              <p class="pillar-desc"><%= category.overview %></p>
-
-              <div class="pillar-sublist">
-                <% category.subcategories.forEach(sub => { %>
-                  <div class="pillar-subitem">
-                    <strong>&bull; <%= sub.title %>:</strong> <%= sub.tagline %>
+              <div class="hero-slide-card">
+                <div class="hero-card-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=900&auto=format&fit=crop" alt="Institutional Commercial Platform" loading="eager" />
+                  <span class="hero-card-badge">VERIFIED PLATFORM</span>
+                </div>
+                <div class="hero-card-specs-grid">
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">390+ Acres</span>
+                    <span class="hero-card-spec-lbl">Clear Freehold Titles</span>
                   </div>
-                <% }); %>
-              </div>
-
-              <div class="pillar-footer">
-                <a class="btn btn-outline btn-sm" href="/infrastructure/<%= category.slug %>">
-                  <span>View Specifications &amp; Schematics</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        <% }); %>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════════════
-       SECTION 3: SOUTH INDIA STRATEGIC REGIONAL FOOTPRINT
-       ══════════════════════════════════════════════════════════════════════════ -->
-  <section class="section-padded bg-dark" id="locations">
-    <div class="container">
-      <div class="section-header-block text-light">
-        <div class="badge badge-accent">Regional Strategic Footprint</div>
-        <h2 class="section-heading text-white">6 Prime Institutional Corridors Across South India</h2>
-        <p class="section-subtext text-secondary">
-          High-voltage substation connectivity, dedicated water reservoirs, multi-carrier fiber conduits, and single-window clearance ready across 390+ contiguous acres.
-        </p>
-      </div>
-
-      <div class="location-cards-grid">
-        <% locationsData.forEach(loc => { %>
-          <div class="loc-card">
-            <div class="loc-card-header">
-              <div class="loc-city-name"><%= loc.name %></div>
-              <div class="loc-land-badge"><%= loc.landBank %></div>
-            </div>
-            <div class="loc-tagline"><%= loc.tagline %></div>
-
-            <div class="loc-specs-list">
-              <div class="loc-spec-row">
-                <span class="spec-label">Power Substation:</span>
-                <span class="spec-val"><%= loc.substation %> (<%= loc.powerCapacity %>)</span>
-              </div>
-              <div class="loc-spec-row">
-                <span class="spec-label">Airport Distance:</span>
-                <span class="spec-val"><%= loc.airportDistance %></span>
-              </div>
-              <div class="loc-spec-row">
-                <span class="spec-label">Connectivity:</span>
-                <span class="spec-val"><%= loc.connectivity %></span>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">6 Core Hubs</span>
+                    <span class="hero-card-spec-lbl">High-Growth Corridor</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">100+ MW</span>
+                    <span class="hero-card-spec-lbl">Power Capacity</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">IGBC Platinum</span>
+                    <span class="hero-card-spec-lbl">ESG &amp; Tier-III/IV</span>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div class="loc-focus-tags">
-              <% loc.infrastructureFocus.forEach(focus => { %>
-                <span class="loc-tag"><%= focus %></span>
-              <% }); %>
-            </div>
-
-            <div class="loc-card-action">
-              <a class="btn btn-outline-light btn-sm" href="/locations/<%= loc.slug %>">
-                <span>Explore <%= loc.name %> Campus Dossier</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </a>
-            </div>
           </div>
-        <% }); %>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════════════
-       SECTION 4: INSTITUTIONAL DELIVERY & INVESTMENT MODELS
-       ══════════════════════════════════════════════════════════════════════════ -->
-  <section class="section-padded bg-warm" id="solutions">
-    <div class="container">
-      <div class="section-header-block">
-        <div class="badge badge-primary">Enterprise Commercial Models</div>
-        <h2 class="section-heading">Flexible Asset Delivery &amp; Institutional Co-Development</h2>
-        <p class="section-subtext">
-          Tailored to international hyperscalers, multinational enterprise occupiers, Fortune 500 manufacturers, and sovereign private equity funds.
-        </p>
-      </div>
-
-      <div class="solutions-grid">
-        <div class="solution-card">
-          <div class="solution-icon">⚡</div>
-          <h3 class="solution-title">Powered Shell Delivery</h3>
-          <p class="solution-desc">High-voltage substation energized (230kV/110kV), dual-fiber telecommunication entrance vaults, structural floor plate ready for hyperscale tenant fit-out.</p>
-          <ul class="solution-list">
-            <li>Substation energized prior to hand-off</li>
-            <li>Zero latency on grid permits and utility approvals</li>
-            <li>Ideal for Global Cloud Hyperscalers and GPU Clusters</li>
-          </ul>
         </div>
 
-        <div class="solution-card">
-          <div class="solution-icon">🏗️</div>
-          <h3 class="solution-title">Turnkey Build-to-Suit (BTS)</h3>
-          <p class="solution-desc">Full lifecycle design, engineering, construction, and certification executed to client's bespoke global architectural and MEP specifications.</p>
-          <ul class="solution-list">
-            <li>Fixed-price, guaranteed-completion timeline</li>
-            <li>Custom floor loadings, cleanrooms &amp; vibration isolation</li>
-            <li>Ideal for EV Gigafactories, Aerospace &amp; GCC Campuses</li>
-          </ul>
-        </div>
+        <!-- Slide 2: IT & Knowledge Infrastructure -->
+        <div class="hero-slide" style="background-image: url('/images/it_park_knowledge_city_1791444121901.jpg');" role="group" aria-roledescription="slide" aria-label="2 of 7: Grade-A IT Parks & Knowledge Cities">
+          <div class="container">
+            <div class="hero-slide-grid">
+              <div class="hero-slide-body">
+                <div class="hero-badge">
+                  <span class="dot"></span>
+                  <span>Pillar 01 · IT &amp; Knowledge Infrastructure</span>
+                </div>
+                <h2 class="hero-title">
+                  Grade-A Technology Parks &amp; <em>Innovation Districts</em>.
+                </h2>
+                <p class="hero-lede">
+                  LEED Platinum multi-tenant office towers, corporate headquarters, and university-linked research cities designed for Fortune 500 Global Capability Centers (GCCs) and deep-tech enterprises with 4.2m ceiling heights, smart building management, and single-window statutory sanctions.
+                </p>
+                <div class="hero-actions">
+                  <a class="btn btn-accent btn-lg btn-arrow" href="/infrastructure#cluster-it">
+                    <span>Inspect IT Parks</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                  </a>
+                  <a class="btn btn-dark-secondary btn-lg" href="/locations#hub-cbe">
+                    <span>View Coimbatore Campus</span>
+                  </a>
+                </div>
+                <div class="hero-meta-strip">
+                  <span>Anchor Hubs: Coimbatore (Avinashi Rd) · Madurai (ELCOT SEZ) · Trichy (Knowledge City)</span>
+                </div>
+              </div>
 
-        <div class="solution-card">
-          <div class="solution-icon">🏢</div>
-          <h3 class="solution-title">Colocation &amp; Commercial Leasing</h3>
-          <p class="solution-desc">Plug-and-play Grade-A IT park office suites and Tier-III data hall wholesale colocation suites ready for immediate technical deployment.</p>
-          <ul class="solution-list">
-            <li>Flexible 3 to 15-year institutional lease structures</li>
-            <li>Managed 24/7 technical facility management</li>
-            <li>Ideal for FinTech, SaaS &amp; Enterprise Corporate Offices</li>
-          </ul>
-        </div>
-
-        <div class="solution-card">
-          <div class="solution-icon">🤝</div>
-          <h3 class="solution-title">Joint Venture &amp; Co-Investment</h3>
-          <p class="solution-desc">Structured joint development frameworks with institutional global private equity, sovereign funds, and strategic master land-owners.</p>
-          <ul class="solution-list">
-            <li>Clear title, single-SPV development vehicle</li>
-            <li>Transparent governance and institutional reporting</li>
-            <li>Direct alignment with institutional ROI hurdles</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════════════
-       SECTION 5: INTERACTIVE SITE & POWER MATCHER / RFP TRIGGER
-       ══════════════════════════════════════════════════════════════════════════ -->
-  <section class="section-padded bg-surface" id="site-matcher">
-    <div class="container">
-      <div class="site-matcher-container">
-        <div class="matcher-header">
-          <div class="badge badge-accent">Interactive Platform Evaluator</div>
-          <h2 class="matcher-title">Match Your Infrastructure Requirements in South India</h2>
-          <p class="matcher-subtitle">Select your asset type, target MW power, and footprint to identify the optimal GreenNext campus immediately.</p>
-        </div>
-
-        <div class="matcher-form-box">
-          <div class="matcher-grid">
-            <div class="form-group">
-              <label>Select Asset Requirement:</label>
-              <select id="m_asset" onchange="evaluateCampusMatch()">
-                <option value="dc_hyperscale">100+ MW Hyperscale / AI Data Center</option>
-                <option value="it_park">Grade-A IT Park / Knowledge City</option>
-                <option value="ev_factory">EV &amp; Battery Manufacturing Plant</option>
-                <option value="precision_drone">Drone &amp; Aerospace Precision Hub</option>
-                <option value="convention_hotel">Convention Center &amp; Business Hotel</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Power Requirement (MW):</label>
-              <select id="m_power" onchange="evaluateCampusMatch()">
-                <option value="10">10 MW – 30 MW</option>
-                <option value="50">50 MW – 80 MW</option>
-                <option value="100">100+ MW Hyperscale</option>
-                <option value="grid">Standard Commercial Grid</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Target Land / Built Footprint:</label>
-              <select id="m_footprint" onchange="evaluateCampusMatch()">
-                <option value="20">10–25 Acres</option>
-                <option value="50">40–60 Acres</option>
-                <option value="85">75–90+ Acres</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Dynamic Result Recommendation -->
-          <div class="matcher-result-card" id="matcherResultCard">
-            <div class="result-top">
-              <div class="result-match-badge">Recommended Flagship Match: <strong id="recCity">Hosur &amp; Tirunelveli</strong></div>
-              <div class="result-power-avail">Power Hookup: <strong id="recPower">230kV / 400kV Direct GIS</strong></div>
-            </div>
-            <p class="result-text" id="recText">
-              Based on high-power scalability and contiguous acreage, our <strong>Hosur</strong> and <strong>Tirunelveli</strong> campuses provide optimal multi-hundred MW green power and single-window industrial clearances.
-            </p>
-            <div class="result-actions">
-              <button class="btn btn-primary btn-sm" data-open-modal="rfpModal" type="button">
-                <span>Download Campus Feasibility Report (PDF)</span>
-              </button>
+              <div class="hero-slide-card">
+                <div class="hero-card-img-wrap">
+                  <img src="/images/it_park_knowledge_city_1791444121901.jpg" alt="Grade-A IT Park Towers" loading="lazy" />
+                  <span class="hero-card-badge">LEED PLATINUM</span>
+                </div>
+                <div class="hero-card-specs-grid">
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">4.2m Floor-to-Ceiling</span>
+                    <span class="hero-card-spec-lbl">Clear Workspaces</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">2N Power Grid</span>
+                    <span class="hero-card-spec-lbl">100% DG Redundancy</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">Quad Carrier</span>
+                    <span class="hero-card-spec-lbl">Dark Fiber Ingress</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">Single-Window</span>
+                    <span class="hero-card-spec-lbl">ELCOT &amp; SIPCOT Sanction</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Slide 3: Hyperscale & AI Data Centers -->
+        <div class="hero-slide" style="background-image: url('/images/hyperscale_data_center_1791444139983.jpg');" role="group" aria-roledescription="slide" aria-label="3 of 7: 100+ MW Hyperscale Data Centers">
+          <div class="container">
+            <div class="hero-slide-grid">
+              <div class="hero-slide-body">
+                <div class="hero-badge">
+                  <span class="dot"></span>
+                  <span>Pillar 02 · Hyperscale &amp; AI Compute</span>
+                </div>
+                <h2 class="hero-title">
+                  100+ MW Hyperscale &amp; <em>AI GPU Data Centers</em>.
+                </h2>
+                <p class="hero-lede">
+                  High-density liquid-cooled computing campuses equipped with dedicated 230kV/110kV substations, dual-grid feeder lines, direct green wind/solar energy wheeling, PUE ≤ 1.25 efficiency, and sub-4ms fiber interconnects to subsea cable landing stations.
+                </p>
+                <div class="hero-actions">
+                  <a class="btn btn-accent btn-lg btn-arrow" href="/infrastructure#cluster-dc">
+                    <span>Explore Data Centers</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                  </a>
+                  <a class="btn btn-dark-secondary btn-lg" href="/locations#hub-tirunelveli">
+                    <span>View Tirunelveli 100+ MW Hub</span>
+                  </a>
+                </div>
+                <div class="hero-meta-strip">
+                  <span>Target Verticals: Global Hyperscalers · AI Clusters · Sovereign Cloud · Colocation SPVs</span>
+                </div>
+              </div>
+
+              <div class="hero-slide-card">
+                <div class="hero-card-img-wrap">
+                  <img src="/images/hyperscale_data_center_1791444139983.jpg" alt="100+ MW Hyperscale Data Center" loading="lazy" />
+                  <span class="hero-card-badge">TIER III / IV</span>
+                </div>
+                <div class="hero-card-specs-grid">
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">100+ MW</span>
+                    <span class="hero-card-spec-lbl">Dedicated Ingress</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">50kW+/Rack</span>
+                    <span class="hero-card-spec-lbl">Liquid Cooling Ready</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">PUE ≤ 1.25</span>
+                    <span class="hero-card-spec-lbl">Energy Efficiency</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">&lt;4ms Latency</span>
+                    <span class="hero-card-spec-lbl">To Landing Stations</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Convention & Event Spaces -->
+        <div class="hero-slide" style="background-image: url('/images/convention_center_1791444158406.jpg');" role="group" aria-roledescription="slide" aria-label="4 of 7: International Convention Centers">
+          <div class="container">
+            <div class="hero-slide-grid">
+              <div class="hero-slide-body">
+                <div class="hero-badge">
+                  <span class="dot"></span>
+                  <span>Pillar 03 · International Convention Spaces</span>
+                </div>
+                <h2 class="hero-title">
+                  10,000+ Capacity <em>Convention &amp; Event Venues</em>.
+                </h2>
+                <p class="hero-lede">
+                  Pillarless grand plenary halls, multi-hall exhibition pavilions, and acoustically tuned corporate auditoriums designed to host global tech summits, industrial expos, state assemblies, and global shareholder conferences.
+                </p>
+                <div class="hero-actions">
+                  <a class="btn btn-accent btn-lg btn-arrow" href="/infrastructure#cluster-convention">
+                    <span>Inspect Convention Specs</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                  </a>
+                  <a class="btn btn-dark-secondary btn-lg" href="/contact">
+                    <span>Host Your Summit</span>
+                  </a>
+                </div>
+                <div class="hero-meta-strip">
+                  <span>Highlights: Column-free spans · 4K Broadcast Suites · 3,500+ Vehicle MLCP · Wi-Fi 7 Hub</span>
+                </div>
+              </div>
+
+              <div class="hero-slide-card">
+                <div class="hero-card-img-wrap">
+                  <img src="/images/convention_center_1791444158406.jpg" alt="10,000+ Seat Convention Center" loading="lazy" />
+                  <span class="hero-card-badge">PLENARY VENUE</span>
+                </div>
+                <div class="hero-card-specs-grid">
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">10,000+ Seats</span>
+                    <span class="hero-card-spec-lbl">Pillarless Plenary</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">3,500 MLCP</span>
+                    <span class="hero-card-spec-lbl">EV Parking Bays</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">50,000+</span>
+                    <span class="hero-card-spec-lbl">Concurrent Wi-Fi 7</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">VIP Corridors</span>
+                    <span class="hero-card-spec-lbl">Diplomatic Suites</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5: Corporate Hospitality -->
+        <div class="hero-slide" style="background-image: url('/images/business_hotel_hospitality_1791444176465.jpg');" role="group" aria-roledescription="slide" aria-label="5 of 7: 5-Star Corporate Hospitality">
+          <div class="container">
+            <div class="hero-slide-grid">
+              <div class="hero-slide-body">
+                <div class="hero-badge">
+                  <span class="dot"></span>
+                  <span>Pillar 04 · Corporate Hospitality (Non-Residential)</span>
+                </div>
+                <h2 class="hero-title">
+                  5-Star Business Hotels &amp; <em>Executive Suites</em>.
+                </h2>
+                <p class="hero-lede">
+                  Integrated hospitality assets including 200+ key luxury hotels, serviced corporate residences for visiting tech leadership, boardroom suites with encrypted telepresence, fine dining banquets, and executive wellness facilities.
+                </p>
+                <div class="hero-actions">
+                  <a class="btn btn-accent btn-lg btn-arrow" href="/infrastructure#cluster-hotel">
+                    <span>Inspect Hospitality Assets</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                  </a>
+                  <a class="btn btn-dark-secondary btn-lg" href="/contact">
+                    <span>Operator JV Inquiries</span>
+                  </a>
+                </div>
+                <div class="hero-meta-strip">
+                  <span>Zoning: 100% Non-Residential Commercial · Managed by Global Hotel Operators</span>
+                </div>
+              </div>
+
+              <div class="hero-slide-card">
+                <div class="hero-card-img-wrap">
+                  <img src="/images/business_hotel_hospitality_1791444176465.jpg" alt="5-Star Business Hotel" loading="lazy" />
+                  <span class="hero-card-badge">5-STAR LUXURY</span>
+                </div>
+                <div class="hero-card-specs-grid">
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">200+ Keys</span>
+                    <span class="hero-card-spec-lbl">Global Operator</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">Executive Suites</span>
+                    <span class="hero-card-spec-lbl">Long-Stay Tech Housing</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">Encrypted Telepresence</span>
+                    <span class="hero-card-spec-lbl">Boardroom Suites</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">Fine Dining</span>
+                    <span class="hero-card-spec-lbl">Banquets &amp; Wellness</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 6: Precision High-Tech Manufacturing -->
+        <div class="hero-slide" style="background-image: url('/images/precision_engineering_park_1791444195155.jpg');" role="group" aria-roledescription="slide" aria-label="6 of 7: Precision Industrial & Defense Parks">
+          <div class="container">
+            <div class="hero-slide-grid">
+              <div class="hero-slide-body">
+                <div class="hero-badge">
+                  <span class="dot"></span>
+                  <span>Pillar 05 · Precision Engineering &amp; High-Tech Manufacturing</span>
+                </div>
+                <h2 class="hero-title">
+                  High-Load Precision Parks for <em>Drone, EV &amp; Aerospace</em>.
+                </h2>
+                <p class="hero-lede">
+                  Heavy-load industrial campuses engineered for Drone gigafactories, SpaceTech propulsion, EV battery powertrains, robotics, and defense electronics with 2,500+ kg/m² floor loading, Cleanroom Class 1000/10000, and Zero Liquid Discharge (ZLD).
+                </p>
+                <div class="hero-actions">
+                  <a class="btn btn-accent btn-lg btn-arrow" href="/infrastructure#cluster-mfg">
+                    <span>Inspect Industrial Parks</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                  </a>
+                  <a class="btn btn-dark-secondary btn-lg" href="/locations#hub-hosur">
+                    <span>Explore Hosur Corridor</span>
+                  </a>
+                </div>
+                <div class="hero-meta-strip">
+                  <span>Location: Tamil Nadu Defense Industrial Corridor · Ready for Advanced Robotics &amp; CNC</span>
+                </div>
+              </div>
+
+              <div class="hero-slide-card">
+                <div class="hero-card-img-wrap">
+                  <img src="/images/precision_engineering_park_1791444195155.jpg" alt="Precision High-Tech Engineering" loading="lazy" />
+                  <span class="hero-card-badge">DEFENSE CORRIDOR</span>
+                </div>
+                <div class="hero-card-specs-grid">
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">2,500+ kg/m²</span>
+                    <span class="hero-card-spec-lbl">Floor Load Capacity</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">Class 1000</span>
+                    <span class="hero-card-spec-lbl">Cleanroom ISO-6</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">ZLD Compliant</span>
+                    <span class="hero-card-spec-lbl">Industrial Effluent</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">DGCA Compliant</span>
+                    <span class="hero-card-spec-lbl">Drone Test Ranges</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 7: Strategic Land Bank & JV Co-Development -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1800&auto=format&fit=crop');" role="group" aria-roledescription="slide" aria-label="7 of 7: Strategic Land Bank & Co-Development">
+          <div class="container">
+            <div class="hero-slide-grid">
+              <div class="hero-slide-body">
+                <div class="hero-badge">
+                  <span class="dot"></span>
+                  <span>Institutional Co-Development &amp; JV Platform</span>
+                </div>
+                <h2 class="hero-title">
+                  390+ Verified Acres. <em>Transparent SPV Frameworks</em>.
+                </h2>
+                <p class="hero-lede">
+                  GreenNext provides institutional investors, global sovereign funds, and Fortune 500 enterprises with pre-cleared, litigation-free land parcels, single-window state statutory sanctions, and turnkey built-to-suit co-development across South India.
+                </p>
+                <div class="hero-actions">
+                  <a class="btn btn-accent btn-lg btn-arrow" href="/partnership">
+                    <span>Explore JV Framework</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                  </a>
+                  <a class="btn btn-dark-secondary btn-lg" href="/contact">
+                    <span>Schedule Executive Meeting</span>
+                  </a>
+                </div>
+                <div class="hero-meta-strip">
+                  <span>Structured Equity · Built-to-Suit · Long-Term Land Leases · Turnkey EPC</span>
+                </div>
+              </div>
+
+              <div class="hero-slide-card">
+                <div class="hero-card-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=900&auto=format&fit=crop" alt="Institutional Platform JV" loading="lazy" />
+                  <span class="hero-card-badge">CO-DEVELOPMENT</span>
+                </div>
+                <div class="hero-card-specs-grid">
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">100% Freehold</span>
+                    <span class="hero-card-spec-lbl">Clear Land Title</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">SPV Ready</span>
+                    <span class="hero-card-spec-lbl">Institutional JV</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">6 Hubs</span>
+                    <span class="hero-card-spec-lbl">South India Grid</span>
+                  </div>
+                  <div class="hero-card-spec-box">
+                    <span class="hero-card-spec-val">Fast-Track</span>
+                    <span class="hero-card-spec-lbl">State Approvals</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
-  </section>
 
-  <!-- ══════════════════════════════════════════════════════════════════════════
-       SECTION 6: FREQUENTLY ASKED INSTITUTIONAL QUESTIONS
-       ══════════════════════════════════════════════════════════════════════════ -->
-  <section class="section-padded bg-warm">
-    <div class="container container-narrow">
-      <div class="section-header-block">
-        <div class="badge badge-primary">Institutional FAQ</div>
-        <h2 class="section-heading">Frequently Addressed Inquiries</h2>
-        <p class="section-subtext">Key statutory, electrical, land title, and operational details for institutional committees.</p>
+      <!-- Slider Controls & Indicators -->
+      <div class="hero-slider-controls">
+        <div class="container">
+          <div class="hero-slider-controls-inner">
+            <button class="hero-slider-prev" type="button" aria-label="Previous Slide">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="hero-slider-indicators" role="tablist" aria-label="Hero Slide Selector">
+              <button class="hero-indicator active" type="button" role="tab" aria-selected="true" aria-label="Slide 1: Institutional Platform" data-slide-index="0"></button>
+              <button class="hero-indicator" type="button" role="tab" aria-selected="false" aria-label="Slide 2: IT Parks" data-slide-index="1"></button>
+              <button class="hero-indicator" type="button" role="tab" aria-selected="false" aria-label="Slide 3: Data Centers" data-slide-index="2"></button>
+              <button class="hero-indicator" type="button" role="tab" aria-selected="false" aria-label="Slide 4: Convention" data-slide-index="3"></button>
+              <button class="hero-indicator" type="button" role="tab" aria-selected="false" aria-label="Slide 5: Hospitality" data-slide-index="4"></button>
+              <button class="hero-indicator" type="button" role="tab" aria-selected="false" aria-label="Slide 6: Precision Mfg" data-slide-index="5"></button>
+              <button class="hero-indicator" type="button" role="tab" aria-selected="false" aria-label="Slide 7: Land & JV" data-slide-index="6"></button>
+            </div>
+            <button class="hero-slider-next" type="button" aria-label="Next Slide">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="faq-accordion-list">
-        <details class="faq-item" open>
-          <summary class="faq-question">
-            <span>What is the land title and statutory zoning status across the 390+ acres?</span>
-            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="faq-answer">
-            All 390+ acres across Hosur, Tirunelveli, Trichy, Coimbatore, Madurai, and Pondicherry are 100% verified, clear-title, litigation-free land parcels. They hold approved IT/ITES, Commercial, and Industrial zoning with single-window fast-track facilitation from Guidance Tamil Nadu and SIPCOT.
+    <!-- Scale Strip -->
+    <section class="trust-strip">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-badge-card">
+            <span class="stat-number" style="font-size:2rem; font-weight:800; color:var(--c-evergreen);">390+</span>
+            <div><strong>Verified Acres</strong><br><small style="color:var(--c-muted-grey);">Clear Title Land Bank</small></div>
           </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>How is high-voltage power delivered and what renewable energy sourcing is available?</span>
-            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="faq-answer">
-            Each campus features dedicated direct grid hookups (110kV, 230kV, up to 400kV in Tirunelveli). Through Tamil Nadu's green open-access policy and direct captive solar/wind PPAs, occupiers can achieve 100% renewable power matching with Tier III/IV N+N electrical reliability.
+          <div class="trust-badge-card">
+            <span class="stat-number" style="font-size:2rem; font-weight:800; color:var(--c-evergreen);">6</span>
+            <div><strong>Strategic Hubs</strong><br><small style="color:var(--c-muted-grey);">South India Footprint</small></div>
           </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Are residential buildings included in the master plans?</span>
-            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="faq-answer">
-            No. GreenNext Technologies is strictly focused on commercial, digital, and precision industrial infrastructure: IT Parks, Knowledge Cities, Hyperscale Data Centers, Convention & Exhibition Halls, Non-Residential Corporate Business Hotels, and Advanced Manufacturing complexes.
+          <div class="trust-badge-card">
+            <span class="stat-number" style="font-size:2rem; font-weight:800; color:var(--c-evergreen);">100+</span>
+            <div><strong>Megawatts Power</strong><br><small style="color:var(--c-muted-grey);">230kV Grid &amp; Wind PPA</small></div>
           </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What are the next steps to conduct a technical site due diligence inspection?</span>
-            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="faq-answer">
-            Institutional investment teams, cloud providers, and enterprise tenants can submit an RFP or contact our executive desk at +91 77088 87878 to execute a mutual NDA, receive complete technical dossiers, and schedule private on-site inspection delegations.
+          <div class="trust-badge-card">
+            <span class="stat-number" style="font-size:2rem; font-weight:800; color:var(--c-evergreen);">5</span>
+            <div><strong>Asset Verticals</strong><br><small style="color:var(--c-muted-grey);">Non-Residential Core</small></div>
           </div>
-        </details>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<script>
-function evaluateCampusMatch() {
-  const asset = document.getElementById('m_asset').value;
-  const power = document.getElementById('m_power').value;
-  const recCity = document.getElementById('recCity');
-  const recPower = document.getElementById('recPower');
-  const recText = document.getElementById('recText');
+    <!-- Core Asset Classes Section -->
+    <section class="section section-bordered" id="pillars">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">ASSET VERTICALS</span>
+          <h2 class="section-title">Institutional Development Architecture</h2>
+          <p class="section-lede">Five strategic non-residential infrastructure clusters designed for institutional co-development, hyperscale compute, and precision manufacturing.</p>
+        </div>
 
-  if (asset === 'dc_hyperscale' || power === '100') {
-    recCity.textContent = 'Tirunelveli & Hosur (100+ MW Hubs)';
-    recPower.textContent = '400kV / 230kV Direct GIS Substation';
-    recText.textContent = 'Tirunelveli and Hosur provide optimal massive power allocations with direct 100% green renewable corridor access and heavy soil loading for AI GPU clusters.';
-  } else if (asset === 'it_park' || asset === 'convention_hotel') {
-    recCity.textContent = 'Trichy & Coimbatore Flagship Hubs';
-    recPower.textContent = '230kV Dual Grid & 100% Captive Solar';
-    recText.textContent = 'Trichy and Coimbatore campuses integrate Grade-A software towers, global connectivity to international airports, and 5,000-delegate convention facilities.';
-  } else if (asset === 'ev_factory' || asset === 'precision_drone') {
-    recCity.textContent = 'Hosur & Coimbatore Precision Engineering Hubs';
-    recPower.textContent = '230kV Industrial Substation + High Floor Load';
-    recText.textContent = 'Hosur (near Bengaluru border) and Coimbatore offer the highest concentration of aerospace tooling, EV supply chains, and mechatronics engineering talent.';
-  }
-}
-</script>
+        <div class="grid grid-cols-3" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; margin-top:40px;">
+          <!-- 01 -->
+          <div class="card" style="padding:28px; background:#fff; border:1px solid var(--c-border-light); border-radius:16px;">
+            <div style="font-family:var(--font-mono); color:var(--c-evergreen); font-weight:700; margin-bottom:12px;">CLUSTER 01</div>
+            <h3 style="margin-bottom:10px;">IT &amp; Knowledge Infrastructure</h3>
+            <p style="color:var(--c-slate-text); font-size:14px; line-height:1.6; margin-bottom:20px;">Grade-A office towers, R&amp;D campuses, and collaborative innovation districts for Fortune 500 GCCs.</p>
+            <a href="/infrastructure#cluster-it" class="btn btn-secondary btn-sm">Explore IT Parks Section →</a>
+          </div>
+          <!-- 02 -->
+          <div class="card" style="padding:28px; background:#fff; border:1px solid var(--c-border-light); border-radius:16px;">
+            <div style="font-family:var(--font-mono); color:var(--c-evergreen); font-weight:700; margin-bottom:12px;">CLUSTER 02</div>
+            <h3 style="margin-bottom:10px;">100+ MW Hyperscale &amp; AI Data Centers</h3>
+            <p style="color:var(--c-slate-text); font-size:14px; line-height:1.6; margin-bottom:20px;">Dedicated 230kV substations, liquid cooling infrastructure, and sub-4ms dark fiber links.</p>
+            <a href="/infrastructure#cluster-dc" class="btn btn-secondary btn-sm">Explore Data Centers Section →</a>
+          </div>
+          <!-- 03 -->
+          <div class="card" style="padding:28px; background:#fff; border:1px solid var(--c-border-light); border-radius:16px;">
+            <div style="font-family:var(--font-mono); color:var(--c-evergreen); font-weight:700; margin-bottom:12px;">CLUSTER 03</div>
+            <h3 style="margin-bottom:10px;">Convention &amp; Event Centers</h3>
+            <p style="color:var(--c-slate-text); font-size:14px; line-height:1.6; margin-bottom:20px;">10,000+ seat pillarless plenary halls, trade exhibition pavilions, and MLCP for international summits.</p>
+            <a href="/infrastructure#cluster-convention" class="btn btn-secondary btn-sm">Explore Convention Venues →</a>
+          </div>
+          <!-- 04 -->
+          <div class="card" style="padding:28px; background:#fff; border:1px solid var(--c-border-light); border-radius:16px;">
+            <div style="font-family:var(--font-mono); color:var(--c-evergreen); font-weight:700; margin-bottom:12px;">CLUSTER 04</div>
+            <h3 style="margin-bottom:10px;">Corporate Hospitality (Non-Res)</h3>
+            <p style="color:var(--c-slate-text); font-size:14px; line-height:1.6; margin-bottom:20px;">200+ room 5-star business hotels, serviced executive suites, and encrypted telepresence boardrooms.</p>
+            <a href="/infrastructure#cluster-hotel" class="btn btn-secondary btn-sm">Explore Hospitality Assets →</a>
+          </div>
+          <!-- 05 -->
+          <div class="card" style="padding:28px; background:#fff; border:1px solid var(--c-border-light); border-radius:16px;">
+            <div style="font-family:var(--font-mono); color:var(--c-evergreen); font-weight:700; margin-bottom:12px;">CLUSTER 05</div>
+            <h3 style="margin-bottom:10px;">Precision High-Tech Mfg</h3>
+            <p style="color:var(--c-slate-text); font-size:14px; line-height:1.6; margin-bottom:20px;">Heavy load (2,500+ kg/m²), cleanroom Class 1000, and ZLD facilities for Drone, EV, and Aerospace.</p>
+            <a href="/infrastructure#cluster-mfg" class="btn btn-secondary btn-sm">Explore Precision Parks →</a>
+          </div>
+          <!-- 06 -->
+          <div class="card" style="padding:28px; background:var(--c-dark-green); color:#fff; border-radius:16px; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div style="font-family:var(--font-mono); color:var(--c-accent-mint); font-weight:700; margin-bottom:12px;">CO-DEVELOPMENT</div>
+              <h3 style="color:#fff; margin-bottom:10px;">Institutional Partnership &amp; JV</h3>
+              <p style="color:#DDEBE4; font-size:14px; line-height:1.6; margin-bottom:20px;">Direct SPV investment, structured equity, and built-to-suit co-development across 390+ acres.</p>
+            </div>
+            <a href="/partnership" class="btn btn-accent btn-sm">Inspect JV Structure →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<%- include('partials/floating-widget') %>
-<%- include('partials/modal-rfp') %>
-<%- include('partials/footer') %>
+    <!-- Strategic Grid Section -->
+    <section class="section" id="locations" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">STRATEGIC FOOTPRINT</span>
+          <h2 class="section-title">South India Grid (390+ Acres)</h2>
+          <p class="section-lede">Contiguous land banks with dedicated high-voltage substation feeds and high-speed highway connectivity across 6 urban growth engines.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; margin-top:40px;">
+          <div style="background:#fff; border:1px solid var(--c-border-light); border-radius:16px; padding:24px;">
+            <span class="badge badge-mint" style="font-size:10px;">CBE · 98+ ACRES</span>
+            <h3 style="margin:12px 0 8px;">Coimbatore Flagship Campus</h3>
+            <p style="color:var(--c-slate-text); font-size:14px; margin-bottom:16px;">110kV Substation (1.2 km) · NH-544 Frontage · Engineering Capital</p>
+            <a href="/locations#hub-cbe" class="btn btn-secondary btn-sm">View Technical Specs →</a>
+          </div>
+
+          <div style="background:#fff; border:1px solid var(--c-border-light); border-radius:16px; padding:24px;">
+            <span class="badge badge-mint" style="font-size:10px;">HSR · 65 ACRES</span>
+            <h3 style="margin:12px 0 8px;">Hosur Precision Gateway</h3>
+            <p style="color:var(--c-slate-text); font-size:14px; margin-bottom:16px;">230kV Ingress · 35 Mins from Electronic City · EV &amp; Drone Corridor</p>
+            <a href="/locations#hub-hosur" class="btn btn-secondary btn-sm">View Technical Specs →</a>
+          </div>
+
+          <div style="background:#fff; border:1px solid var(--c-border-light); border-radius:16px; padding:24px;">
+            <span class="badge badge-mint" style="font-size:10px;">MDU · 93+ ACRES</span>
+            <h3 style="margin:12px 0 8px;">Madurai ELCOT SEZ Hub</h3>
+            <p style="color:var(--c-slate-text); font-size:14px; margin-bottom:16px;">110kV Direct Feed · Adjacent to Vadapalanji SEZ · GCC Hub</p>
+            <a href="/locations#hub-madurai" class="btn btn-secondary btn-sm">View Technical Specs →</a>
+          </div>
+
+          <div style="background:#fff; border:1px solid var(--c-border-light); border-radius:16px; padding:24px;">
+            <span class="badge badge-mint" style="font-size:10px;">TNV · 40 ACRES</span>
+            <h3 style="margin:12px 0 8px;">Tirunelveli 100+ MW DC</h3>
+            <p style="color:var(--c-slate-text); font-size:14px; margin-bottom:16px;">230kV Substation (800m) · Muppandal Wind PPA · Hyperscale AI</p>
+            <a href="/locations#hub-tirunelveli" class="btn btn-secondary btn-sm">View Technical Specs →</a>
+          </div>
+
+          <div style="background:#fff; border:1px solid var(--c-border-light); border-radius:16px; padding:24px;">
+            <span class="badge badge-mint" style="font-size:10px;">TRY · 45 ACRES</span>
+            <h3 style="margin:12px 0 8px;">Trichy Knowledge Corridor</h3>
+            <p style="color:var(--c-slate-text); font-size:14px; margin-bottom:16px;">Central TN Rail/Air Node · Adjacent to NIT &amp; IIM</p>
+            <a href="/locations#hub-trichy" class="btn btn-secondary btn-sm">View Technical Specs →</a>
+          </div>
+
+          <div style="background:#fff; border:1px solid var(--c-border-light); border-radius:16px; padding:24px;">
+            <span class="badge badge-mint" style="font-size:10px;">PDY · 35 ACRES</span>
+            <h3 style="margin:12px 0 8px;">Pondicherry Coastal Hub</h3>
+            <p style="color:var(--c-slate-text); font-size:14px; margin-bottom:16px;">East Coast Road Frontage · Executive Living &amp; Technology City</p>
+            <a href="/locations#hub-pondicherry" class="btn btn-secondary btn-sm">View Technical Specs →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/floating-widget') %>
+  <%- include('partials/modal-rfp') %>
+</body>
+</html>
