@@ -1,69 +1,151 @@
+
 <%- include('partials/head') %>
-<%- include('partials/header') %>
-
-<main id="main-content">
-  <!-- Page Hero -->
-  <section class="page-hero-section">
-    <div class="container">
-      <div class="page-hero-content">
-        <div class="badge badge-accent">Institutional Co-Development</div>
-        <h1 class="page-title">Joint Venture &amp; Capital Partnerships</h1>
-        <p class="page-lead">
-          Strategic frameworks for Sovereign Wealth Funds, Global Private Equity, Institutional REITs, and Prime Master Landowners across South India.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- JV Models -->
-  <section class="section-padded bg-surface">
-    <div class="container">
-      <div class="section-header-block">
-        <div class="badge badge-primary">Institutional Alignment</div>
-        <h2 class="section-heading">Disciplined Governance &amp; High-Yield Co-Investment</h2>
-        <p class="section-subtext">GreenNext operates with transparent corporate governance, single-purpose development SPVs, and institutional reporting standards.</p>
-      </div>
-
-      <div class="jv-cards-grid">
-        <div class="jv-card">
-          <div class="jv-icon">🏛️</div>
-          <h3 class="jv-card-title">Institutional Equity Platform JV</h3>
-          <p class="jv-card-desc">For global private equity and sovereign infrastructure funds looking to deploy growth capital into high-yield South Indian digital and commercial infrastructure assets.</p>
-          <ul class="jv-feature-list">
-            <li>Dedicated Single-Asset or Multi-Asset Platform SPVs</li>
-            <li>Board representation and veto rights on major capital outlays</li>
-            <li>Target Net IRR hurdles: 18% – 24% with strong downside land backing</li>
-          </ul>
-        </div>
-
-        <div class="jv-card">
-          <div class="jv-icon">🗺️</div>
-          <h3 class="jv-card-title">Strategic Landowner Joint Development (JD)</h3>
-          <p class="jv-card-desc">For owners of contiguous 25+ acre land parcels across South India seeking maximum asset monetization through institutional master development.</p>
-          <ul class="jv-feature-list">
-            <li>Revenue-share or built-area share structures with bank guarantees</li>
-            <li>GreenNext funds 100% of approvals, development &amp; tenant leasing</li>
-            <li>Zero litigation risk with thorough institutional title insurance</li>
-          </ul>
+<body id="top">
+  <%- include('partials/header') %>
+  <main id="main-content" role="main">
+    
+    <!-- Partnership Hero -->
+    <section class="hero-section" style="padding: clamp(4rem, 6vw, 6rem) 0; background: linear-gradient(135deg, var(--c-dark-green) 0%, #071D1A 100%); color: #fff;">
+      <div class="container">
+        <div style="max-width: 860px;">
+          <div class="hero-badge" style="background: rgba(107, 199, 167, 0.2); color: var(--c-accent-mint); border: 1px solid rgba(107, 199, 167, 0.4);">
+            <span>INSTITUTIONAL CO-DEVELOPMENT PLATFORM</span>
+          </div>
+          <h1 style="font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.2rem); color: #fff; line-height: 1.1; margin-bottom: 20px;">
+            Partnerships &amp; <em>Joint Venture SPVs</em>.
+          </h1>
+          <p style="color: #DDEBE4; font-size: clamp(1.1rem, 1.3vw, 1.25rem); line-height: 1.6; margin-bottom: 24px;">
+            Structured equity, transparent governance, 100% clear title land banks, single-window approvals, and turnkey EPC co-development for global institutional investors.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="#spv-framework" class="btn btn-subpage-pill">Structured SPVs</a>
+            <a href="#land-aggregation" class="btn btn-subpage-pill">Land &amp; Titles (390+ AC)</a>
+            <a href="#statutory-sanctions" class="btn btn-subpage-pill">Statutory Sanctions</a>
+            <a href="#turnkey-epc" class="btn btn-subpage-pill">Turnkey EPC Delivery</a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Partnership Contact Form Box -->
-      <div class="jv-contact-box" style="margin-top: 60px;">
-        <div class="badge badge-accent">Direct Private Equity Desk</div>
-        <h3 style="font-size: var(--text-2xl); margin-top: 10px; color: var(--c-dark-text-primary);">Initiate Confidential Partnership Discussion</h3>
-        <p style="color: var(--c-dark-text-secondary); max-width: 680px; margin-top: 8px;">
-          Connect directly with our Managing Partners and Chief Investment Officer under institutional NDA.
-        </p>
-        <div style="margin-top: 20px; display:flex; gap:16px; flex-wrap:wrap;">
-          <button class="btn btn-primary" data-open-modal="rfpModal" type="button">Submit Institutional JV Proposal</button>
-          <a class="btn btn-outline-light" href="mailto:invest@greennext.in">Email: invest@greennext.in</a>
+    <!-- JV 01: SPV Framework -->
+    <section class="section section-bordered" id="spv-framework">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">FRAMEWORK 01</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Structured SPV Joint Ventures &amp; Equity</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Special Purpose Vehicle (SPV) co-investment structures designed for global sovereign wealth funds, institutional private equity, and REITs. Providing transparent board governance, asset ring-fencing, and Big-4 compliance auditing.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Ring-Fenced SPVs</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Zero debt cross-collateralization with independent governance.</p>
+              </div>
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>REIT-Yield Readiness</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Triple-net long-term institutional lease structures.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Inquire About SPV Participation →</a>
+          </div>
+          <div>
+            <img src="/images/hosur_precision_hub.jpg" alt="SPV Joint Venture" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<%- include('partials/floating-widget') %>
-<%- include('partials/modal-rfp') %>
-<%- include('partials/footer') %>
+    <!-- JV 02: Land Aggregation -->
+    <section class="section" id="land-aggregation" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+          <div>
+            <img src="/images/tirunelveli_it_park.jpg" alt="Land Aggregation Bank" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">FRAMEWORK 02</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Land Aggregation &amp; Clear Freehold Titles</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              390+ acres of contiguous land across Coimbatore, Hosur, Madurai, Tirunelveli, Trichy, and Pondicherry. Every parcel has undergone a comprehensive 30-year revenue title search and is certified 100% litigation-free by Tier-1 legal counsels.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>100% Freehold Ownership</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Single-entity direct title holding without fractional risks.</p>
+              </div>
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Verified Revenue Records</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Complete encumbrance certificates &amp; boundary demarcation.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Request Title &amp; Legal Dossier →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JV 03: Statutory Sanctions -->
+    <section class="section section-bordered" id="statutory-sanctions">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">FRAMEWORK 03</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Single-Window Statutory Approvals</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Direct coordination with Tamil Nadu Guidance Bureau, ELCOT, SIPCOT, TANGEDCO power transmission authority, and state environmental clearance boards to de-risk development timelines.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>TANGEDCO Grid Ingress</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Fast-tracked 230kV/110kV substation connectivity &amp; Open Access.</p>
+              </div>
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Pre-Cleared Masterplans</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">DTCP / CMDA zoned commercial industrial permissions.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Inspect Approvals Matrix →</a>
+          </div>
+          <div>
+            <img src="/images/trichy_knowledge_city.jpg" alt="Statutory Approvals Matrix" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JV 04: Turnkey EPC -->
+    <section class="section" id="turnkey-epc" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+          <div>
+            <img src="/images/it_park_knowledge_city_1791444121901.jpg" alt="Turnkey EPC Delivery" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">FRAMEWORK 04</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Turnkey EPC &amp; Co-Development Delivery</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Proven project management execution delivering LEED Platinum office campuses and Tier-III/IV hyperscale datacenters on schedule and with institutional ESG compliance.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>IGBC Platinum Rigor</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Zero carbon building design, solar offsets &amp; ZLD water systems.</p>
+              </div>
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>On-Time EPC Guarantee</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Milestone-driven project monitoring with Big-4 oversight.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Schedule Executive Meeting →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <%- include('partials/footer') %>
+  <%- include('partials/floating-widget') %>
+  <%- include('partials/modal-rfp') %>
+</body>
+</html>

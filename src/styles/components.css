@@ -2424,3 +2424,31 @@ dialog::backdrop {
   align-items: center;
   gap: 10px;
 }
+
+/* Subpage Jump Navigation Pills (Ultra High Contrast) */
+.btn-subpage-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff !important;
+  border: 1px solid rgba(107, 199, 167, 0.5);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 200ms ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.btn-subpage-pill:hover,
+.btn-subpage-pill:focus,
+.btn-subpage-pill.active {
+  background: var(--c-accent-mint);
+  color: var(--c-dark-green) !important;
+  border-color: var(--c-accent-mint);
+  box-shadow: 0 4px 16px rgba(107, 199, 167, 0.45);
+  transform: translateY(-2px);
+}
