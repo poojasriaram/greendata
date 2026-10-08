@@ -2572,12 +2572,6 @@
         <button class="floating-card-close" id="floatingCloseBtn" aria-label="Close Quick Form" type="button">&times;</button>
       </div>
 
-      <div style="padding: 10px 18px 0; display:flex; justify-content:flex-end;">
-        <button class="btn-sample-fill" type="button" onclick="fillQuickDemoForm()">
-          <span>⚡ Auto-fill Sample Inquiry</span>
-        </button>
-      </div>
-
       <form class="floating-form" id="quickInquiryForm" action="/api/inquiry" method="POST">
         <div class="form-group-compact">
           <label for="q_name">Full Name *</label>
@@ -2776,15 +2770,6 @@
   </div>
 
   <script>
-  function fillQuickDemoForm() {
-    document.getElementById('q_name').value = 'Dr. Vikram Malhotra';
-    document.getElementById('q_email').value = 'v.malhotra@cloudscale-global.com';
-    document.getElementById('q_phone').value = '+91 98840 98765';
-    document.getElementById('q_city').value = 'Hosur';
-    document.getElementById('q_infra').value = 'Hyperscale DC';
-    document.getElementById('q_message').value = 'Requesting 30 MW hyperscale powered shell space with 230kV dedicated line hookup and liquid cooling loop in Hosur campus.';
-  }
-
   function fillLongSampleRFP() {
     document.getElementById('rfp_company').value = 'Equinix / Apollo Global Infrastructure Partners';
     document.getElementById('rfp_contact_name').value = 'Karthik Ramanathan (Managing Director - APAC Digital Infra)';
