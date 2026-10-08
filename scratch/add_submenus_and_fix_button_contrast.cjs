@@ -1,0 +1,1353 @@
+const fs = require('fs');
+
+// 1. Add .btn-subpage-pill style to src/styles/components.css
+let componentsCss = fs.readFileSync('src/styles/components.css', 'utf8');
+
+const subpagePillCss = `
+/* Subpage Jump Navigation Pills (Ultra High Contrast) */
+.btn-subpage-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff !important;
+  border: 1px solid rgba(107, 199, 167, 0.5);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 200ms ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.btn-subpage-pill:hover,
+.btn-subpage-pill:focus,
+.btn-subpage-pill.active {
+  background: var(--c-accent-mint);
+  color: var(--c-dark-green) !important;
+  border-color: var(--c-accent-mint);
+  box-shadow: 0 4px 16px rgba(107, 199, 167, 0.45);
+  transform: translateY(-2px);
+}
+`;
+
+if (!componentsCss.includes('.btn-subpage-pill')) {
+  componentsCss += subpagePillCss;
+  fs.writeFileSync('src/styles/components.css', componentsCss, 'utf8');
+  console.log('Added .btn-subpage-pill to components.css');
+}
+
+// 2. Define Master Header with Mega Dropdowns for:
+// - Asset Verticals
+// - South India Hubs
+// - Solutions
+// - Partnerships & JV
+const completeMegaHeaderHtml = `
+  <header class="header-wrapper" id="mainHeader">
+    <div class="container">
+      <nav class="header-nav" aria-label="Main Navigation">
+        <!-- Brand Logo -->
+        <a class="brand-logo" href="/" aria-label="GreenNext Technologies — Home">
+          <div class="brand-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+              <path d="M9 11V9h2M21 9h2v2M23 21v2h-2M11 23H9v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <rect x="13" y="13" width="6" height="6" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="brand-title">
+            <span class="brand-name">GreenNext</span>
+            <span class="brand-tagline">Technologies</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Items with Enterprise Split-Panel Mega Dropdowns -->
+        <ul class="nav-menu" role="menubar">
+          <!-- 1. Home -->
+          <li class="nav-item" role="none">
+            <a class="nav-link" href="/" role="menuitem">Home</a>
+          </li>
+
+          <!-- 2. About -->
+          <li class="nav-item" role="none">
+            <a class="nav-link" href="/about" role="menuitem">About</a>
+          </li>
+
+          <!-- 3. Asset Verticals (Split-Panel Mega Menu) -->
+          <li class="nav-item has-mega-split" role="none">
+            <a class="nav-link" href="/infrastructure" role="menuitem" aria-expanded="false" aria-haspopup="true">
+              Asset Verticals
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <div class="mega-dropdown-split" role="menu">
+              <div class="dropdown-split-container">
+                <!-- Left Sidebar: 5 Core Clusters -->
+                <div class="dropdown-sidebar">
+                  <div class="dropdown-sidebar-header">
+                    <span>Strategic Architecture</span>
+                    <span class="badge badge-evergreen" style="font-size:9px;">5 Clusters</span>
+                  </div>
+                  <ul class="dropdown-cat-list">
+                    <li class="dropdown-cat-item active" data-target-cluster="cluster-it">
+                      <span class="dropdown-cat-badge">01</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">IT &amp; Knowledge Parks</span>
+                        <span class="dropdown-cat-sub">Grade-A Towers &amp; GCC Campuses</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="cluster-dc">
+                      <span class="dropdown-cat-badge">02</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Hyperscale &amp; AI Data Centers</span>
+                        <span class="dropdown-cat-sub">100+ MW &amp; Liquid Cooled GPU Halls</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="cluster-convention">
+                      <span class="dropdown-cat-badge">03</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Convention &amp; Event Spaces</span>
+                        <span class="dropdown-cat-sub">10,000+ Seat Exhibition Halls</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="cluster-hotel">
+                      <span class="dropdown-cat-badge">04</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Corporate Hospitality</span>
+                        <span class="dropdown-cat-sub">5-Star Business Hotels (Non-Res)</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="cluster-mfg">
+                      <span class="dropdown-cat-badge">05</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Precision High-Tech Mfg</span>
+                        <span class="dropdown-cat-sub">Drones, EV, SpaceTech &amp; Defense</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Right Content Panel: Dynamic Capability Grids -->
+                <div class="dropdown-content-panel">
+                  <!-- Panel 01: IT & Knowledge -->
+                  <div class="dropdown-cluster-panel active" id="cluster-it">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">CLUSTER 01</span>
+                        <h4 class="cluster-title">IT &amp; Knowledge Infrastructure</h4>
+                      </div>
+                      <p class="cluster-desc">Master-planned technology campuses and knowledge cities engineered for Fortune 500 GCCs, software giants, and university research districts.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/infrastructure#cluster-it">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M13 11l6 4v6"/></svg></div>
+                        <div class="cluster-card-title">Grade-A Office Towers</div>
+                        <div class="cluster-card-desc">LEED Platinum multi-tenant towers with 4.2m ceiling clear heights.</div>
+                      </a>
+                      <a class="cluster-card" href="/infrastructure#cluster-it">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg></div>
+                        <div class="cluster-card-title">Knowledge Cities</div>
+                        <div class="cluster-card-desc">Integrated R&amp;D zones combining academia, enterprise labs &amp; civic cores.</div>
+                      </a>
+                      <a class="cluster-card" href="/infrastructure#cluster-it">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                        <div class="cluster-card-title">Dual Substation Power</div>
+                        <div class="cluster-card-desc">100% DG backup with 2N uninterruptible utility redundancy.</div>
+                      </a>
+                      <a class="cluster-card" href="/infrastructure#cluster-it">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                        <div class="cluster-card-title">Innovation Districts</div>
+                        <div class="cluster-card-desc">Plug-and-play incubators, collaborative atriums &amp; testing beds.</div>
+                      </a>
+                      <a class="cluster-card" href="/infrastructure#cluster-it">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                        <div class="cluster-card-title">Single-Window Approvals</div>
+                        <div class="cluster-card-desc">ELCOT &amp; SIPCOT statutory sanctions with pre-cleared building plans.</div>
+                      </a>
+                      <a class="cluster-card" href="/infrastructure#cluster-it">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                        <div class="cluster-card-title">Carrier-Neutral Fiber</div>
+                        <div class="cluster-card-desc">Quad-redundant entry points connected to dark fiber backbones.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Verified</span> Grade-A commercial specifications strictly non-residential.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/infrastructure#cluster-it" class="btn btn-secondary btn-sm">Explore IT Parks Section →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Submit EOI / RFP</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Panel 02: Data Center -->
+                  <div class="dropdown-cluster-panel" id="cluster-dc">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">CLUSTER 02</span>
+                        <h4 class="cluster-title">100+ MW Hyperscale &amp; AI Data Centers</h4>
+                      </div>
+                      <p class="cluster-desc">High-density liquid-cooled computing campuses powered by dedicated 230kV/110kV substations and 100% green energy wheeling.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/infrastructure#cluster-dc">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+                        <div class="cluster-card-title">Hyperscale Powered Shell</div>
+                        <div class="cluster-card-desc">Modular powered shell parcels ready for 30 MW to 100+ MW load.</div>
+                      </a>
+                      <a class="cluster-card" href="/infrastructure#cluster-dc">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                        <div class="cluster-card-title">AI GPU Density (50kW+/rack)</div>
+                        <div class="cluster-card-desc">Engineered for direct liquid cooling &amp; high-density Blackwell/H100 clusters.</div>
+                      </a>
+                      <a class="cluster-card" href="/infrastructure#cluster-dc">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                        <div class="cluster-card-title">230kV Dedicated Substation</div>
+                        <div class="cluster-card-desc">Direct high-voltage grid ingress with dual redundant line feeds.</div>
+                      </a>
+                      <a class="cluster-card" href="/infrastructure#cluster-dc">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+                        <div class="cluster-card-title">PUE ≤ 1.25 Efficiency</div>
+                        <div class="cluster-card-desc">Closed-loop chilled water &amp; adiabatic cooling with zero potable water waste.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Flagship</span> 100+ MW Tirunelveli &amp; Hosur Hyperscale Parks.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/infrastructure#cluster-dc" class="btn btn-secondary btn-sm">Explore Data Centers Section →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Hyperscaler Inquiries</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Panel 03: Convention -->
+                  <div class="dropdown-cluster-panel" id="cluster-convention">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">CLUSTER 03</span>
+                        <h4 class="cluster-title">International Convention &amp; Event Centers</h4>
+                      </div>
+                      <p class="cluster-desc">Pillarless exhibition halls, plenary auditoriums, and world-class trade centers designed for global tech summits and industrial expos.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/infrastructure#cluster-convention">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                        <div class="cluster-card-title">10,000+ Seat Plenary Hall</div>
+                        <div class="cluster-card-desc">Massive column-free span with motorized acoustic stage trusses.</div>
+                      </a>
+                      <a class="cluster-card" href="/infrastructure#cluster-convention">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+                        <div class="cluster-card-title">Trade Exhibition Pavilions</div>
+                        <div class="cluster-card-desc">High-bay clear heights with heavy machinery floor load capacities.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">MICE</span> Master-planned for Coimbatore &amp; Madurai growth corridors.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/infrastructure#cluster-convention" class="btn btn-secondary btn-sm">Explore Convention Venues →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Event Booking Desk</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Panel 04: Hospitality -->
+                  <div class="dropdown-cluster-panel" id="cluster-hotel">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">CLUSTER 04</span>
+                        <h4 class="cluster-title">Corporate Hospitality (Non-Residential)</h4>
+                      </div>
+                      <p class="cluster-desc">5-Star business hotels, serviced corporate suites, and executive transit lounges situated directly within GreenNext commercial campuses.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/infrastructure#cluster-hotel">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/></svg></div>
+                        <div class="cluster-card-title">5-Star Business Hotels</div>
+                        <div class="cluster-card-desc">200+ room keys managed with global luxury hospitality operators.</div>
+                      </a>
+                      <a class="cluster-card" href="/infrastructure#cluster-hotel">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+                        <div class="cluster-card-title">Serviced Executive Suites</div>
+                        <div class="cluster-card-desc">Long-stay suites for visiting technology leadership and engineers.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Hospitality</span> Integrated into Coimbatore, Madurai &amp; Pondicherry masterplans.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/infrastructure#cluster-hotel" class="btn btn-secondary btn-sm">Explore Hotels Section →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Operator Inquiries</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Panel 05: Manufacturing -->
+                  <div class="dropdown-cluster-panel" id="cluster-mfg">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">CLUSTER 05</span>
+                        <h4 class="cluster-title">Precision Industrial &amp; High-Tech Engineering</h4>
+                      </div>
+                      <p class="cluster-desc">High-load precision manufacturing facilities engineered for Drone gigafactories, Aerospace, EV powertrains, Robotics, and Defense electronics.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/infrastructure#cluster-mfg">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                        <div class="cluster-card-title">Drone Gigafactories</div>
+                        <div class="cluster-card-desc">FAA/DGCA compliant test ranges and automated assembly bays.</div>
+                      </a>
+                      <a class="cluster-card" href="/infrastructure#cluster-mfg">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                        <div class="cluster-card-title">Aerospace &amp; SpaceTech</div>
+                        <div class="cluster-card-desc">Cleanroom Class 1000/10000 facilities with vibration isolation.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Industrial</span> Hosur &amp; Coimbatore high-tech precision parcels.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/infrastructure#cluster-mfg" class="btn btn-secondary btn-sm">Explore Precision Parks Section →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Submit Industrial EOI</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- 4. South India Hubs (Split-Panel Mega Menu) -->
+          <li class="nav-item has-mega-split" role="none">
+            <a class="nav-link" href="/locations" role="menuitem" aria-expanded="false" aria-haspopup="true">
+              South India Hubs
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <div class="mega-dropdown-split" role="menu">
+              <div class="dropdown-split-container">
+                <!-- Left Sidebar: 6 Urban Hubs -->
+                <div class="dropdown-sidebar">
+                  <div class="dropdown-sidebar-header">
+                    <span>Strategic Hubs</span>
+                    <span class="badge badge-evergreen" style="font-size:9px;">6 Cities</span>
+                  </div>
+                  <ul class="dropdown-cat-list">
+                    <li class="dropdown-cat-item active" data-target-cluster="hub-cbe">
+                      <span class="dropdown-cat-badge">CBE</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Coimbatore Flagship</span>
+                        <span class="dropdown-cat-sub">Engineering &amp; IT Hub</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="hub-hosur">
+                      <span class="dropdown-cat-badge">HSR</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Hosur Gateway</span>
+                        <span class="dropdown-cat-sub">Bengaluru Border Tech Core</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="hub-madurai">
+                      <span class="dropdown-cat-badge">MDU</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Madurai Tech Cluster</span>
+                        <span class="dropdown-cat-sub">ELCOT SEZ &amp; GCC Corridor</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="hub-tirunelveli">
+                      <span class="dropdown-cat-badge">TNV</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Tirunelveli Power Hub</span>
+                        <span class="dropdown-cat-sub">100+ MW Clean Energy DC</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="hub-trichy">
+                      <span class="dropdown-cat-badge">TRY</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Trichy Knowledge Corridor</span>
+                        <span class="dropdown-cat-sub">Central Hub &amp; Connectivity</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="hub-pondicherry">
+                      <span class="dropdown-cat-badge">PDY</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Pondicherry Coastal Hub</span>
+                        <span class="dropdown-cat-sub">Knowledge &amp; Executive City</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Right Content Panel: Location Cards -->
+                <div class="dropdown-content-panel">
+                  <!-- Hub 01: Coimbatore -->
+                  <div class="dropdown-cluster-panel active" id="hub-cbe">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">FLAGSHIP HUB</span>
+                        <h4 class="cluster-title">Coimbatore — Integrated Knowledge &amp; IT City</h4>
+                      </div>
+                      <p class="cluster-desc">Avinashi Road / NH-544 frontage. 98+ contiguous acres with direct 110kV dedicated substation ingress and Grade-A GCC multi-tenant towers.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/locations#hub-cbe">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M13 11l6 4v6"/></svg></div>
+                        <div class="cluster-card-title">98+ Contiguous Acres</div>
+                        <div class="cluster-card-desc">100% clear freehold title with single-window DTCP/CMDA approvals.</div>
+                      </a>
+                      <a class="cluster-card" href="/locations#hub-cbe">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                        <div class="cluster-card-title">110kV Substation (1.2 km)</div>
+                        <div class="cluster-card-desc">Dual grid lines with 60 MVA initial utility sanction.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Active</span> Phase-1 civil groundwork ready for built-to-suit co-development.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/locations#hub-cbe" class="btn btn-secondary btn-sm">View Coimbatore Specs →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Site Visit Request</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Hub 02: Hosur -->
+                  <div class="dropdown-cluster-panel" id="hub-hosur">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">BENGALURU CORRIDOR</span>
+                        <h4 class="cluster-title">Hosur — Precision High-Tech &amp; Data Center Gateway</h4>
+                      </div>
+                      <p class="cluster-desc">65 acres situated 35 mins from Electronic City, Bengaluru. High-density EV, drone engineering, and hyperscale edge compute hub.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/locations#hub-hosur">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="22" height="18" rx="2"/></svg></div>
+                        <div class="cluster-card-title">65 Acres Tech Parcel</div>
+                        <div class="cluster-card-desc">Strategic gateway directly on the Tamil Nadu-Karnataka border.</div>
+                      </a>
+                      <a class="cluster-card" href="/locations#hub-hosur">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                        <div class="cluster-card-title">230kV Ingress Available</div>
+                        <div class="cluster-card-desc">Massive power overhead suitable for 80+ MW compute capacity.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Border Gateway</span> Fast-track SIPCOT clearances.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/locations#hub-hosur" class="btn btn-secondary btn-sm">View Hosur Specs →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">RFP Submission</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Hub 03: Madurai -->
+                  <div class="dropdown-cluster-panel" id="hub-madurai">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">SOUTH TAMIL NADU</span>
+                        <h4 class="cluster-title">Madurai — ELCOT SEZ &amp; TechMax Hub</h4>
+                      </div>
+                      <p class="cluster-desc">93+ acres connecting ring road and ELCOT Vadapalanji IT Park. Lower attrition and premier cost-efficiency for Tier-1 IT services.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/locations#hub-madurai">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M13 11l6 4v6"/></svg></div>
+                        <div class="cluster-card-title">93+ Acres Footprint</div>
+                        <div class="cluster-card-desc">Zoned for multi-tenant IT parks, GCCs, and incubation centers.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">SEZ Adjacent</span> Single window statutory support.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/locations#hub-madurai" class="btn btn-secondary btn-sm">View Madurai Specs →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Request Dossier</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Hub 04: Tirunelveli -->
+                  <div class="dropdown-cluster-panel" id="hub-tirunelveli">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">HYPERSCALE HUB</span>
+                        <h4 class="cluster-title">Tirunelveli — 100+ MW Renewable Data Center Park</h4>
+                      </div>
+                      <p class="cluster-desc">40 acres with 230kV substation inside 800m. Direct access to Muppandal wind energy corridor &amp; sub-sea cables.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/locations#hub-tirunelveli">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                        <div class="cluster-card-title">100+ MW Ready Ingress</div>
+                        <div class="cluster-card-desc">Lowest green energy wheeling tariffs in South Asia.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Clean Energy</span> 100% wind/solar PPA integration.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/locations#hub-tirunelveli" class="btn btn-secondary btn-sm">View Tirunelveli Specs →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Power Inquiry</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Hub 05: Trichy -->
+                  <div class="dropdown-cluster-panel" id="hub-trichy">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">CENTRAL HUB</span>
+                        <h4 class="cluster-title">Trichy — Knowledge City &amp; Central Node</h4>
+                      </div>
+                      <p class="cluster-desc">45 acres situated on the central Tamil Nadu junction. Adjacent to national research institutions (NIT, IIM, BHEL).</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/locations#hub-trichy">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div>
+                        <div class="cluster-card-title">45 Acres Knowledge Hub</div>
+                        <div class="cluster-card-desc">Academic-enterprise hybrid campus.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Central</span> Excellent airport &amp; multi-rail connectivity.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/locations#hub-trichy" class="btn btn-secondary btn-sm">View Trichy Specs →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Submit Inquiry</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Hub 06: Pondicherry -->
+                  <div class="dropdown-cluster-panel" id="hub-pondicherry">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">COASTAL HUB</span>
+                        <h4 class="cluster-title">Pondicherry — Knowledge &amp; Executive City</h4>
+                      </div>
+                      <p class="cluster-desc">35 acres on the East Coast Corridor. Premium lifestyle, executive hospitality, and green IT campuses.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/locations#hub-pondicherry">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
+                        <div class="cluster-card-title">35 Acres Coastal Campus</div>
+                        <div class="cluster-card-desc">High-standard lifestyle &amp; technology campus.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Executive</span> Blended corporate hospitality and R&amp;D.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/locations#hub-pondicherry" class="btn btn-secondary btn-sm">View Pondicherry Specs →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Submit Inquiry</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- 5. Solutions (Split-Panel Mega Menu) -->
+          <li class="nav-item has-mega-split" role="none">
+            <a class="nav-link" href="/solutions" role="menuitem" aria-expanded="false" aria-haspopup="true">
+              Solutions
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <div class="mega-dropdown-split" role="menu">
+              <div class="dropdown-split-container">
+                <!-- Left Sidebar: 4 Solutions -->
+                <div class="dropdown-sidebar">
+                  <div class="dropdown-sidebar-header">
+                    <span>Turnkey Solutions</span>
+                    <span class="badge badge-evergreen" style="font-size:9px;">4 Pillars</span>
+                  </div>
+                  <ul class="dropdown-cat-list">
+                    <li class="dropdown-cat-item active" data-target-cluster="sol-bts">
+                      <span class="dropdown-cat-badge">01</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Built-to-Suit Campuses</span>
+                        <span class="dropdown-cat-sub">Fortune 500 GCC &amp; R&amp;D Core</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="sol-dc">
+                      <span class="dropdown-cat-badge">02</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Hyperscale Powered Shell</span>
+                        <span class="dropdown-cat-sub">30MW–100MW AI DC Delivery</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="sol-mfg">
+                      <span class="dropdown-cat-badge">03</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Precision High-Tech Parks</span>
+                        <span class="dropdown-cat-sub">Aerospace, EV &amp; Defense</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="sol-hospitality">
+                      <span class="dropdown-cat-badge">04</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">MICE &amp; Corporate Lodging</span>
+                        <span class="dropdown-cat-sub">Plenary Halls &amp; 5-Star Suites</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Right Content Panel: Solutions Cards -->
+                <div class="dropdown-content-panel">
+                  <!-- Solution 01: Built to Suit -->
+                  <div class="dropdown-cluster-panel active" id="sol-bts">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">SOLUTION 01</span>
+                        <h4 class="cluster-title">Turnkey Built-to-Suit Technology Campuses</h4>
+                      </div>
+                      <p class="cluster-desc">Custom enterprise campus development with pre-cleared building sanctions, bespoke mechanical specifications, and long-term institutional leases.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/solutions#built-to-suit">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M13 11l6 4v6"/></svg></div>
+                        <div class="cluster-card-title">GCC Custom Architecture</div>
+                        <div class="cluster-card-desc">Bespoke floorplates tailored to global engineering workflows.</div>
+                      </a>
+                      <a class="cluster-card" href="/solutions#built-to-suit">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                        <div class="cluster-card-title">Fast-Track Delivery</div>
+                        <div class="cluster-card-desc">Accelerated 14-month construction schedule from sanction.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Bespoke</span> Designed for global capability centers.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/solutions#built-to-suit" class="btn btn-secondary btn-sm">Explore Built-to-Suit →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Submit BTS Brief</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Solution 02: Powered Shell -->
+                  <div class="dropdown-cluster-panel" id="sol-dc">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">SOLUTION 02</span>
+                        <h4 class="cluster-title">Hyperscale Powered Shell &amp; AI GPU Pods</h4>
+                      </div>
+                      <p class="cluster-desc">Ready-to-fit datacenter shells with active 230kV high-voltage substation feeds and high-density liquid cooling loops.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/solutions#powered-shell">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                        <div class="cluster-card-title">30 MW to 100+ MW Modules</div>
+                        <div class="cluster-card-desc">Flexible capacity expansion with dedicated grid line ingress.</div>
+                      </a>
+                      <a class="cluster-card" href="/solutions#powered-shell">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                        <div class="cluster-card-title">Direct Liquid Cooling</div>
+                        <div class="cluster-card-desc">Heavy rack thermal management supporting 50kW+ per cabinet.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">AI Ready</span> Tirunelveli &amp; Hosur powered shells.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/solutions#powered-shell" class="btn btn-secondary btn-sm">Explore DC Solutions →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Power Inquiry</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Solution 03: Precision Parks -->
+                  <div class="dropdown-cluster-panel" id="sol-mfg">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">SOLUTION 03</span>
+                        <h4 class="cluster-title">Precision High-Tech Manufacturing Parks</h4>
+                      </div>
+                      <p class="cluster-desc">High-load industrial facilities inside Tamil Nadu's Defense Corridor engineered for EV powertrains, drones, robotics, and aerospace.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/solutions#precision-parks">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="22" height="18" rx="2"/></svg></div>
+                        <div class="cluster-card-title">Heavy Floor Loading</div>
+                        <div class="cluster-card-desc">2,500+ kg/m² reinforced slab for heavy CNC and robotics.</div>
+                      </a>
+                      <a class="cluster-card" href="/solutions#precision-parks">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                        <div class="cluster-card-title">Zero Liquid Discharge (ZLD)</div>
+                        <div class="cluster-card-desc">Statutory environmental compliance ready on day one.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Defense Corridor</span> Pre-cleared industrial land.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/solutions#precision-parks" class="btn btn-secondary btn-sm">Explore Industrial Parks →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Submit EOI</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Solution 04: MICE & Hospitality -->
+                  <div class="dropdown-cluster-panel" id="sol-hospitality">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">SOLUTION 04</span>
+                        <h4 class="cluster-title">MICE Convention &amp; Corporate Lodging</h4>
+                      </div>
+                      <p class="cluster-desc">10,000+ capacity international exhibition spaces and 5-star business hotel operations integrated directly into commercial masterplans.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/solutions#mice-hospitality">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/></svg></div>
+                        <div class="cluster-card-title">200+ Luxury Keys</div>
+                        <div class="cluster-card-desc">Operator partnerships with global luxury hotel flags.</div>
+                      </a>
+                      <a class="cluster-card" href="/solutions#mice-hospitality">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg></div>
+                        <div class="cluster-card-title">Pillarless Plenary Halls</div>
+                        <div class="cluster-card-desc">Acoustically isolated grand auditoriums for tech summits.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">MICE &amp; Hotel</span> High-yield commercial hospitality.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/solutions#mice-hospitality" class="btn btn-secondary btn-sm">Explore MICE Hubs →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Operator Desk</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- 6. Partnerships & JV (Split-Panel Mega Menu) -->
+          <li class="nav-item has-mega-split" role="none">
+            <a class="nav-link" href="/partnership" role="menuitem" aria-expanded="false" aria-haspopup="true">
+              Partnerships &amp; JV
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <div class="mega-dropdown-split" role="menu">
+              <div class="dropdown-split-container">
+                <!-- Left Sidebar: 4 Partnership Models -->
+                <div class="dropdown-sidebar">
+                  <div class="dropdown-sidebar-header">
+                    <span>Institutional JV</span>
+                    <span class="badge badge-evergreen" style="font-size:9px;">4 Frameworks</span>
+                  </div>
+                  <ul class="dropdown-cat-list">
+                    <li class="dropdown-cat-item active" data-target-cluster="jv-spv">
+                      <span class="dropdown-cat-badge">01</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Structured SPV Joint Ventures</span>
+                        <span class="dropdown-cat-sub">Equity &amp; Capital Ring-Fencing</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="jv-land">
+                      <span class="dropdown-cat-badge">02</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Land Aggregation &amp; Clear Titles</span>
+                        <span class="dropdown-cat-sub">100% Freehold &amp; Due Diligence</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="jv-approvals">
+                      <span class="dropdown-cat-badge">03</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Statutory Sanctions &amp; Approvals</span>
+                        <span class="dropdown-cat-sub">ELCOT, SIPCOT &amp; Grid Ingress</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                    <li class="dropdown-cat-item" data-target-cluster="jv-epc">
+                      <span class="dropdown-cat-badge">04</span>
+                      <div class="dropdown-cat-info">
+                        <span class="dropdown-cat-title">Turnkey EPC Co-Development</span>
+                        <span class="dropdown-cat-sub">LEED Platinum &amp; Tier-III/IV</span>
+                      </div>
+                      <span class="dropdown-cat-chevron">›</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Right Content Panel: Partnership Cards -->
+                <div class="dropdown-content-panel">
+                  <!-- JV 01: SPV Framework -->
+                  <div class="dropdown-cluster-panel active" id="jv-spv">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">FRAMEWORK 01</span>
+                        <h4 class="cluster-title">Structured SPV Joint Ventures &amp; Equity</h4>
+                      </div>
+                      <p class="cluster-desc">Transparent Special Purpose Vehicle (SPV) co-investment models designed for global sovereign wealth funds, REITs, and institutional asset managers.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/partnership#spv-framework">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                        <div class="cluster-card-title">Ring-Fenced Assets</div>
+                        <div class="cluster-card-desc">Zero cross-collateralization with independent governance.</div>
+                      </a>
+                      <a class="cluster-card" href="/partnership#spv-framework">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                        <div class="cluster-card-title">Institutional Reporting</div>
+                        <div class="cluster-card-desc">Big-4 audit and quarterly compliance benchmarks.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Institutional</span> Ref: DC-ITP-TN/JV/2026/001.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/partnership#spv-framework" class="btn btn-secondary btn-sm">Inspect SPV Structure →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Schedule JV Discussion</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- JV 02: Land Aggregation -->
+                  <div class="dropdown-cluster-panel" id="jv-land">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">FRAMEWORK 02</span>
+                        <h4 class="cluster-title">Land Aggregation &amp; 100% Clear Title Bank</h4>
+                      </div>
+                      <p class="cluster-desc">390+ acres of contiguous, litigation-free commercial land parcels with certified legal title opinions from Tier-1 law firms.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/partnership#land-aggregation">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div>
+                        <div class="cluster-card-title">Freehold Titles</div>
+                        <div class="cluster-card-desc">Single-owner contiguous land parcels without fractional claims.</div>
+                      </a>
+                      <a class="cluster-card" href="/partnership#land-aggregation">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                        <div class="cluster-card-title">30-Year Title Search</div>
+                        <div class="cluster-card-desc">Exhaustive revenue records &amp; encumbrance certifications.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Clean Title</span> 390+ verified acres.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/partnership#land-aggregation" class="btn btn-secondary btn-sm">View Land Bank Details →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Request Title Dossier</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- JV 03: Approvals -->
+                  <div class="dropdown-cluster-panel" id="jv-approvals">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">FRAMEWORK 03</span>
+                        <h4 class="cluster-title">Single-Window Statutory Approvals</h4>
+                      </div>
+                      <p class="cluster-desc">Fast-track state government sanctions with Tamil Nadu Guidance Bureau, ELCOT, SIPCOT, TANGEDCO power clearances, and environmental NOCs.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/partnership#statutory-sanctions">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                        <div class="cluster-card-title">TANGEDCO Substation Permissions</div>
+                        <div class="cluster-card-desc">High-voltage ingress and green energy wheeling permits.</div>
+                      </a>
+                      <a class="cluster-card" href="/partnership#statutory-sanctions">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+                        <div class="cluster-card-title">CMDA / DTCP Approvals</div>
+                        <div class="cluster-card-desc">Pre-cleared master plan building sanctions.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Fast Track</span> Single window clearance desk.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/partnership#statutory-sanctions" class="btn btn-secondary btn-sm">Inspect Approvals Matrix →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Government Liasoning Desk</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- JV 04: Turnkey EPC -->
+                  <div class="dropdown-cluster-panel" id="jv-epc">
+                    <div class="cluster-header">
+                      <div class="cluster-title-row">
+                        <span class="badge badge-mint" style="font-size:10px;">FRAMEWORK 04</span>
+                        <h4 class="cluster-title">Turnkey EPC &amp; Construction Co-Development</h4>
+                      </div>
+                      <p class="cluster-desc">Execution capability delivering LEED Platinum office campuses and Tier-III/IV data centers on time and within budget.</p>
+                    </div>
+                    <div class="cluster-cards-grid">
+                      <a class="cluster-card" href="/partnership#turnkey-epc">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M13 11l6 4v6"/></svg></div>
+                        <div class="cluster-card-title">Civil Engineering Rigor</div>
+                        <div class="cluster-card-desc">Top tier EPC contractors and project management consultants.</div>
+                      </a>
+                      <a class="cluster-card" href="/partnership#turnkey-epc">
+                        <div class="cluster-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                        <div class="cluster-card-title">Sustainability Benchmarks</div>
+                        <div class="cluster-card-desc">IGBC Platinum, ISO 9001/14001, and Zero Carbon standards.</div>
+                      </a>
+                    </div>
+                    <div class="cluster-footer-bar">
+                      <span class="cluster-footer-text"><span class="badge badge-mint" style="font-size:9px;">Execution</span> Built-to-suit co-development.</span>
+                      <div class="cluster-footer-actions">
+                        <a href="/partnership#turnkey-epc" class="btn btn-secondary btn-sm">Inspect EPC Capabilities →</a>
+                        <a href="/contact" class="btn btn-primary btn-sm">Partner With Us</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- 7. Contact -->
+          <li class="nav-item" role="none">
+            <a class="nav-link" href="/contact" role="menuitem">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Navigation Action Buttons -->
+        <div class="nav-actions">
+          <a class="btn btn-primary btn-sm" href="/contact">
+            <span>Submit EOI / RFP →</span>
+          </a>
+          <a class="btn btn-whatsapp btn-sm" href="https://wa.me/917708887878" target="_blank" rel="noopener noreferrer" aria-label="Chat with GreenNext on WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+`;
+
+fs.writeFileSync('views/partials/header.ejs', completeMegaHeaderHtml.trim() + '\n', 'utf8');
+console.log('Updated views/partials/header.ejs with full submenus for Solutions and Partnerships & JV');
+
+// 3. Update solutions.html and views/solutions.ejs with high contrast jump pills and dedicated sections
+const solutionsPageContent = `
+    <!-- Solutions Hero -->
+    <section class="hero-section" style="padding: clamp(4rem, 6vw, 6rem) 0; background: linear-gradient(135deg, var(--c-dark-green) 0%, #071D1A 100%); color: #fff;">
+      <div class="container">
+        <div style="max-width: 860px;">
+          <div class="hero-badge" style="background: rgba(107, 199, 167, 0.2); color: var(--c-accent-mint); border: 1px solid rgba(107, 199, 167, 0.4);">
+            <span>INSTITUTIONAL TURNKEY SOLUTIONS</span>
+          </div>
+          <h1 style="font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.2rem); color: #fff; line-height: 1.1; margin-bottom: 20px;">
+            End-to-End <em>Infrastructure Solutions</em>.
+          </h1>
+          <p style="color: #DDEBE4; font-size: clamp(1.1rem, 1.3vw, 1.25rem); line-height: 1.6; margin-bottom: 24px;">
+            Custom built-to-suit campuses, hyperscale AI powered shells, high-load precision industrial parks, and integrated hospitality assets across South India's high-growth corridor.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="#built-to-suit" class="btn btn-subpage-pill">Built-to-Suit Campuses</a>
+            <a href="#powered-shell" class="btn btn-subpage-pill">Hyperscale Powered Shell</a>
+            <a href="#precision-parks" class="btn btn-subpage-pill">Precision Industrial Parks</a>
+            <a href="#mice-hospitality" class="btn btn-subpage-pill">MICE &amp; Corporate Hospitality</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution 01: Built-to-Suit -->
+    <section class="section section-bordered" id="built-to-suit">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">SOLUTION 01</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Turnkey Built-to-Suit Technology Campuses</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Engineered exclusively for Fortune 500 GCCs and high-growth software enterprises. GreenNext manages site acquisition, architectural design, statutory approvals, and fast-track 14-month construction to deliver ready-to-occupy Grade-A corporate towers.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Bespoke Engineering</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Custom floorplates, high-efficiency MEP &amp; 4.2m ceiling clear heights.</p>
+              </div>
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Fast-Track Delivery</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Accelerated 14-month completion schedule with single-window sanctions.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Submit Built-to-Suit RFP →</a>
+          </div>
+          <div>
+            <img src="/images/it_park_knowledge_city_1791444121901.jpg" alt="Built to Suit Campus" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution 02: Hyperscale Powered Shell -->
+    <section class="section" id="powered-shell" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+          <div>
+            <img src="/images/hyperscale_datacenter_campus_1791444095302.jpg" alt="Powered Shell Data Center" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">SOLUTION 02</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Hyperscale Powered Shell &amp; AI GPU Pods</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Ready-to-fit modular datacenter shells with direct 230kV/110kV high-voltage substation feeds, 100% renewable wind/solar PPA wheeling, and heavy floor loading engineered for liquid-cooled AI compute clusters (50kW+/rack).
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>30 MW to 100+ MW Ready</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Dedicated high-voltage line ingress without utility delays.</p>
+              </div>
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Liquid Cooling Loops</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Zero-water-waste adiabatic and direct-to-chip chilling.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Request Hyperscaler Power Specs →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution 03: Precision Industrial Parks -->
+    <section class="section section-bordered" id="precision-parks">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">SOLUTION 03</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Precision High-Tech Manufacturing Parks</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Located within the Tamil Nadu Defense Industrial Corridor in Hosur and Coimbatore. Fully serviced industrial plots with 2,500+ kg/m² floor loading, Cleanroom Class 1000/10000, and Zero Liquid Discharge (ZLD) statutory compliance.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Heavy CNC &amp; Fab Load</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Reinforced super-flat flooring with vibration dampening.</p>
+              </div>
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>FAA/DGCA Drone Corridors</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Dedicated flight testing ranges &amp; assembly bays.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Submit Industrial Land EOI →</a>
+          </div>
+          <div>
+            <img src="/images/precision_engineering_hub_1791444395950.jpg" alt="Precision High Tech Parks" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution 04: MICE & Corporate Hospitality -->
+    <section class="section" id="mice-hospitality" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+          <div>
+            <img src="/images/convention_exhibition_center_1791444156680.jpg" alt="MICE and Hospitality" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">SOLUTION 04</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">MICE Convention &amp; Corporate Hospitality</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              World-class 10,000+ seat plenary exhibition centers and 200+ room 5-star business hotels integrated directly into commercial knowledge cities for high-yield international events and visiting leadership.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Global Operator Management</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">5-Star luxury hospitality flags &amp; executive suites.</p>
+              </div>
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Pillarless Plenary Venues</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Automated stage trusses, 4K broadcast &amp; 3,500 MLCP.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Inquire About MICE Partnerships →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+`;
+
+fs.writeFileSync('views/solutions.ejs', `
+<%- include('partials/head') %>
+<body id="top">
+  <%- include('partials/header') %>
+  <main id="main-content" role="main">
+    ${solutionsPageContent}
+  </main>
+  <%- include('partials/footer') %>
+  <%- include('partials/floating-widget') %>
+  <%- include('partials/modal-rfp') %>
+</body>
+</html>
+`, 'utf8');
+
+fs.writeFileSync('solutions.html', `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turnkey Solutions — Built-to-Suit, Hyperscale Shells & Precision Parks | GreenNext Technologies</title>
+  <meta name="description" content="Custom built-to-suit campuses, hyperscale AI powered shells, high-load precision manufacturing parks, and MICE hospitality." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B2925'/%3E%3Cpath d='M9 11v-2h2M21 9h2v2M23 21v2h-2M11 23H9v-2' stroke='%236BC7A7' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3Crect x='13' y='13' width='6' height='6' fill='%236BC7A7'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/tokens.css" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/sections.css" />
+  <link rel="stylesheet" href="/src/styles/responsive.css" />
+</head>
+<body id="top">
+  ${completeMegaHeaderHtml.trim()}
+  <main id="main-content" role="main">
+    ${solutionsPageContent}
+  </main>
+  <footer class="footer-wrapper" role="contentinfo" style="background:var(--c-deep-green); color:#fff; padding:60px 0 30px;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:30px; margin-bottom:30px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:36px; height:36px; border-radius:8px; background:var(--c-evergreen); display:flex; align-items:center; justify-content:center; color:var(--c-accent-mint); font-weight:700;">GN</div>
+          <span style="font-size:18px; font-weight:700;">GreenNext Technologies</span>
+        </div>
+        <div style="font-family:var(--font-mono); font-size:13px; color:var(--c-accent-mint);">+91 77088 87878 · info@greennext.in</div>
+      </div>
+      <div style="text-align:center; font-size:13px; color:rgba(255,255,255,0.6);">© 2026 GreenNext Technologies Private Limited. All institutional rights reserved.</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
+`, 'utf8');
+
+console.log('Updated solutions.ejs and solutions.html');
+
+// 4. Update partnership.html and views/partnership.ejs with high contrast jump pills and dedicated sections
+const partnershipPageContent = `
+    <!-- Partnership Hero -->
+    <section class="hero-section" style="padding: clamp(4rem, 6vw, 6rem) 0; background: linear-gradient(135deg, var(--c-dark-green) 0%, #071D1A 100%); color: #fff;">
+      <div class="container">
+        <div style="max-width: 860px;">
+          <div class="hero-badge" style="background: rgba(107, 199, 167, 0.2); color: var(--c-accent-mint); border: 1px solid rgba(107, 199, 167, 0.4);">
+            <span>INSTITUTIONAL CO-DEVELOPMENT PLATFORM</span>
+          </div>
+          <h1 style="font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.2rem); color: #fff; line-height: 1.1; margin-bottom: 20px;">
+            Partnerships &amp; <em>Joint Venture SPVs</em>.
+          </h1>
+          <p style="color: #DDEBE4; font-size: clamp(1.1rem, 1.3vw, 1.25rem); line-height: 1.6; margin-bottom: 24px;">
+            Structured equity, transparent governance, 100% clear title land banks, single-window approvals, and turnkey EPC co-development for global institutional investors.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="#spv-framework" class="btn btn-subpage-pill">Structured SPVs</a>
+            <a href="#land-aggregation" class="btn btn-subpage-pill">Land &amp; Titles (390+ AC)</a>
+            <a href="#statutory-sanctions" class="btn btn-subpage-pill">Statutory Sanctions</a>
+            <a href="#turnkey-epc" class="btn btn-subpage-pill">Turnkey EPC Delivery</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JV 01: SPV Framework -->
+    <section class="section section-bordered" id="spv-framework">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">FRAMEWORK 01</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Structured SPV Joint Ventures &amp; Equity</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Special Purpose Vehicle (SPV) co-investment structures designed for global sovereign wealth funds, institutional private equity, and REITs. Providing transparent board governance, asset ring-fencing, and Big-4 compliance auditing.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Ring-Fenced SPVs</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Zero debt cross-collateralization with independent governance.</p>
+              </div>
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>REIT-Yield Readiness</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Triple-net long-term institutional lease structures.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Inquire About SPV Participation →</a>
+          </div>
+          <div>
+            <img src="/images/hosur_precision_hub.jpg" alt="SPV Joint Venture" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JV 02: Land Aggregation -->
+    <section class="section" id="land-aggregation" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+          <div>
+            <img src="/images/tirunelveli_it_park.jpg" alt="Land Aggregation Bank" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">FRAMEWORK 02</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Land Aggregation &amp; Clear Freehold Titles</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              390+ acres of contiguous land across Coimbatore, Hosur, Madurai, Tirunelveli, Trichy, and Pondicherry. Every parcel has undergone a comprehensive 30-year revenue title search and is certified 100% litigation-free by Tier-1 legal counsels.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>100% Freehold Ownership</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Single-entity direct title holding without fractional risks.</p>
+              </div>
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Verified Revenue Records</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Complete encumbrance certificates &amp; boundary demarcation.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Request Title &amp; Legal Dossier →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JV 03: Statutory Sanctions -->
+    <section class="section section-bordered" id="statutory-sanctions">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">FRAMEWORK 03</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Single-Window Statutory Approvals</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Direct coordination with Tamil Nadu Guidance Bureau, ELCOT, SIPCOT, TANGEDCO power transmission authority, and state environmental clearance boards to de-risk development timelines.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>TANGEDCO Grid Ingress</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Fast-tracked 230kV/110kV substation connectivity &amp; Open Access.</p>
+              </div>
+              <div style="background:#f8faf9; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>Pre-Cleared Masterplans</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">DTCP / CMDA zoned commercial industrial permissions.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Inspect Approvals Matrix →</a>
+          </div>
+          <div>
+            <img src="/images/trichy_knowledge_city.jpg" alt="Statutory Approvals Matrix" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JV 04: Turnkey EPC -->
+    <section class="section" id="turnkey-epc" style="background-color: var(--c-paper-surface);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+          <div>
+            <img src="/images/it_park_knowledge_city_1791444121901.jpg" alt="Turnkey EPC Delivery" style="width:100%; border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--c-border-light);" />
+          </div>
+          <div>
+            <span class="badge badge-mint" style="font-size:11px;">FRAMEWORK 04</span>
+            <h2 style="font-size:2.4rem; margin:12px 0 16px;">Turnkey EPC &amp; Co-Development Delivery</h2>
+            <p style="color:var(--c-slate-text); font-size:16px; line-height:1.65; margin-bottom:20px;">
+              Proven project management execution delivering LEED Platinum office campuses and Tier-III/IV hyperscale datacenters on schedule and with institutional ESG compliance.
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>IGBC Platinum Rigor</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Zero carbon building design, solar offsets &amp; ZLD water systems.</p>
+              </div>
+              <div style="background:#fff; padding:14px; border-radius:10px; border:1px solid var(--c-border-light);">
+                <strong>On-Time EPC Guarantee</strong>
+                <p style="font-size:13px; color:var(--c-muted-grey); margin:4px 0 0;">Milestone-driven project monitoring with Big-4 oversight.</p>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-sm">Schedule Executive Meeting →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+`;
+
+fs.writeFileSync('views/partnership.ejs', `
+<%- include('partials/head') %>
+<body id="top">
+  <%- include('partials/header') %>
+  <main id="main-content" role="main">
+    ${partnershipPageContent}
+  </main>
+  <%- include('partials/footer') %>
+  <%- include('partials/floating-widget') %>
+  <%- include('partials/modal-rfp') %>
+</body>
+</html>
+`, 'utf8');
+
+fs.writeFileSync('partnership.html', `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partnerships & JV SPV Platform | GreenNext Technologies</title>
+  <meta name="description" content="Structured equity SPVs, 390+ acres clear title land aggregation, single-window approvals, and turnkey EPC co-development." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B2925'/%3E%3Cpath d='M9 11v-2h2M21 9h2v2M23 21v2h-2M11 23H9v-2' stroke='%236BC7A7' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3Crect x='13' y='13' width='6' height='6' fill='%236BC7A7'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/tokens.css" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/sections.css" />
+  <link rel="stylesheet" href="/src/styles/responsive.css" />
+</head>
+<body id="top">
+  ${completeMegaHeaderHtml.trim()}
+  <main id="main-content" role="main">
+    ${partnershipPageContent}
+  </main>
+  <footer class="footer-wrapper" role="contentinfo" style="background:var(--c-deep-green); color:#fff; padding:60px 0 30px;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:30px; margin-bottom:30px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:36px; height:36px; border-radius:8px; background:var(--c-evergreen); display:flex; align-items:center; justify-content:center; color:var(--c-accent-mint); font-weight:700;">GN</div>
+          <span style="font-size:18px; font-weight:700;">GreenNext Technologies</span>
+        </div>
+        <div style="font-family:var(--font-mono); font-size:13px; color:var(--c-accent-mint);">+91 77088 87878 · info@greennext.in</div>
+      </div>
+      <div style="text-align:center; font-size:13px; color:rgba(255,255,255,0.6);">© 2026 GreenNext Technologies Private Limited. All institutional rights reserved.</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
+`, 'utf8');
+
+console.log('Updated partnership.ejs and partnership.html');
+
+// 5. Update jump buttons on locations.html, views/locations.ejs, infrastructure.html, views/infrastructure.ejs to use btn-subpage-pill class
+let locHtml = fs.readFileSync('locations.html', 'utf8');
+locHtml = locHtml.replace(/class="btn btn-secondary btn-sm"/g, 'class="btn btn-subpage-pill"');
+fs.writeFileSync('locations.html', locHtml, 'utf8');
+
+let locEjs = fs.readFileSync('views/locations.ejs', 'utf8');
+locEjs = locEjs.replace(/class="btn btn-secondary btn-sm"/g, 'class="btn btn-subpage-pill"');
+fs.writeFileSync('views/locations.ejs', locEjs, 'utf8');
+
+let infraHtml = fs.readFileSync('infrastructure.html', 'utf8');
+infraHtml = infraHtml.replace(/class="btn btn-secondary btn-sm"/g, 'class="btn btn-subpage-pill"');
+fs.writeFileSync('infrastructure.html', infraHtml, 'utf8');
+
+let infraEjs = fs.readFileSync('views/infrastructure.ejs', 'utf8');
+infraEjs = infraEjs.replace(/class="btn btn-secondary btn-sm"/g, 'class="btn btn-subpage-pill"');
+fs.writeFileSync('views/infrastructure.ejs', infraEjs, 'utf8');
+
+// Also update master header on index.html, about.html, contact.html
+const remainingHtmlFiles = ['index.html', 'about.html', 'contact.html'];
+remainingHtmlFiles.forEach(file => {
+  if (fs.existsSync(file)) {
+    let content = fs.readFileSync(file, 'utf8');
+    const headerStart = content.indexOf('<header class="header-wrapper"');
+    const headerEnd = content.indexOf('</header>', headerStart) + 9;
+    if (headerStart !== -1 && headerEnd !== -1) {
+      content = content.substring(0, headerStart) + completeMegaHeaderHtml.trim() + content.substring(headerEnd);
+      fs.writeFileSync(file, content, 'utf8');
+      console.log(`Updated complete mega header in ${file}`);
+    }
+  }
+});
