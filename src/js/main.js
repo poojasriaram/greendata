@@ -10,6 +10,8 @@ import '../styles/responsive.css';
 
 import { initHeroCanvas } from './components/hero-canvas.js';
 import { initEcosystemCanvas } from './components/ecosystem-canvas.js';
+import { initHeroSlider } from './components/hero-slider.js';
+import { initSplitDropdowns } from './components/split-dropdown.js';
 import { initPortfolioFilter } from './components/portfolio-filter.js';
 import { initStatsCounter } from './components/stats-counter.js';
 import { initModalSystem } from './components/modal-system.js';
@@ -20,6 +22,9 @@ import { initFAQAccordion } from './components/faq-accordion.js';
 import { initCampusHotspots } from './components/campus-hotspots.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Split-Panel Dropdowns & Hero Slider (5s auto-rotation)
+  initSplitDropdowns();
+  initHeroSlider();
   // Sticky Topbar Scroll State
   const topbar = document.getElementById('mainHeader');
   function onScroll() {
